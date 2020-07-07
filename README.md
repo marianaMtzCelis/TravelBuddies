@@ -46,6 +46,7 @@ TravelBuddies is a mobile application for iOS where users can upload pictures an
 - [] User can save posts
 - [] User can add comments to posts
 - [] User can like posts
+- [] App connects to a third party API to gather information of cities
 
 ### 2. Screen Archetypes
 
