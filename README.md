@@ -37,11 +37,15 @@ TravelBuddies is a mobile application for iOS where users can upload pictures an
 - [] App uses gesture recognizers
 - [] App uses animations
 - [] App incorporates an external library to add visual polish
+- [] User can upload posts
+- [] User can look for different cities' posts
 
 **Optional Nice-to-have Stories**
 - [] User can see a detailed view of posts
 - [] User can see his or her own posts on the profile section
 - [] User can save posts
+- [] User can add comments to posts
+- [] User can like posts
 
 ### 2. Screen Archetypes
 
