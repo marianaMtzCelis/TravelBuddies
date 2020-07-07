@@ -85,7 +85,7 @@ TravelBuddies is a mobile application for iOS where users can upload pictures an
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://drive.google.com/file/d/1ujkbjfbkB_ZgwLFpoM35JOmQ2xXvIq2s/view?usp=sharing" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
