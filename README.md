@@ -50,29 +50,38 @@ TravelBuddies is a mobile application for iOS where users can upload pictures an
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Login
+   * User can login
+   * User can sign up
+* Timeline
+   * User can see posts
+   * User can like posts
+   * User can save posts
+* Detail View
+   * Usar can see detail view of posts
+   * User can like posts
+   * User can save posts
+* New Post
+   * User can use the camera to upload a new post
+* Discover
+   * User can look for user profiles
+   * User can look for places
+* Profile
+   * User can see his or her own posts
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Login / Sign up
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Timeline
+   * Login
+   * Search
+   * Detail View
+   * Profile
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
