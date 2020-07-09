@@ -92,6 +92,7 @@ TravelBuddies is a mobile application for iOS where users can upload pictures an
 
 ### Models
 <img src='http://g.recordit.co/CkVC4nJhsC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 ### Networking
 <img src='http://g.recordit.co/ly5Wf4Bbmo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 - [Create basic snippets for each Parse network request]
