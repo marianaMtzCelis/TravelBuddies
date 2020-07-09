@@ -89,10 +89,10 @@ TravelBuddies is a mobile application for iOS where users can upload pictures an
 <img src='http://g.recordit.co/5VAShAx8Ot.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
 <img src='http://g.recordit.co/CkVC4nJhsC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 ### Networking
-- [Add list of network requests by screen ]
+<img src='http://g.recordit.co/ly5Wf4Bbmo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
