@@ -24,9 +24,7 @@ TravelBuddies is a mobile application for iOS where users can upload pictures an
 
 ## Product Spec
 
-### 1. User Stories (Required and Optional)
-
-**Required Must-have Stories**
+### FBU Requirements
 - [] App has multiple views
 - [] App interacts with a database
 - [] User can log in/ log out
@@ -37,16 +35,28 @@ TravelBuddies is a mobile application for iOS where users can upload pictures an
 - [] App uses gesture recognizers
 - [] App uses animations
 - [] App incorporates an external library to add visual polish
-- [] User can upload posts
-- [] User can look for different cities' posts
+
+### 1. User Stories (Required and Optional)
+
+**Required Must-have Stories**
+- [] User sees app icon in home screen and styled launch screen.
+- [] User can sign up to create a new account.
+- [] User can log in or log out of his or her account.
+- [] The current sign in user is persisted accross app restarts.
+- [] User can upload posts with pictures and recommendations.
+- [] User can see feed of the 20 latest posts.
+- [] User can pull to refresh the last 20 posts.
+- [] User can see a detailed view of posts.
+- [] User can see his or her own posts on the profile section
+- [] User can search posts per city
+- [] User can search posts of a certain user
 
 **Optional Nice-to-have Stories**
-- [] User can see a detailed view of posts
-- [] User can see his or her own posts on the profile section
 - [] User can save posts
 - [] User can add comments to posts
 - [] User can like posts
-- [] App connects to a third party API to gather information of cities
+- [] User can follow his or her friends
+- [] User can see only its friends posts' on his or her feed
 
 ### 2. Screen Archetypes
 
