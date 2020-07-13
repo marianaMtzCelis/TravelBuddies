@@ -29,7 +29,7 @@
     /*
     PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
     gameScore[@"score"] = @1337;
-    gameScore[@"playerName"] = @"Sean Plott";
+    gameScore[@"playerName"] = @"MarianaMtz";
     gameScore[@"cheatMode"] = @NO;
     [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
       if (succeeded) {
