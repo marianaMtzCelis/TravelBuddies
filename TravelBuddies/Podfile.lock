@@ -1,22 +1,33 @@
 PODS:
   - Bolts/Tasks (1.9.1)
+  - DateTools (2.0.0)
+  - "NSDate+TimeAgo (1.0.6)"
   - Parse (1.18.0):
     - Parse/Core (= 1.18.0)
   - Parse/Core (1.18.0):
     - Bolts/Tasks (= 1.9.1)
+  - Parse/UI (1.18.0):
+    - Parse/Core
 
 DEPENDENCIES:
+  - DateTools
+  - "NSDate+TimeAgo"
   - Parse
+  - Parse/UI
 
 SPEC REPOS:
   trunk:
     - Bolts
+    - DateTools
+    - "NSDate+TimeAgo"
     - Parse
 
 SPEC CHECKSUMS:
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  "NSDate+TimeAgo": 35601c619b2d59290055e4fe76e61d97677a2360
   Parse: 79bdda34fdb7eb2a707a43a951c8aae236cb3e34
 
-PODFILE CHECKSUM: a643b3cdec7111445319a373455a043d334ce351
+PODFILE CHECKSUM: 2bf5cd70afd892abc8df25404b7d888eaabcda05
 
 COCOAPODS: 1.9.3
