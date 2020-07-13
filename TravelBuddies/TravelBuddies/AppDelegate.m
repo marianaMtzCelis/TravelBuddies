@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Post.h"
 
 @interface AppDelegate ()
 
@@ -39,6 +40,38 @@
       }
     }];
      */
+    
+    /*
+    //Test a user object
+    PFUser *newUser = [PFUser user];
+          
+    newUser.username = @"marianis";
+    newUser.password = @"1234";
+    newUser.email = @"marianis@gmail.com";
+          
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            NSLog(@"Problem registering user");
+              } else {
+                  NSLog(@"User registered successfully");
+
+              }
+          }];
+     */
+    
+    // Test Post
+    
+    /*
+    Post *post;
+    [Post postUserImage:nil withCaption:@"holi" withPlace:@"boredindahouse" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Post success");
+        } else {
+            NSLog(@"Post failed to post");
+        }
+        }];
+    */
+    
     return YES;
 }
 
