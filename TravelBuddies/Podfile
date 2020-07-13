@@ -7,6 +7,9 @@ target 'TravelBuddies' do
 
   # Pods for TravelBuddies
   pod 'Parse'
+  pod 'Parse/UI'
+  pod 'DateTools'
+  pod 'NSDate+TimeAgo'
 
   target 'TravelBuddiesTests' do
     inherit! :search_paths
