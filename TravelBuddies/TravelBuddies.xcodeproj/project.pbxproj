@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		28E6086024BCC0C900C564E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6085F24BCC0C900C564E6 /* main.m */; };
 		28E6086A24BCC0C900C564E6 /* TravelBuddiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6086924BCC0C900C564E6 /* TravelBuddiesTests.m */; };
 		28E6087524BCC0C900C564E6 /* TravelBuddiesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6087424BCC0C900C564E6 /* TravelBuddiesUITests.m */; };
+		28E6088924BCE15200C564E6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6088824BCE15200C564E6 /* User.m */; };
+		28E6088C24BCE15D00C564E6 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6088B24BCE15D00C564E6 /* Post.m */; };
 		673DBEC1F3991A5B18DD8C41 /* Pods_TravelBuddies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B336B360FAAE97DCA301C3 /* Pods_TravelBuddies.framework */; };
 		681DF0782D7A6312F6CCAEFE /* Pods_TravelBuddies_TravelBuddiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794C607FA768F26FEAE8F09E /* Pods_TravelBuddies_TravelBuddiesUITests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,10 @@
 		28E6087024BCC0C900C564E6 /* TravelBuddiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelBuddiesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E6087424BCC0C900C564E6 /* TravelBuddiesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelBuddiesUITests.m; sourceTree = "<group>"; };
 		28E6087624BCC0C900C564E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28E6088724BCE15200C564E6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		28E6088824BCE15200C564E6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		28E6088A24BCE15D00C564E6 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		28E6088B24BCE15D00C564E6 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		3EA8F94A96AC4F8EA125BD1E /* Pods-TravelBuddiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelBuddiesTests.debug.xcconfig"; path = "Target Support Files/Pods-TravelBuddiesTests/Pods-TravelBuddiesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		51952CCF826C6EF2A89FADFA /* Pods-TravelBuddies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelBuddies.debug.xcconfig"; path = "Target Support Files/Pods-TravelBuddies/Pods-TravelBuddies.debug.xcconfig"; sourceTree = "<group>"; };
 		794C607FA768F26FEAE8F09E /* Pods_TravelBuddies_TravelBuddiesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelBuddies_TravelBuddiesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +127,9 @@
 		28E6084C24BCC0C600C564E6 /* TravelBuddies */ = {
 			isa = PBXGroup;
 			children = (
+				28E6088624BCE13800C564E6 /* View Controllers */,
+				28E6088424BCE12500C564E6 /* Models */,
+				28E6088324BCE11F00C564E6 /* Views */,
 				28E6084D24BCC0C600C564E6 /* AppDelegate.h */,
 				28E6084E24BCC0C600C564E6 /* AppDelegate.m */,
 				28E6085024BCC0C600C564E6 /* SceneDelegate.h */,
@@ -154,6 +163,31 @@
 			path = TravelBuddiesUITests;
 			sourceTree = "<group>";
 		};
+		28E6088324BCE11F00C564E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		28E6088424BCE12500C564E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				28E6088724BCE15200C564E6 /* User.h */,
+				28E6088824BCE15200C564E6 /* User.m */,
+				28E6088A24BCE15D00C564E6 /* Post.h */,
+				28E6088B24BCE15D00C564E6 /* Post.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		28E6088624BCE13800C564E6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		BF6D440B965F7CF28ADCFC19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +208,6 @@
 				3EA8F94A96AC4F8EA125BD1E /* Pods-TravelBuddiesTests.debug.xcconfig */,
 				D3BBE811C792E377D14D4BF4 /* Pods-TravelBuddiesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -416,6 +449,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E6088924BCE15200C564E6 /* User.m in Sources */,
+				28E6088C24BCE15D00C564E6 /* Post.m in Sources */,
 				28E6085524BCC0C600C564E6 /* ViewController.m in Sources */,
 				28E6084F24BCC0C600C564E6 /* AppDelegate.m in Sources */,
 				28E6086024BCC0C900C564E6 /* main.m in Sources */,
