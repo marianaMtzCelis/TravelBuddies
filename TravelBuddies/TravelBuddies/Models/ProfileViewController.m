@@ -1,29 +1,22 @@
 //
-//  LoginViewController.m
+//  ProfileViewController.m
 //  TravelBuddies
 //
 //  Created by Mariana Martinez on 14/07/20.
 //  Copyright © 2020 Mariana Martinez. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "ProfileViewController.h"
 
-@interface LoginViewController ()
+@interface ProfileViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (IBAction)onLogin:(id)sender {
-    [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-}
-
-- (IBAction)onSignup:(id)sender {
 }
 
 /*

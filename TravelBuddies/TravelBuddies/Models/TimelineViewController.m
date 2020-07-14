@@ -1,29 +1,22 @@
 //
-//  LoginViewController.m
+//  TimelineViewController.m
 //  TravelBuddies
 //
 //  Created by Mariana Martinez on 14/07/20.
 //  Copyright © 2020 Mariana Martinez. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "TimelineViewController.h"
 
-@interface LoginViewController ()
+@interface TimelineViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation TimelineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (IBAction)onLogin:(id)sender {
-    [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-}
-
-- (IBAction)onSignup:(id)sender {
 }
 
 /*
