@@ -20,6 +20,7 @@
 }
 
 - (IBAction)onSignup:(id)sender {
+    [self performSegueWithIdentifier:@"signupSuccessSegue" sender:nil];
 }
 
 - (IBAction)onCancel:(id)sender {
