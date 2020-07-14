@@ -203,9 +203,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="i0k-Ko-Obh" kind="show" identifier="discoverDetailsSegue" id="4x0-KK-LzR"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -317,7 +314,7 @@
                                         <size key="customSize" width="147" height="203"/>
                                         <connections>
                                             <outlet property="postView" destination="gGg-6b-kfR" id="nx8-0z-tI3"/>
-                                            <segue destination="i0k-Ko-Obh" kind="show" id="ihj-4O-msV"/>
+                                            <segue destination="i0k-Ko-Obh" kind="show" identifier="profileDetailsSegue" id="ihj-4O-msV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
