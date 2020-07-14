@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1A2149E46EAE26F8AA0A8D41 /* Pods_TravelBuddiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE849BF368A8FAC572DE213E /* Pods_TravelBuddiesTests.framework */; };
 		285CA9A424BE2DF1006D98F9 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */; };
+		285CA9A724BE5700006D98F9 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A624BE5700006D98F9 /* PostCell.m */; };
+		285CA9AA24BE5867006D98F9 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A924BE5867006D98F9 /* PostDetailsViewController.m */; };
+		285CA9B024BE5C4A006D98F9 /* PostCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9AF24BE5C4A006D98F9 /* PostCollectionCell.m */; };
 		28844EE824BE16230062ABF1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EE724BE16230062ABF1 /* LoginViewController.m */; };
 		28844EEB24BE162D0062ABF1 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EEA24BE162D0062ABF1 /* SignupViewController.m */; };
 		28844EEE24BE1CCA0062ABF1 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EED24BE1CCA0062ABF1 /* TimelineViewController.m */; };
@@ -48,6 +51,12 @@
 /* Begin PBXFileReference section */
 		285CA9A224BE2DF1006D98F9 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ComposeViewController.h; path = TravelBuddies/Models/ComposeViewController.h; sourceTree = SOURCE_ROOT; };
 		285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ComposeViewController.m; path = TravelBuddies/Models/ComposeViewController.m; sourceTree = SOURCE_ROOT; };
+		285CA9A524BE5700006D98F9 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostCell.h; path = TravelBuddies/Models/PostCell.h; sourceTree = SOURCE_ROOT; };
+		285CA9A624BE5700006D98F9 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostCell.m; path = TravelBuddies/Models/PostCell.m; sourceTree = SOURCE_ROOT; };
+		285CA9A824BE5867006D98F9 /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostDetailsViewController.h; path = TravelBuddies/Models/PostDetailsViewController.h; sourceTree = SOURCE_ROOT; };
+		285CA9A924BE5867006D98F9 /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostDetailsViewController.m; path = TravelBuddies/Models/PostDetailsViewController.m; sourceTree = SOURCE_ROOT; };
+		285CA9AE24BE5C4A006D98F9 /* PostCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostCollectionCell.h; path = TravelBuddies/Models/PostCollectionCell.h; sourceTree = SOURCE_ROOT; };
+		285CA9AF24BE5C4A006D98F9 /* PostCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostCollectionCell.m; path = TravelBuddies/Models/PostCollectionCell.m; sourceTree = SOURCE_ROOT; };
 		28844EE624BE16230062ABF1 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = TravelBuddies/Models/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		28844EE724BE16230062ABF1 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = TravelBuddies/Models/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		28844EE924BE162D0062ABF1 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = TravelBuddies/Models/SignupViewController.h; sourceTree = SOURCE_ROOT; };
@@ -181,6 +190,8 @@
 		28E6088324BCE11F00C564E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				285CA9A524BE5700006D98F9 /* PostCell.h */,
+				285CA9A624BE5700006D98F9 /* PostCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +220,10 @@
 				28844EF324BE22280062ABF1 /* ProfileViewController.m */,
 				285CA9A224BE2DF1006D98F9 /* ComposeViewController.h */,
 				285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */,
+				285CA9A824BE5867006D98F9 /* PostDetailsViewController.h */,
+				285CA9A924BE5867006D98F9 /* PostDetailsViewController.m */,
+				285CA9AE24BE5C4A006D98F9 /* PostCollectionCell.h */,
+				285CA9AF24BE5C4A006D98F9 /* PostCollectionCell.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -478,13 +493,16 @@
 				28844EEE24BE1CCA0062ABF1 /* TimelineViewController.m in Sources */,
 				28E6085524BCC0C600C564E6 /* ViewController.m in Sources */,
 				28844EE824BE16230062ABF1 /* LoginViewController.m in Sources */,
+				285CA9AA24BE5867006D98F9 /* PostDetailsViewController.m in Sources */,
 				28844EF424BE22280062ABF1 /* ProfileViewController.m in Sources */,
 				28844EF124BE21B90062ABF1 /* SearchViewController.m in Sources */,
 				28E6084F24BCC0C600C564E6 /* AppDelegate.m in Sources */,
 				28E6086024BCC0C900C564E6 /* main.m in Sources */,
 				285CA9A424BE2DF1006D98F9 /* ComposeViewController.m in Sources */,
 				28844EEB24BE162D0062ABF1 /* SignupViewController.m in Sources */,
+				285CA9B024BE5C4A006D98F9 /* PostCollectionCell.m in Sources */,
 				28E6085224BCC0C600C564E6 /* SceneDelegate.m in Sources */,
+				285CA9A724BE5700006D98F9 /* PostCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
