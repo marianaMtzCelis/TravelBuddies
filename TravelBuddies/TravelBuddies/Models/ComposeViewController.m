@@ -1,27 +1,34 @@
 //
-//  TimelineViewController.m
+//  ComposeViewController.m
 //  TravelBuddies
 //
 //  Created by Mariana Martinez on 14/07/20.
 //  Copyright © 2020 Mariana Martinez. All rights reserved.
 //
 
-#import "TimelineViewController.h"
+#import "ComposeViewController.h"
 
-@interface TimelineViewController ()
+@interface ComposeViewController ()
 
 @end
 
-@implementation TimelineViewController
+@implementation ComposeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (IBAction)onCompose:(id)sender {
+- (IBAction)onCancel:(id)sender {
     
-    [self performSegueWithIdentifier:@"composeSegue" sender:nil];
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)onPost:(id)sender {
+    
+    // TODO: Send post to Parse
+    
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 
