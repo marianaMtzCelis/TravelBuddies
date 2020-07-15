@@ -20,57 +20,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-        
         configuration.applicationId = @"travel-buddies-mmc";
         configuration.server = @"https://travel-buddies-mmc.herokuapp.com/parse";
     }];
     
     [Parse initializeWithConfiguration:config];
-    
-    /*
-    PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
-    gameScore[@"score"] = @1337;
-    gameScore[@"playerName"] = @"MarianaMtz";
-    gameScore[@"cheatMode"] = @NO;
-    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-      if (succeeded) {
-         NSLog(@"Object saved!");
-      } else {
-         NSLog(@"Error: %@", error.description);
-      }
-    }];
-     */
-    
-    /*
-    //Test a user object
-    PFUser *newUser = [PFUser user];
-          
-    newUser.username = @"marianis";
-    newUser.password = @"1234";
-    newUser.email = @"marianis@gmail.com";
-          
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil) {
-            NSLog(@"Problem registering user");
-              } else {
-                  NSLog(@"User registered successfully");
-
-              }
-          }];
-     */
-    
-    // Test Post
-    
-    /*
-    Post *post;
-    [Post postUserImage:nil withCaption:@"holi" withPlace:@"boredindahouse" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"Post success");
-        } else {
-            NSLog(@"Post failed to post");
-        }
-        }];
-    */
     
     return YES;
 }

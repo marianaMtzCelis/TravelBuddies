@@ -1,23 +1,20 @@
 //
-//  SearchViewController.m
+//  CityFeedViewController.m
 //  TravelBuddies
 //
-//  Created by Mariana Martinez on 14/07/20.
+//  Created by Mariana Martinez on 15/07/20.
 //  Copyright © 2020 Mariana Martinez. All rights reserved.
 //
 
-#import "SearchViewController.h"
-#import "PostCell.h"
+#import "CityFeedViewController.h"
 
-@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface CityFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *peoplePlacesControl;
-
 @end
 
-@implementation SearchViewController
+@implementation CityFeedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,23 +34,14 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    if (self.peoplePlacesControl.selectedSegmentIndex == 0) {
-        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
-        return cell;
-    } else {
-        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell"];
-        return cell;
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityTimelineCell"];
+    return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    //TODO: proper quantity
     return 30;
 }
-
-- (IBAction)segmentChanged:(id)sender {
-    [self.tableView reloadData];
-}
-
 
 
 @end
