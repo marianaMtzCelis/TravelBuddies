@@ -18,15 +18,10 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad {
-    /*
-    [super viewDidLoad];
-    self.loginButton.layer.borderWidth = 2.0f;
-    self.loginButton.layer.borderColor = [UIColor grayColor].CGColor;
-    */
+
 }
 
 - (IBAction)onLogin:(id)sender {
-    self.loginButton.layer.backgroundColor = [UIColor blackColor].CGColor;
     [self performSegueWithIdentifier:@"loginSegue" sender:nil];
 }
 
