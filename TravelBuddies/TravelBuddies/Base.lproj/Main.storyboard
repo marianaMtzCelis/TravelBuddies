@@ -366,6 +366,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.84313725490000002" green="0.74509803919999995" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="nDj-52-qst" kind="relationship" relationship="viewControllers" id="MUe-oE-h4c"/>
@@ -381,7 +386,7 @@
         <scene sceneID="t77-iS-WOX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nDj-52-qst" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" id="lQy-M6-3vO"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="map" catalog="system" selectedImage="map" id="lQy-M6-3vO"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="nrd-in-Nle"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dwO-UQ-Dku">
@@ -401,7 +406,7 @@
         <scene sceneID="PKA-Kz-MAJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o3R-ql-DNR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" id="A0O-A8-fZh"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="A0O-A8-fZh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wls-SL-XDc">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -474,7 +479,7 @@
         <scene sceneID="0Vl-j8-Ndr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1GC-Oq-cu5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="WLs-cC-6Ec"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person" id="WLs-cC-6Ec"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oQ3-zi-cOu">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -588,11 +593,14 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kLr-IB-3rV"/>
-        <segue reference="g7z-C2-XO1"/>
+        <segue reference="VEc-Uw-xRp"/>
         <segue reference="ncy-cC-nfq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="logoWhite" width="260" height="257.33334350585938"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="map" catalog="system" width="128" height="113"/>
+        <image name="person" catalog="system" width="128" height="117"/>
     </resources>
 </document>
