@@ -7,19 +7,26 @@
 //
 
 #import "LoginViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
+    /*
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.loginButton.layer.borderWidth = 2.0f;
+    self.loginButton.layer.borderColor = [UIColor grayColor].CGColor;
+    */
 }
 
 - (IBAction)onLogin:(id)sender {
+    self.loginButton.layer.backgroundColor = [UIColor blackColor].CGColor;
     [self performSegueWithIdentifier:@"loginSegue" sender:nil];
 }
 
