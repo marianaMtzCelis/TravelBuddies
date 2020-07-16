@@ -304,29 +304,29 @@
                                                     <rect key="frame" x="20" y="145" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUY-O0-8JM">
-                                                    <rect key="frame" x="334" y="140" width="26" height="28"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxp-Uk-2DG">
+                                                    <rect key="frame" x="310" y="137" width="65" height="65"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="save"/>
                                                     <connections>
-                                                        <action selector="onSave:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="aMV-yU-Q9s"/>
+                                                        <action selector="onSave:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="7zP-xC-LTd"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-5M-5X1">
-                                                    <rect key="frame" x="307" y="141" width="27" height="27"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8n-Mr-TN5">
+                                                    <rect key="frame" x="252" y="137" width="65" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="fav"/>
                                                     <connections>
-                                                        <action selector="onHeart:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="bVM-Er-aZ9"/>
+                                                        <action selector="onHeart:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="cH2-2X-2ya"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="favButton" destination="Ao4-5M-5X1" id="emO-SK-fV5"/>
+                                            <outlet property="favButton" destination="s8n-Mr-TN5" id="tYJ-mM-wN2"/>
                                             <outlet property="photoView" destination="1Uq-JH-fgH" id="E3Y-Xl-gPc"/>
                                             <outlet property="ppView" destination="A2W-vB-d9b" id="EFN-tF-AAM"/>
-                                            <outlet property="saveButton" destination="QUY-O0-8JM" id="RUS-5m-Dbx"/>
+                                            <outlet property="saveButton" destination="nxp-Uk-2DG" id="Pj5-K0-Fny"/>
                                             <segue destination="i0k-Ko-Obh" kind="show" identifier="feedDetailsSegue" id="kLr-IB-3rV"/>
                                         </connections>
                                     </tableViewCell>
@@ -840,28 +840,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zCn-Oy-j6h">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="225" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zCn-Oy-j6h">
                                 <rect key="frame" x="0.0" y="26" width="375" height="786"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityTimelineCell" rowHeight="133" id="fph-y4-wZN">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="133"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityTimelineCell" rowHeight="218" id="fph-y4-wZN" customClass="CityCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="218"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fph-y4-wZN" id="YmL-Vb-ZAw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="218"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="city post cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kO-ch-a63">
-                                                    <rect key="frame" x="98" y="56" width="167" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="marianaMtzC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSd-4E-SSF">
+                                                    <rect key="frame" x="75" y="158" width="127" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="London, England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fp-e5-S6i">
+                                                    <rect key="frame" x="75" y="179" width="180" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2020-07-15 at 16.48.19" translatesAutoresizingMaskIntoConstraints="NO" id="lqX-3L-W5C">
+                                                    <rect key="frame" x="18" y="22" width="339" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2020-07-15 at 17.32.53" translatesAutoresizingMaskIntoConstraints="NO" id="FNl-Zu-GYV">
+                                                    <rect key="frame" x="17" y="156" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZ3-xE-ZQT">
+                                                    <rect key="frame" x="250" y="149" width="65" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="fav"/>
+                                                    <connections>
+                                                        <action selector="onHeart:" destination="fph-y4-wZN" eventType="touchUpInside" id="ngQ-3W-nWx"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8Q-9y-bPu">
+                                                    <rect key="frame" x="307" y="149" width="65" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="save"/>
+                                                    <connections>
+                                                        <action selector="onSave:" destination="fph-y4-wZN" eventType="touchUpInside" id="oRk-Px-QuF"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cityLabel" destination="2fp-e5-S6i" id="tCc-AA-iGX"/>
+                                            <outlet property="favButton" destination="QZ3-xE-ZQT" id="6RX-c4-DCO"/>
+                                            <outlet property="picturePostView" destination="lqX-3L-W5C" id="krv-oq-FHv"/>
+                                            <outlet property="ppView" destination="FNl-Zu-GYV" id="wqC-eW-V4w"/>
+                                            <outlet property="saveButton" destination="k8Q-9y-bPu" id="PVY-XB-LBH"/>
+                                            <outlet property="usernameLabel" destination="vSd-4E-SSF" id="hGf-Of-8tu"/>
                                             <segue destination="i0k-Ko-Obh" kind="show" identifier="cityPostDetailsSegue" id="6YX-63-fQY"/>
                                         </connections>
                                     </tableViewCell>
@@ -878,7 +915,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnB-i6-DTp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2342" y="1869"/>
+            <point key="canvasLocation" x="2341.5999999999999" y="1868.7192118226601"/>
         </scene>
         <!--Friends View Controller-->
         <scene sceneID="Nqz-Yi-Rfr">
@@ -946,7 +983,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="9Lm-T6-sxv"/>
-        <segue reference="ihj-4O-msV"/>
+        <segue reference="6YX-63-fQY"/>
         <segue reference="KEO-f7-Ja4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
