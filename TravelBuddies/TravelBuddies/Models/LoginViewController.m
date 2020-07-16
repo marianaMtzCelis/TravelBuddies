@@ -7,16 +7,18 @@
 //
 
 #import "LoginViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 }
 
 - (IBAction)onLogin:(id)sender {
