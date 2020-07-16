@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CityCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet CityCell *cityLabel;
 @end
 
 NS_ASSUME_NONNULL_END

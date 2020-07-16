@@ -296,24 +296,6 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUY-O0-8JM">
-                                                    <rect key="frame" x="342" y="146" width="18" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="bookmark" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="onSave:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="aMV-yU-Q9s"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS7-3N-XcH">
-                                                    <rect key="frame" x="313" y="146" width="26" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="heart" catalog="system">
-                                                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="onHeart:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="vCu-o2-XM1"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2020-07-15 at 16.48.19" translatesAutoresizingMaskIntoConstraints="NO" id="1Uq-JH-fgH">
                                                     <rect key="frame" x="21" y="11" width="339" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -322,10 +304,26 @@
                                                     <rect key="frame" x="20" y="145" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUY-O0-8JM">
+                                                    <rect key="frame" x="334" y="140" width="26" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="save"/>
+                                                    <connections>
+                                                        <action selector="onSave:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="aMV-yU-Q9s"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-5M-5X1">
+                                                    <rect key="frame" x="307" y="141" width="27" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="fav"/>
+                                                    <connections>
+                                                        <action selector="onHeart:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="bVM-Er-aZ9"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="favButton" destination="qS7-3N-XcH" id="yVo-Eb-88c"/>
+                                            <outlet property="favButton" destination="Ao4-5M-5X1" id="emO-SK-fV5"/>
                                             <outlet property="photoView" destination="1Uq-JH-fgH" id="E3Y-Xl-gPc"/>
                                             <outlet property="ppView" destination="A2W-vB-d9b" id="EFN-tF-AAM"/>
                                             <outlet property="saveButton" destination="QUY-O0-8JM" id="RUS-5m-Dbx"/>
@@ -368,7 +366,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="94" id="641-Ce-56a">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="94" id="641-Ce-56a" customClass="CityCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="641-Ce-56a" id="x6e-jr-ooV" customClass="CityCell">
@@ -389,10 +387,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cityLabel" destination="x6e-jr-ooV" id="L3t-fT-O3E"/>
                                             <segue destination="QwW-aZ-pSN" kind="show" id="CGf-MS-xqH"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" id="21a-YF-wXI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" id="21a-YF-wXI" customClass="ProfileCell">
                                         <rect key="frame" x="0.0" y="122" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="21a-YF-wXI" id="mJW-DB-fji" customClass="ProfileCell">
@@ -417,6 +416,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="ppView" destination="T6b-4P-2ck" id="gmu-TE-oiJ"/>
+                                            <outlet property="usernameLabel" destination="01U-il-RcM" id="bL2-Eh-etg"/>
                                             <segue destination="mCG-LD-4n2" kind="show" identifier="discoverProfileSegue" id="g7z-C2-XO1"/>
                                         </connections>
                                     </tableViewCell>
@@ -799,11 +800,13 @@
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="camera" catalog="system" width="128" height="96"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="fav" width="64.666664123535156" height="64"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="logoWhite" width="260" height="257.33334350585938"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="save" width="64.666664123535156" height="64.666664123535156"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
 </document>

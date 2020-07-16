@@ -21,9 +21,11 @@
 }
 
 - (IBAction)onHeart:(id)sender {
+    [self.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
 }
 
 - (IBAction)onSave:(id)sender {
+    [self.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
 }
 
 
