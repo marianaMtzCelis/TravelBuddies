@@ -7,16 +7,18 @@
 //
 
 #import "ComposeViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ComposeViewController ()
-
+@property (weak, nonatomic) IBOutlet UIButton *cameraButton;
 @end
 
 @implementation ComposeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.cameraButton.layer.borderWidth = 2.0f;
+    self.cameraButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (IBAction)onCancel:(id)sender {
