@@ -10,9 +10,9 @@
 #import "PostCollectionCell.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
-
+@property (weak, nonatomic) IBOutlet UIImageView *ppView;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
 
 @end
 
@@ -20,10 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.ppView.layer.masksToBounds = true;
+    self.ppView.layer.cornerRadius = 35;
     
     //TODO: fetch data
     
@@ -56,5 +56,14 @@
     
     return 30;
 }
+
+- (IBAction)onSaved:(id)sender {
+    [self performSegueWithIdentifier:@"savedSegue" sender:nil];
+}
+
+- (IBAction)onEdit:(id)sender {
+    [self performSegueWithIdentifier:@"editSegue" sender:nil];
+}
+
 
 @end
