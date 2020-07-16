@@ -957,6 +957,9 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="147" height="203"/>
+                                        <connections>
+                                            <segue destination="i0k-Ko-Obh" kind="show" identifier="friendsPostDetailsSegue" id="QX8-5p-A02"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -989,7 +992,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="CGf-MS-xqH"/>
-        <segue reference="6YX-63-fQY"/>
+        <segue reference="QX8-5p-A02"/>
         <segue reference="KEO-f7-Ja4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
