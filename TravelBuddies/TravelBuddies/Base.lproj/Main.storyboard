@@ -202,15 +202,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="type a place" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qqt-QL-SN1">
-                                <rect key="frame" x="40" y="306" width="260" height="34"/>
+                                <rect key="frame" x="40" y="306" width="251" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQ8-vc-DCM">
-                                <rect key="frame" x="34" y="342" width="266" height="3"/>
+                                <rect key="frame" x="34" y="342" width="257" height="3"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWh-q6-TfQ">
                                 <rect key="frame" x="18" y="384" width="340" height="5"/>
@@ -233,10 +233,13 @@
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Am1-62-zGj">
-                                <rect key="frame" x="315" y="308" width="44" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMG-5u-rxl">
+                                <rect key="frame" x="299" y="298" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="camera" catalog="system"/>
+                                <state key="normal" image="camera"/>
+                                <connections>
+                                    <action selector="onCamera:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="lkm-zf-4N3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -255,7 +258,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cameraButton" destination="Am1-62-zGj" id="uKd-y3-wZK"/>
+                        <outlet property="cameraButton" destination="CMG-5u-rxl" id="ppX-fs-2zb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5S-fd-fwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -996,7 +999,6 @@
         <image name="arrow" width="206" height="202"/>
         <image name="bcna" width="1800" height="1000"/>
         <image name="camera" width="64.666664123535156" height="64.666664123535156"/>
-        <image name="camera" catalog="system" width="128" height="96"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="fav" width="64.666664123535156" height="64"/>
         <image name="library" width="66.666664123535156" height="66.666664123535156"/>
