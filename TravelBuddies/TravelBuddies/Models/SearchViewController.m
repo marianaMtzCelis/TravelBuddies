@@ -7,14 +7,13 @@
 //
 
 #import "SearchViewController.h"
-#import "PostCell.h"
+#import "ProfileCell.h"
+#import "CityCell.h"
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate>
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *peoplePlacesControl;
-
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @end
 
 @implementation SearchViewController
@@ -38,10 +37,10 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     if (self.peoplePlacesControl.selectedSegmentIndex == 0) {
-        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
+        ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
         return cell;
     } else {
-        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell"];
+        CityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell"];
         return cell;
     }
 }
