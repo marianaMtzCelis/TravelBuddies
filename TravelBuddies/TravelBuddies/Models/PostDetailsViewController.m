@@ -14,11 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
-@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UILabel *currencyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *languageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeZoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationsLabel;
 @end
 
@@ -29,6 +27,19 @@
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 25;
 }
+
+- (IBAction)onHeart:(id)sender {
+    [self.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+}
+
+- (IBAction)onSave:(id)sender {
+    [self.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+}
+
+- (IBAction)onPin:(id)sender {
+    [self performSegueWithIdentifier:@"detailsMapSegue" sender:nil];
+}
+
 
 /*
 #pragma mark - Navigation

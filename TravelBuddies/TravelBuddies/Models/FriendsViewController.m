@@ -1,24 +1,24 @@
 //
-//  ProfileViewController.m
+//  FriendsViewController.m
 //  TravelBuddies
 //
-//  Created by Mariana Martinez on 14/07/20.
+//  Created by Mariana Martinez on 16/07/20.
 //  Copyright © 2020 Mariana Martinez. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "FriendsViewController.h"
 #import "PostCollectionViewCell.h"
 
-@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FriendsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
 @end
 
-@implementation ProfileViewController
+@implementation FriendsViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     [super viewDidLoad];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -32,7 +32,6 @@
     CGFloat itemWidth = self.collectionView.frame.size.width / postersPerLine;
     CGFloat itemHeight = itemWidth * 1.5;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
-    
 }
 
 /*
@@ -56,14 +55,5 @@
     
     return 30;
 }
-
-- (IBAction)onSaved:(id)sender {
-    [self performSegueWithIdentifier:@"savedSegue" sender:nil];
-}
-
-- (IBAction)onEdit:(id)sender {
-    [self performSegueWithIdentifier:@"editSegue" sender:nil];
-}
-
 
 @end

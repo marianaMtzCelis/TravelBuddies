@@ -11,7 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CityCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet CityCell *cityLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *picturePostView;
+@property (weak, nonatomic) IBOutlet UIImageView *ppView;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UIButton *favButton;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

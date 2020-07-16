@@ -11,9 +11,11 @@
 		285CA9A424BE2DF1006D98F9 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */; };
 		285CA9A724BE5700006D98F9 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A624BE5700006D98F9 /* PostCell.m */; };
 		285CA9AA24BE5867006D98F9 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A924BE5867006D98F9 /* PostDetailsViewController.m */; };
-		285CA9B024BE5C4A006D98F9 /* PostCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9AF24BE5C4A006D98F9 /* PostCollectionCell.m */; };
 		285CBD9824C0B5FD00AEF4A3 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CBD9724C0B5FD00AEF4A3 /* ProfileCell.m */; };
 		285CBD9B24C0B60B00AEF4A3 /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CBD9A24C0B60B00AEF4A3 /* CityCell.m */; };
+		285CBD9E24C0F4D000AEF4A3 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CBD9D24C0F4D000AEF4A3 /* SettingsViewController.m */; };
+		285CBDA124C0FDA000AEF4A3 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CBDA024C0FDA000AEF4A3 /* FriendsViewController.m */; };
+		285CBDA424C0FF0900AEF4A3 /* PostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CBDA324C0FF0900AEF4A3 /* PostCollectionViewCell.m */; };
 		28844EE824BE16230062ABF1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EE724BE16230062ABF1 /* LoginViewController.m */; };
 		28844EEB24BE162D0062ABF1 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EEA24BE162D0062ABF1 /* SignupViewController.m */; };
 		28844EEE24BE1CCA0062ABF1 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EED24BE1CCA0062ABF1 /* TimelineViewController.m */; };
@@ -58,12 +60,16 @@
 		285CA9A624BE5700006D98F9 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostCell.m; path = TravelBuddies/Models/PostCell.m; sourceTree = SOURCE_ROOT; };
 		285CA9A824BE5867006D98F9 /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostDetailsViewController.h; path = TravelBuddies/Models/PostDetailsViewController.h; sourceTree = SOURCE_ROOT; };
 		285CA9A924BE5867006D98F9 /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostDetailsViewController.m; path = TravelBuddies/Models/PostDetailsViewController.m; sourceTree = SOURCE_ROOT; };
-		285CA9AE24BE5C4A006D98F9 /* PostCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostCollectionCell.h; path = TravelBuddies/Models/PostCollectionCell.h; sourceTree = SOURCE_ROOT; };
-		285CA9AF24BE5C4A006D98F9 /* PostCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostCollectionCell.m; path = TravelBuddies/Models/PostCollectionCell.m; sourceTree = SOURCE_ROOT; };
 		285CBD9624C0B5FD00AEF4A3 /* ProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileCell.h; path = TravelBuddies/Models/ProfileCell.h; sourceTree = SOURCE_ROOT; };
 		285CBD9724C0B5FD00AEF4A3 /* ProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileCell.m; path = TravelBuddies/Models/ProfileCell.m; sourceTree = SOURCE_ROOT; };
 		285CBD9924C0B60B00AEF4A3 /* CityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CityCell.h; path = TravelBuddies/Models/CityCell.h; sourceTree = SOURCE_ROOT; };
 		285CBD9A24C0B60B00AEF4A3 /* CityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CityCell.m; path = TravelBuddies/Models/CityCell.m; sourceTree = SOURCE_ROOT; };
+		285CBD9C24C0F4D000AEF4A3 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = TravelBuddies/Models/SettingsViewController.h; sourceTree = SOURCE_ROOT; };
+		285CBD9D24C0F4D000AEF4A3 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = TravelBuddies/Models/SettingsViewController.m; sourceTree = SOURCE_ROOT; };
+		285CBD9F24C0FDA000AEF4A3 /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FriendsViewController.h; path = TravelBuddies/Models/FriendsViewController.h; sourceTree = SOURCE_ROOT; };
+		285CBDA024C0FDA000AEF4A3 /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FriendsViewController.m; path = TravelBuddies/Models/FriendsViewController.m; sourceTree = SOURCE_ROOT; };
+		285CBDA224C0FF0900AEF4A3 /* PostCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionViewCell.h; sourceTree = "<group>"; };
+		285CBDA324C0FF0900AEF4A3 /* PostCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionViewCell.m; sourceTree = "<group>"; };
 		28844EE624BE16230062ABF1 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = TravelBuddies/Models/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		28844EE724BE16230062ABF1 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = TravelBuddies/Models/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		28844EE924BE162D0062ABF1 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = TravelBuddies/Models/SignupViewController.h; sourceTree = SOURCE_ROOT; };
@@ -205,6 +211,8 @@
 				285CBD9724C0B5FD00AEF4A3 /* ProfileCell.m */,
 				285CBD9924C0B60B00AEF4A3 /* CityCell.h */,
 				285CBD9A24C0B60B00AEF4A3 /* CityCell.m */,
+				285CBDA224C0FF0900AEF4A3 /* PostCollectionViewCell.h */,
+				285CBDA324C0FF0900AEF4A3 /* PostCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,10 +243,12 @@
 				285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */,
 				285CA9A824BE5867006D98F9 /* PostDetailsViewController.h */,
 				285CA9A924BE5867006D98F9 /* PostDetailsViewController.m */,
-				285CA9AE24BE5C4A006D98F9 /* PostCollectionCell.h */,
-				285CA9AF24BE5C4A006D98F9 /* PostCollectionCell.m */,
 				28D388BB24BF70230078A67C /* CityFeedViewController.h */,
 				28D388BC24BF70230078A67C /* CityFeedViewController.m */,
+				285CBD9C24C0F4D000AEF4A3 /* SettingsViewController.h */,
+				285CBD9D24C0F4D000AEF4A3 /* SettingsViewController.m */,
+				285CBD9F24C0FDA000AEF4A3 /* FriendsViewController.h */,
+				285CBDA024C0FDA000AEF4A3 /* FriendsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -506,7 +516,9 @@
 			files = (
 				2889A39524BD0BC700272651 /* Post.m in Sources */,
 				28D388BD24BF70230078A67C /* CityFeedViewController.m in Sources */,
+				285CBDA124C0FDA000AEF4A3 /* FriendsViewController.m in Sources */,
 				28844EEE24BE1CCA0062ABF1 /* TimelineViewController.m in Sources */,
+				285CBD9E24C0F4D000AEF4A3 /* SettingsViewController.m in Sources */,
 				28E6085524BCC0C600C564E6 /* ViewController.m in Sources */,
 				28844EE824BE16230062ABF1 /* LoginViewController.m in Sources */,
 				285CA9AA24BE5867006D98F9 /* PostDetailsViewController.m in Sources */,
@@ -517,7 +529,7 @@
 				28E6086024BCC0C900C564E6 /* main.m in Sources */,
 				285CA9A424BE2DF1006D98F9 /* ComposeViewController.m in Sources */,
 				28844EEB24BE162D0062ABF1 /* SignupViewController.m in Sources */,
-				285CA9B024BE5C4A006D98F9 /* PostCollectionCell.m in Sources */,
+				285CBDA424C0FF0900AEF4A3 /* PostCollectionViewCell.m in Sources */,
 				28E6085224BCC0C600C564E6 /* SceneDelegate.m in Sources */,
 				285CA9A724BE5700006D98F9 /* PostCell.m in Sources */,
 				285CBD9B24C0B60B00AEF4A3 /* CityCell.m in Sources */,

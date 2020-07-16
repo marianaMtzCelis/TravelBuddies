@@ -17,8 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.cameraButton.layer.borderWidth = 2.0f;
-    self.cameraButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (IBAction)onCancel:(id)sender {
@@ -32,6 +30,10 @@
     
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+- (IBAction)onCamera:(id)sender {
+}
+
 
 
 /*
