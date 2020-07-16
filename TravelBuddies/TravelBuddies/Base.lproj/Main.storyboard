@@ -418,7 +418,7 @@
                                         <connections>
                                             <outlet property="ppView" destination="T6b-4P-2ck" id="gmu-TE-oiJ"/>
                                             <outlet property="usernameLabel" destination="01U-il-RcM" id="bL2-Eh-etg"/>
-                                            <segue destination="mCG-LD-4n2" kind="show" identifier="discoverProfileSegue" id="g7z-C2-XO1"/>
+                                            <segue destination="NPW-79-IRJ" kind="show" identifier="discoverProfileSegue" id="Avt-jV-Cvc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -537,7 +537,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCollectionCell" id="XhI-Hw-x4r" customClass="PostCollectionCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCollectionViewCell" id="XhI-Hw-x4r" customClass="PostCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="147" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lmf-uJ-VZL">
@@ -553,7 +553,6 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="147" height="203"/>
                                         <connections>
-                                            <outlet property="postView" destination="gGg-6b-kfR" id="nx8-0z-tI3"/>
                                             <segue destination="i0k-Ko-Obh" kind="show" identifier="profileDetailsSegue" id="ihj-4O-msV"/>
                                         </connections>
                                     </collectionViewCell>
@@ -863,7 +862,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="i0k-Ko-Obh" kind="show" id="6YX-63-fQY"/>
+                                            <segue destination="i0k-Ko-Obh" kind="show" identifier="cityPostDetailsSegue" id="6YX-63-fQY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -881,11 +880,73 @@
             </objects>
             <point key="canvasLocation" x="2342" y="1869"/>
         </scene>
+        <!--Friends View Controller-->
+        <scene sceneID="Nqz-Yi-Rfr">
+            <objects>
+                <viewController id="NPW-79-IRJ" customClass="FriendsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rPf-N9-aRZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RGC-fS-cif">
+                                <rect key="frame" x="0.0" y="185" width="375" height="573"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="aSi-ne-8Gp">
+                                    <size key="itemSize" width="147" height="203"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCollectionViewCell" id="CqE-ZR-Dwv" customClass="PostCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="203"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CZe-Yf-am1">
+                                            <rect key="frame" x="0.0" y="0.0" width="147" height="203"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fgq-J8-yBt">
+                                                    <rect key="frame" x="8" y="-12" width="165" height="272"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="147" height="203"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2020-07-15 at 17.32.53" translatesAutoresizingMaskIntoConstraints="NO" id="9tS-p8-We1">
+                                <rect key="frame" x="82" y="103" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="marianaMtzC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLi-BI-xMy">
+                                <rect key="frame" x="155" y="122" width="127" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rTe-f2-Pov"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jyx-FX-nmr"/>
+                    <connections>
+                        <outlet property="collectionView" destination="RGC-fS-cif" id="NPn-Sg-9RA"/>
+                        <outlet property="ppView" destination="9tS-p8-We1" id="Fja-tM-d4r"/>
+                        <outlet property="usernameLabel" destination="cLi-BI-xMy" id="EaM-ql-Lo7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDE-Gj-kw7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3252" y="1868.7192118226601"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="9Lm-T6-sxv"/>
-        <segue reference="6YX-63-fQY"/>
-        <segue reference="g7z-C2-XO1"/>
+        <segue reference="ihj-4O-msV"/>
         <segue reference="KEO-f7-Ja4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
