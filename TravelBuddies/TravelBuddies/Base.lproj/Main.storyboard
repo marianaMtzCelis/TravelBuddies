@@ -862,6 +862,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="i0k-Ko-Obh" kind="show" id="6YX-63-fQY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -881,7 +884,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="9Lm-T6-sxv"/>
-        <segue reference="ihj-4O-msV"/>
+        <segue reference="6YX-63-fQY"/>
         <segue reference="g7z-C2-XO1"/>
         <segue reference="KEO-f7-Ja4"/>
     </inferredMetricsTieBreakers>
