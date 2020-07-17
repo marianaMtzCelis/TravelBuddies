@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="F0H-e9-W2W">
             <objects>
-                <viewController id="kmk-pJ-xL4" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" id="kmk-pJ-xL4" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yfv-6A-Vys">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k9d-o6-hNp">
-                                <rect key="frame" x="41" y="250" width="261" height="34"/>
+                                <rect key="frame" x="41" y="250" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -35,26 +35,16 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXB-M7-nws">
-                                <rect key="frame" x="41" y="327" width="252" height="34"/>
+                                <rect key="frame" x="41" y="327" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGQ-lH-Qye">
                                 <rect key="frame" x="35" y="363" width="306" height="3"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rHR-SA-l9t">
-                                <rect key="frame" x="310" y="254.33333333333348" width="31" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bGy-8Z-egq">
-                                <rect key="frame" x="310" y="331.33333333333348" width="31" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qod-Jh-Zn6">
                                 <rect key="frame" x="41" y="422" width="300" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,7 +56,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onLogin:" destination="kmk-pJ-xL4" eventType="touchUpInside" id="eVE-Hj-gnK"/>
-                                    <segue destination="RcY-Ci-aOS" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="ncy-cC-nfq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uR3-Ck-r3n">
@@ -93,6 +82,9 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Qod-Jh-Zn6" id="9sy-x8-qBG"/>
+                        <outlet property="passwordTextField" destination="pXB-M7-nws" id="BhY-MO-zgO"/>
+                        <outlet property="usernameTextField" destination="k9d-o6-hNp" id="0jf-uW-gQT"/>
+                        <segue destination="RcY-Ci-aOS" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="X4h-ha-z7U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rt8-TO-fEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -124,7 +116,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onSignup:" destination="Bkd-tM-vYk" eventType="touchUpInside" id="mHf-Vn-Tni"/>
-                                    <segue destination="RcY-Ci-aOS" kind="presentation" identifier="signupSuccessSegue" modalPresentationStyle="fullScreen" id="KEO-f7-Ja4"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="bgs-4L-WzU">
@@ -157,7 +148,7 @@
                                 <rect key="frame" x="40" y="423" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06h-df-vCM">
                                 <rect key="frame" x="34" y="459" width="306" height="3"/>
@@ -183,6 +174,7 @@
                         <outlet property="passwordTextField" destination="WQh-h9-MEl" id="ZcS-LK-auB"/>
                         <outlet property="signupButton" destination="Sc9-IN-Ia0" id="9yb-g6-pFk"/>
                         <outlet property="usernameTextField" destination="crZ-zT-gKJ" id="XBL-is-GyE"/>
+                        <segue destination="RcY-Ci-aOS" kind="presentation" identifier="signupSuccessSegue" modalPresentationStyle="fullScreen" id="n3b-49-1io"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ate-jj-LaL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -340,7 +332,11 @@
                         <viewLayoutGuide key="safeArea" id="fPA-H4-6Ni"/>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="7b1-Pb-6Oo">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wgo-yG-7g5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wgo-yG-7g5">
+                            <connections>
+                                <action selector="onLogout:" destination="Nmc-m7-q7w" id="Oq0-hO-x08"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="pne-sT-3M8">
                             <connections>
                                 <action selector="onCompose:" destination="Nmc-m7-q7w" id="aTv-7J-ISx"/>
@@ -460,7 +456,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ard-5P-CCQ">
             <objects>
-                <tabBarController id="RcY-Ci-aOS" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="TimelineViewController" storyboardIdentifier="TimelineViewController" id="RcY-Ci-aOS" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="U8w-bE-dw4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oNS-Dl-iGr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -992,8 +988,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="CGf-MS-xqH"/>
-        <segue reference="QX8-5p-A02"/>
-        <segue reference="ncy-cC-nfq"/>
+        <segue reference="kLr-IB-3rV"/>
+        <segue reference="X4h-ha-z7U"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
@@ -1002,7 +998,6 @@
         <image name="arrow" width="206" height="202"/>
         <image name="bcna" width="1800" height="1000"/>
         <image name="camera" width="64.666664123535156" height="64.666664123535156"/>
-        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="fav" width="64.666664123535156" height="64"/>
         <image name="library" width="66.666664123535156" height="66.666664123535156"/>
         <image name="logoWhite" width="260" height="257.33334350585938"/>
