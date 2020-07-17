@@ -21,9 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic, strong) NSNumber *likeCount;
 @property (nonatomic, strong) NSString *place;
-@property (nonatomic, strong) NSArray *tags;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, strong) NSMutableArray *tags;
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withPlace: ( NSString * _Nullable )place withTags: ( NSArray * _Nullable )tags withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withPlace: ( NSString * _Nullable )place withCity: ( NSString * _Nullable )city withTags: ( NSMutableArray * _Nullable )tags withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end
 

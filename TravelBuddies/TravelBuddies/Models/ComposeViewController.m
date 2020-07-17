@@ -8,33 +8,112 @@
 
 #import "ComposeViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
+#import "Post.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
+@property (weak, nonatomic) IBOutlet UITextField *placeTextBox;
+@property (weak, nonatomic) IBOutlet UITextField *cityTextBox;
+@property (weak, nonatomic) IBOutlet UITextView *recommendationsTextView;
+@property (strong, nonatomic) IBOutlet UIImageView *postPictureView;
+@property (strong, nonatomic) NSMutableArray *tagsArr;
+@property (strong, nonatomic) Post *post;
 @end
 
 @implementation ComposeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tagsArr = [NSMutableArray new];
 }
 
 - (IBAction)onCancel:(id)sender {
-    
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
 - (IBAction)onPost:(id)sender {
-    
-    // TODO: Send post to Parse
-    
-    [self dismissViewControllerAnimated:true completion:nil];
+    [Post postUserImage:nil withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Post Success");
+            [self dismissViewControllerAnimated:true completion:nil];
+        } else {
+            NSLog(@"Post Fail");
+        }
+    }];
 }
 
 - (IBAction)onCamera:(id)sender {
+    
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
+- (IBAction)onLibrary:(id)sender {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    
+    //TODO: resize image using resizeImage func
+    
+    //TODO: save the image to post object
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+- (IBAction)onFood:(id)sender {
+    [self.tagsArr addObject:@"Food"];
+}
+
+- (IBAction)onMuseums:(id)sender {
+    [self.tagsArr addObject:@"Museums"];
+}
+
+- (IBAction)onNL:(id)sender {
+    [self.tagsArr addObject:@"Night Life"];
+}
+
+- (IBAction)onCommerce:(id)sender {
+    [self.tagsArr addObject:@"Commerce"];
+}
+
+- (IBAction)onEntertainment:(id)sender {
+    [self.tagsArr addObject:@"Entertainment"];
+}
 
 /*
 #pragma mark - Navigation
