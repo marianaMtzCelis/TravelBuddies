@@ -189,7 +189,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bcna" translatesAutoresizingMaskIntoConstraints="NO" id="KHN-N2-JRn">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bcna" translatesAutoresizingMaskIntoConstraints="NO" id="KHN-N2-JRn" customClass="PFImageView">
                                 <rect key="frame" x="16" y="79" width="343" height="211"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -240,26 +240,41 @@
                                 <rect key="frame" x="314" y="553" width="35" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Food"/>
+                                <connections>
+                                    <action selector="onFood:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="g6l-mR-lEx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-0g-uJg">
                                 <rect key="frame" x="282" y="581" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Museums"/>
+                                <connections>
+                                    <action selector="onMuseums:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="beW-ty-COL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQ7-6q-ZTT">
                                 <rect key="frame" x="252" y="671" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Entertainment"/>
+                                <connections>
+                                    <action selector="onEntertainment:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="iug-uL-IcH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abO-kW-3ef">
                                 <rect key="frame" x="274" y="642" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Commerce"/>
+                                <connections>
+                                    <action selector="onCommerce:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="L5f-aW-2tM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kG3-v1-2Ii">
                                 <rect key="frame" x="282" y="612" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Night Life"/>
+                                <connections>
+                                    <action selector="onNL:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="t7N-l2-Rn1"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fxo-w8-bof">
                                 <rect key="frame" x="16" y="483" width="340" height="5"/>
@@ -320,6 +335,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cameraButton" destination="CMG-5u-rxl" id="ppX-fs-2zb"/>
+                        <outlet property="cityTextBox" destination="6J7-WK-B4k" id="laQ-wG-dUx"/>
+                        <outlet property="placeTextBox" destination="Qqt-QL-SN1" id="eX0-ii-L62"/>
+                        <outlet property="postPictureView" destination="PNT-aR-kF2" id="FZC-Ko-WpS"/>
+                        <outlet property="recommendationsTextView" destination="PIr-Mi-yWs" id="Pgn-LH-4AV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5S-fd-fwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
