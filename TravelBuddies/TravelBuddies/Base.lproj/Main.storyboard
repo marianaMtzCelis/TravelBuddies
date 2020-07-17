@@ -452,7 +452,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ard-5P-CCQ">
             <objects>
-                <tabBarController id="RcY-Ci-aOS" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="TimelineViewController" storyboardIdentifier="TimelineViewController" id="RcY-Ci-aOS" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="U8w-bE-dw4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oNS-Dl-iGr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
