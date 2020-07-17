@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="F0H-e9-W2W">
             <objects>
-                <viewController id="kmk-pJ-xL4" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" id="kmk-pJ-xL4" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yfv-6A-Vys">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -332,7 +332,11 @@
                         <viewLayoutGuide key="safeArea" id="fPA-H4-6Ni"/>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="7b1-Pb-6Oo">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wgo-yG-7g5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wgo-yG-7g5">
+                            <connections>
+                                <action selector="onLogout:" destination="Nmc-m7-q7w" id="Oq0-hO-x08"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="pne-sT-3M8">
                             <connections>
                                 <action selector="onCompose:" destination="Nmc-m7-q7w" id="aTv-7J-ISx"/>
@@ -984,7 +988,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="CGf-MS-xqH"/>
-        <segue reference="QX8-5p-A02"/>
+        <segue reference="kLr-IB-3rV"/>
         <segue reference="X4h-ha-z7U"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

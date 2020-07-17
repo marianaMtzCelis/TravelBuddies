@@ -8,6 +8,9 @@
 
 #import "TimelineViewController.h"
 #import "PostCell.h"
+#import "SceneDelegate.h"
+#import "LoginViewController.h"
+#import <Parse/Parse.h>
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -23,10 +26,17 @@
 }
 
 - (IBAction)onCompose:(id)sender {
-    
     [self performSegueWithIdentifier:@"composeSegue" sender:nil];
 }
 
+- (IBAction)onLogout:(id)sender {
+    SceneDelegate *sceneDelegate = (SceneDelegate *) self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    sceneDelegate.window.rootViewController = loginViewController;
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {}];
+    NSLog(@"User logged out successfully");
+}
 
 /*
 #pragma mark - Navigation
@@ -41,7 +51,6 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    
     return cell;
 }
 
