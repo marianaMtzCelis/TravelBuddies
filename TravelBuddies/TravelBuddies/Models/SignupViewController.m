@@ -7,6 +7,7 @@
 //
 
 #import "SignupViewController.h"
+#import <Parse/Parse.h>
 
 @interface SignupViewController ()
 
@@ -25,7 +26,30 @@
 }
 
 - (IBAction)onSignup:(id)sender {
-    [self performSegueWithIdentifier:@"signupSuccessSegue" sender:nil];
+    
+    if ([self.usernameTextField.text isEqual:@""] || [self.passwordTextField.text isEqual:@""] || [self.emailTextField.text isEqual:@""]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"All Fields Required" message:@"Please enter your email, username, and password" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { }];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:^{ }];
+        
+    } else {
+        PFUser *newUser = [PFUser user];
+        newUser.username = self.usernameTextField.text;
+        newUser.password = self.passwordTextField.text;
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+            if (error != nil) {
+                NSLog(@"Error: %@", error.localizedDescription);
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:(UIAlertControllerStyleAlert)];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+                [alert addAction:okAction];
+                [self presentViewController:alert animated:YES completion:^{}];
+            } else {
+                NSLog(@"User registered successfully");
+                [self performSegueWithIdentifier:@"signupSuccessSegue" sender:nil];
+            }
+        }];
+    }
 }
 
 - (IBAction)onCancel:(id)sender {
@@ -34,13 +58,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
