@@ -12,6 +12,7 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import "Post.h"
+#import "PFImageView.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -40,12 +41,6 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = (NSMutableArray *)posts;
-            
-            for (Post *post in posts) {
-                NSString *creator = post.author.username;
-                NSLog(@"%@", creator);
-            }
-             
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -79,7 +74,20 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+    
+    Post *post = self.posts[indexPath.row];
+    cell.post = post;
+       
+    cell.photoView.file = nil;
+    cell.photoView.file = post.image;
+    [cell.photoView loadInBackground];
+    
+    cell.usernameLabel.text = post.author.username;
+    cell.cityLabel.text = post.city;
+    
+    //TODO: Add user pp
+    
     return cell;
 }
 

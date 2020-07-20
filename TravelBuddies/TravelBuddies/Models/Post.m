@@ -32,6 +32,7 @@
     newPost.caption = caption;
     newPost.likeCount = @(0);
     newPost.place = place;
+    newPost.city = city;
     newPost.tags = tags;
     
     [newPost saveInBackgroundWithBlock: completion];
