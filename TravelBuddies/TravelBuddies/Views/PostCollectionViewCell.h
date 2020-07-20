@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
+#import <Parse/Parse.h>
+#import "PFImageView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PostCollectionViewCell : UICollectionViewCell
+
+@property (strong, nonatomic) Post *post;
+
+@property (weak, nonatomic) IBOutlet PFImageView *postPhotoView;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 @end
 

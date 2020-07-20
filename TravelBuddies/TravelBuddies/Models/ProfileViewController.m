@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *posts;
+@property (nonatomic, strong) NSMutableArray *filteredData;
 @end
 
 @implementation ProfileViewController
@@ -43,6 +44,7 @@
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -73,6 +75,15 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
+    
+    Post *post = self.posts[indexPath.row];
+    cell.post = post;
+       
+    cell.postPhotoView.file = nil;
+    cell.postPhotoView.file = post.image;
+    [cell.postPhotoView loadInBackground];
+
+    cell.cityLabel.text = post.city;
     
     return cell;
 }
