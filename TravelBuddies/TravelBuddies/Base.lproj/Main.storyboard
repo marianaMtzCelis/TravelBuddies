@@ -335,7 +335,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cameraButton" destination="CMG-5u-rxl" id="ppX-fs-2zb"/>
-                        <outlet property="cityTextBox" destination="6J7-WK-B4k" id="laQ-wG-dUx"/>
+                        <outlet property="cityTextBox" destination="6J7-WK-B4k" id="gcF-Pd-ZcE"/>
                         <outlet property="placeTextBox" destination="Qqt-QL-SN1" id="eX0-ii-L62"/>
                         <outlet property="postPictureView" destination="KHN-N2-JRn" id="urV-EK-lxH"/>
                         <outlet property="recommendationsTextView" destination="PIr-Mi-yWs" id="Pgn-LH-4AV"/>
@@ -406,10 +406,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cityLabel" destination="aTA-yR-Uqh" id="ihA-Vo-t7f"/>
                                             <outlet property="favButton" destination="s8n-Mr-TN5" id="tYJ-mM-wN2"/>
                                             <outlet property="photoView" destination="1Uq-JH-fgH" id="E3Y-Xl-gPc"/>
                                             <outlet property="ppView" destination="A2W-vB-d9b" id="EFN-tF-AAM"/>
                                             <outlet property="saveButton" destination="nxp-Uk-2DG" id="Pj5-K0-Fny"/>
+                                            <outlet property="usernameLabel" destination="f1w-B1-zTP" id="HO3-Xi-obe"/>
                                             <segue destination="i0k-Ko-Obh" kind="show" identifier="feedDetailsSegue" id="kLr-IB-3rV"/>
                                         </connections>
                                     </tableViewCell>
@@ -1076,7 +1078,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="CGf-MS-xqH"/>
-        <segue reference="6YX-63-fQY"/>
+        <segue reference="kLr-IB-3rV"/>
         <segue reference="X4h-ha-z7U"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
