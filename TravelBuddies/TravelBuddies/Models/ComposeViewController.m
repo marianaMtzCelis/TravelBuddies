@@ -33,7 +33,7 @@
 }
 
 - (IBAction)onPost:(id)sender {
-    [Post postUserImage:nil withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Post Success");
             [self dismissViewControllerAnimated:true completion:nil];
@@ -75,9 +75,11 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     //TODO: resize image using resizeImage func
+    //TODO: place image on postPictureView
+    //self.postPictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(360, 169)];
+    self.postPictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(150, 150)];
+    //self.postPictureView.image = editedImage;
     
-    //TODO: save the image to post object
-
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
