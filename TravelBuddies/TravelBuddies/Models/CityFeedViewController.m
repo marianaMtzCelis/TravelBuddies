@@ -7,10 +7,15 @@
 //
 
 #import "CityFeedViewController.h"
+#import <Parse/Parse.h>
+#import "PostCell.h"
+#import "Post.h"
+#import "PostDetailsViewController.h"
 
 @interface CityFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *posts;
 
 @end
 
@@ -20,17 +25,42 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    [self getTimeline];
 }
 
-/*
+-(void)getTimeline {
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    [query includeKey:@"author"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.posts = (NSMutableArray *)posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        //[self.refreshControl endRefreshing];
+    }];
+}
+
+
  #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     
+     if ([[segue identifier] isEqualToString:@"cityPostDetailsSegue"]) {
+            PostCell *tappedCell = sender;
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+            Post *post = self.posts[indexPath.row];
+            PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
+            postDetailsViewController.post = post;
+        }
  }
- */
+ 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
@@ -39,8 +69,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //TODO: proper quantity
-    return 30;
+    return self.posts.count;
 }
 
 

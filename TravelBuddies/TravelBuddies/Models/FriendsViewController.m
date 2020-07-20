@@ -8,9 +8,12 @@
 
 #import "FriendsViewController.h"
 #import "PostCollectionViewCell.h"
+#import "ProfileCell.h"
+#import "PostDetailsViewController.h"
 
 @interface FriendsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray *posts;
 @property (weak, nonatomic) IBOutlet UIImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @end
@@ -25,7 +28,7 @@
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 35;
     
-    //TODO: fetch data
+    [self getTimeline];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     CGFloat postersPerLine = 2;
@@ -34,15 +37,38 @@
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
 }
 
-/*
-#pragma mark - Navigation
+-(void)getTimeline {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    [query includeKey:@"author"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.posts = (NSMutableArray *)posts;
+            [self.collectionView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        //[self.refreshControl endRefreshing];
+    }];
 }
-*/
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"friendsPostDetailsSegue"]) {
+        ProfileCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.row];
+        PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
+        postDetailsViewController.post = post;
+    }
+    
+}
+
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
@@ -52,8 +78,7 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    return 30;
+    return self.posts.count;
 }
 
 @end
