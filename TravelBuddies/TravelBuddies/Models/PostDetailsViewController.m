@@ -7,13 +7,18 @@
 //
 
 #import "PostDetailsViewController.h"
+#import <Parse/Parse.h>
+#import "PFImageView.h"
+#import "DateTools.h"
+#import "NSDate+TimeAgo.h"
 
 @interface PostDetailsViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *photoView;
+@property (weak, nonatomic) IBOutlet PFImageView *photoView;
 @property (weak, nonatomic) IBOutlet UIImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *placeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -26,6 +31,23 @@
     [super viewDidLoad];
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 25;
+    
+    self.photoView.file = nil;
+    self.photoView.file = self.post.image;
+    [self.photoView loadInBackground];
+    
+    self.usernameLabel.text = self.post.author.username;
+    self.cityLabel.text = self.post.city;
+    self.placeLabel.text = self.post.place;
+    self.recommendationsLabel.text = self.post.caption;
+    
+    NSDate *createdAt = [self.post createdAt];
+    NSString *ago = [createdAt timeAgo];
+    NSString *createdAtString = ago;
+    self.dateLabel.text = createdAtString;
+    
+    //TODO: User profile picture
+    //TODO: MAP
 }
 
 - (IBAction)onHeart:(id)sender {
