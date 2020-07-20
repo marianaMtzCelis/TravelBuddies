@@ -755,6 +755,7 @@
                     <navigationItem key="navigationItem" id="Nh3-JO-tZ1"/>
                     <connections>
                         <outlet property="ppView" destination="zgx-E1-6xi" id="iwi-KS-hCw"/>
+                        <outlet property="usernameLabel" destination="kpL-pa-bvH" id="hSo-Fq-UMb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szk-A5-rXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
