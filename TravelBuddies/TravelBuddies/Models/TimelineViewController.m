@@ -11,10 +11,13 @@
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
+#import "Post.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *posts;
 @end
 
 @implementation TimelineViewController
@@ -23,6 +26,32 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self getTimeline];
+}
+
+-(void)getTimeline {
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    [query includeKey:@"author"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.posts = (NSMutableArray *)posts;
+            
+            for (Post *post in posts) {
+                NSString *creator = post.author.username;
+                NSLog(@"%@", creator);
+            }
+             
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        //[self.refreshControl endRefreshing];
+    }];
 }
 
 - (IBAction)onCompose:(id)sender {
@@ -55,9 +84,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    //TODO: proper quantity
-    return 30;
+    return self.posts.count;
 }
 
 @end
