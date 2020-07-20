@@ -28,6 +28,11 @@
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 35;
     
+    PFUser *user = [PFUser currentUser];
+    self.usernameLabel.text = user.username;
+    
+    //TODO: Add pp
+    
     [self getTimeline];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
