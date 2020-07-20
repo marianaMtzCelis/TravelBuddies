@@ -15,19 +15,24 @@
 #import "PFImageView.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (nonatomic, strong) NSMutableArray *posts;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation TimelineViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
     [self getTimeline];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 }
 
 -(void)getTimeline {
@@ -45,7 +50,7 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
-        //[self.refreshControl endRefreshing];
+        [self.refreshControl endRefreshing];
     }];
 }
 
