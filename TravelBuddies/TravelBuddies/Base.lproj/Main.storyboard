@@ -383,7 +383,7 @@
                                                     <rect key="frame" x="21" y="11" width="339" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2020-07-15 at 17.32.53" translatesAutoresizingMaskIntoConstraints="NO" id="A2W-vB-d9b">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A2W-vB-d9b" customClass="PFImageView">
                                                     <rect key="frame" x="20" y="145" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -825,7 +825,7 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2020-07-15 at 17.32.53" translatesAutoresizingMaskIntoConstraints="NO" id="rrf-66-yx4">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rrf-66-yx4" customClass="PFImageView">
                                         <rect key="frame" x="16" y="292" width="54" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1098,7 +1098,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="9Lm-T6-sxv"/>
-        <segue reference="ihj-4O-msV"/>
+        <segue reference="kLr-IB-3rV"/>
         <segue reference="MO5-PM-Pvq"/>
         <segue reference="X4h-ha-z7U"/>
     </inferredMetricsTieBreakers>
