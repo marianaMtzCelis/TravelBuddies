@@ -97,7 +97,11 @@
     cell.usernameLabel.text = post.author.username;
     cell.cityLabel.text = post.city;
     
-    //TODO: Add user pp
+    cell.ppView.file = nil;
+    cell.ppView.file = cell.post.author[@"profilePicture"];
+    [cell.photoView loadInBackground];
+    cell.ppView.layer.masksToBounds = true;
+    cell.ppView.layer.cornerRadius = 25;
     
     return cell;
 }
