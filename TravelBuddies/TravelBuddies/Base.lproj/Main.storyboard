@@ -633,26 +633,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="147" height="203"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGg-6b-kfR">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGg-6b-kfR" customClass="PFImageView">
                                                     <rect key="frame" x="8" y="8" width="131" height="187"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukf-xi-ilc">
+                                                    <rect key="frame" x="13" y="9" width="115" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="147" height="203"/>
                                         <connections>
+                                            <outlet property="cityLabel" destination="ukf-xi-ilc" id="NmK-A3-at5"/>
+                                            <outlet property="postPhotoView" destination="gGg-6b-kfR" id="aoV-dA-Dkl"/>
                                             <segue destination="i0k-Ko-Obh" kind="show" identifier="profileDetailsSegue" id="ihj-4O-msV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2020-07-15 at 17.32.53" translatesAutoresizingMaskIntoConstraints="NO" id="s38-S7-IAv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="s38-S7-IAv" customClass="PFImageView">
                                 <rect key="frame" x="16" y="101" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="marianaMtzC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC7-lz-8Qn">
-                                <rect key="frame" x="89" y="107" width="127" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC7-lz-8Qn">
+                                <rect key="frame" x="90" y="107" width="126" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -667,6 +676,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onEdit:" destination="mCG-LD-4n2" eventType="touchUpInside" id="0cR-he-1qK"/>
+                                    <segue destination="x5j-j5-K8D" kind="show" identifier="editSegue" id="evQ-M5-BqN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRv-P5-uvX">
@@ -686,7 +696,6 @@
                         <outlet property="collectionView" destination="ekF-B1-mh4" id="VEv-bV-uJy"/>
                         <outlet property="ppView" destination="s38-S7-IAv" id="ayL-8C-FLk"/>
                         <outlet property="usernameLabel" destination="XC7-lz-8Qn" id="qyY-AE-Gat"/>
-                        <segue destination="x5j-j5-K8D" kind="show" identifier="editSegue" id="uZn-33-EvE"/>
                         <segue destination="QwW-aZ-pSN" kind="show" identifier="savedSegue" id="9Lm-T6-sxv"/>
                     </connections>
                 </viewController>
@@ -747,11 +756,13 @@
                     <navigationItem key="navigationItem" id="Nh3-JO-tZ1"/>
                     <connections>
                         <outlet property="ppView" destination="zgx-E1-6xi" id="iwi-KS-hCw"/>
+                        <outlet property="usernameLabel" destination="kpL-pa-bvH" id="hSo-Fq-UMb"/>
+                        <segue destination="1GC-Oq-cu5" kind="presentation" identifier="refreshPPSegue" modalPresentationStyle="fullScreen" id="MO5-PM-Pvq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szk-A5-rXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4112.8000000000002" y="1002.7093596059113"/>
+            <point key="canvasLocation" x="4140" y="1003"/>
         </scene>
         <!--Profile-->
         <scene sceneID="0Vl-j8-Ndr">
@@ -759,6 +770,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1GC-Oq-cu5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person" id="WLs-cC-6Ec"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PLB-57-ziN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oQ3-zi-cOu">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1036,7 +1048,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCollectionViewCell" id="CqE-ZR-Dwv" customClass="PostCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCollectionViewCell" id="CqE-ZR-Dwv">
                                         <rect key="frame" x="0.0" y="0.0" width="147" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CZe-Yf-am1">
@@ -1085,8 +1097,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CGf-MS-xqH"/>
-        <segue reference="6YX-63-fQY"/>
+        <segue reference="9Lm-T6-sxv"/>
+        <segue reference="ihj-4O-msV"/>
+        <segue reference="MO5-PM-Pvq"/>
         <segue reference="X4h-ha-z7U"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

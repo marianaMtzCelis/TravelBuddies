@@ -10,12 +10,14 @@
 #import "PostCollectionViewCell.h"
 #import "ProfileCell.h"
 #import "PostDetailsViewController.h"
+#import "PFImageView.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *ppView;
+@property (weak, nonatomic) IBOutlet PFImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *posts;
+@property (nonatomic, strong) NSMutableArray *filteredData;
 @end
 
 @implementation ProfileViewController
@@ -24,8 +26,15 @@
     [super viewDidLoad];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    PFUser *user = [PFUser currentUser];
+    self.usernameLabel.text = user.username;
+    
+    self.ppView.file = nil;
+    self.ppView.file = user[@"profilePicture"];
+    [self.ppView loadInBackground];
     self.ppView.layer.masksToBounds = true;
-    self.ppView.layer.cornerRadius = 35;
+    self.ppView.layer.cornerRadius = 32;
     
     [self getTimeline];
     
@@ -43,6 +52,7 @@
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -74,6 +84,15 @@
     
     PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
     
+    Post *post = self.posts[indexPath.row];
+    cell.post = post;
+       
+    cell.postPhotoView.file = nil;
+    cell.postPhotoView.file = post.image;
+    [cell.postPhotoView loadInBackground];
+
+    cell.cityLabel.text = post.city;
+    
     return cell;
 }
 
@@ -86,7 +105,7 @@
 }
 
 - (IBAction)onEdit:(id)sender {
-    [self performSegueWithIdentifier:@"editSegue" sender:nil];
+    //[self performSegueWithIdentifier:@"editSegue" sender:nil];
 }
 
 
