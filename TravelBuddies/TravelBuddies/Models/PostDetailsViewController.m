@@ -15,7 +15,7 @@
 @interface PostDetailsViewController ()
 
 @property (weak, nonatomic) IBOutlet PFImageView *photoView;
-@property (weak, nonatomic) IBOutlet UIImageView *ppView;
+@property (weak, nonatomic) IBOutlet PFImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeLabel;
@@ -29,8 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.ppView.layer.masksToBounds = true;
-    self.ppView.layer.cornerRadius = 25;
     
     self.photoView.file = nil;
     self.photoView.file = self.post.image;
@@ -46,7 +44,12 @@
     NSString *createdAtString = ago;
     self.dateLabel.text = createdAtString;
     
-    //TODO: User profile picture
+    self.ppView.file = nil;
+    self.ppView.file = self.post.author[@"profilePicture"];
+    [self.ppView loadInBackground];
+    self.ppView.layer.masksToBounds = true;
+    self.ppView.layer.cornerRadius = 25;
+    
     //TODO: MAP
 }
 
