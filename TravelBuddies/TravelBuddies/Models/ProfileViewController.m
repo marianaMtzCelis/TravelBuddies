@@ -10,9 +10,10 @@
 #import "PostCollectionViewCell.h"
 #import "ProfileCell.h"
 #import "PostDetailsViewController.h"
+#import "PFImageView.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *ppView;
+@property (weak, nonatomic) IBOutlet PFImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *posts;
@@ -25,13 +26,15 @@
     [super viewDidLoad];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.ppView.layer.masksToBounds = true;
-    self.ppView.layer.cornerRadius = 35;
     
     PFUser *user = [PFUser currentUser];
     self.usernameLabel.text = user.username;
     
-    //TODO: Add pp
+    self.ppView.file = nil;
+    self.ppView.file = user[@"profilePicture"];
+    [self.ppView loadInBackground];
+    self.ppView.layer.masksToBounds = true;
+    self.ppView.layer.cornerRadius = 32;
     
     [self getTimeline];
     
@@ -102,7 +105,7 @@
 }
 
 - (IBAction)onEdit:(id)sender {
-    [self performSegueWithIdentifier:@"editSegue" sender:nil];
+    //[self performSegueWithIdentifier:@"editSegue" sender:nil];
 }
 
 

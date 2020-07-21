@@ -59,6 +59,7 @@
     [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Changed Profile Picture");
+            [self performSegueWithIdentifier:@"refreshPPSegue" sender:nil];
         } else {
             NSLog(@"Error changing profile picture");
         }
