@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "Post.h"
+#import "PFImageView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileCell : UITableViewCell
-@property (strong, nonatomic) Post *post;
+@property (strong, nonatomic) PFUser *user;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *ppView;
+@property (weak, nonatomic) IBOutlet PFImageView *ppView;
 @end
 
 NS_ASSUME_NONNULL_END

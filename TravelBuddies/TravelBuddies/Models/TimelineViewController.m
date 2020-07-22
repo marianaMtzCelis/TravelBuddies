@@ -99,7 +99,7 @@
     
     cell.ppView.file = nil;
     cell.ppView.file = cell.post.author[@"profilePicture"];
-    [cell.photoView loadInBackground];
+    [cell.ppView loadInBackground];
     cell.ppView.layer.masksToBounds = true;
     cell.ppView.layer.cornerRadius = 25;
     

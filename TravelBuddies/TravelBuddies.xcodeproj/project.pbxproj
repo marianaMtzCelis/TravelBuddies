@@ -22,6 +22,7 @@
 		28844EF124BE21B90062ABF1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EF024BE21B90062ABF1 /* SearchViewController.m */; };
 		28844EF424BE22280062ABF1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EF324BE22280062ABF1 /* ProfileViewController.m */; };
 		2889A39524BD0BC700272651 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 2889A39424BD0BC700272651 /* Post.m */; };
+		28D027BE24C8ACBA00079294 /* CitiesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D027BD24C8ACBA00079294 /* CitiesCell.m */; };
 		28D388BD24BF70230078A67C /* CityFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D388BC24BF70230078A67C /* CityFeedViewController.m */; };
 		28E6084F24BCC0C600C564E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6084E24BCC0C600C564E6 /* AppDelegate.m */; };
 		28E6085224BCC0C600C564E6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6085124BCC0C600C564E6 /* SceneDelegate.m */; };
@@ -82,6 +83,8 @@
 		28844EF324BE22280062ABF1 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = TravelBuddies/Models/ProfileViewController.m; sourceTree = SOURCE_ROOT; };
 		2889A39324BD0BC700272651 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		2889A39424BD0BC700272651 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		28D027BC24C8ACBA00079294 /* CitiesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesCell.h; sourceTree = "<group>"; };
+		28D027BD24C8ACBA00079294 /* CitiesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesCell.m; sourceTree = "<group>"; };
 		28D388BB24BF70230078A67C /* CityFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CityFeedViewController.h; path = TravelBuddies/Models/CityFeedViewController.h; sourceTree = SOURCE_ROOT; };
 		28D388BC24BF70230078A67C /* CityFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CityFeedViewController.m; path = TravelBuddies/Models/CityFeedViewController.m; sourceTree = SOURCE_ROOT; };
 		28E6084A24BCC0C600C564E6 /* TravelBuddies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelBuddies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +216,8 @@
 				285CBD9A24C0B60B00AEF4A3 /* CityCell.m */,
 				285CBDA224C0FF0900AEF4A3 /* PostCollectionViewCell.h */,
 				285CBDA324C0FF0900AEF4A3 /* PostCollectionViewCell.m */,
+				28D027BC24C8ACBA00079294 /* CitiesCell.h */,
+				28D027BD24C8ACBA00079294 /* CitiesCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -530,6 +535,7 @@
 				285CA9A424BE2DF1006D98F9 /* ComposeViewController.m in Sources */,
 				28844EEB24BE162D0062ABF1 /* SignupViewController.m in Sources */,
 				285CBDA424C0FF0900AEF4A3 /* PostCollectionViewCell.m in Sources */,
+				28D027BE24C8ACBA00079294 /* CitiesCell.m in Sources */,
 				28E6085224BCC0C600C564E6 /* SceneDelegate.m in Sources */,
 				285CA9A724BE5700006D98F9 /* PostCell.m in Sources */,
 				285CBD9B24C0B60B00AEF4A3 /* CityCell.m in Sources */,
