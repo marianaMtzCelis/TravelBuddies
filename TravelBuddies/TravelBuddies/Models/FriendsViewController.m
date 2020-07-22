@@ -7,14 +7,16 @@
 //
 
 #import "FriendsViewController.h"
-#import "PostCollectionViewCell.h"
+#import "FriendsCollectionViewCell.h"
 #import "ProfileCell.h"
 #import "PostDetailsViewController.h"
+#import <Parse/Parse.h>
+#import "PFImageView.h"
 
 @interface FriendsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *posts;
-@property (weak, nonatomic) IBOutlet UIImageView *ppView;
+@property (weak, nonatomic) IBOutlet PFImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @end
 
@@ -28,6 +30,8 @@
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 35;
     
+    //self.user = [PFUser currentUser];
+    
     [self getTimeline];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
@@ -35,6 +39,14 @@
     CGFloat itemWidth = self.collectionView.frame.size.width / postersPerLine;
     CGFloat itemHeight = itemWidth * 1.5;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+
+    self.usernameLabel.text = self.user.username;
+    
+    self.ppView.file = nil;
+    self.ppView.file = self.user[@"profilePicture"];
+    [self.ppView loadInBackground];
+    self.ppView.layer.masksToBounds = true;
+    self.ppView.layer.cornerRadius = 32;
 }
 
 -(void)getTimeline {
@@ -43,8 +55,8 @@
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
+    [query whereKey:@"author" equalTo:self.user];
 
-    // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = (NSMutableArray *)posts;
@@ -52,7 +64,6 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
-        //[self.refreshControl endRefreshing];
     }];
 }
 
@@ -72,7 +83,18 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    PostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
+    FriendsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FriendsCollectionViewCell" forIndexPath:indexPath];
+    
+    Post *post = self.posts[indexPath.row];
+    cell.post = post;
+       
+    cell.postPhotoView.file = nil;
+    cell.postPhotoView.file = post.image;
+    [cell.postPhotoView loadInBackground];
+
+    cell.cityLabel.text = post.city;
+    
+    return cell;
     
     return cell;
 }
