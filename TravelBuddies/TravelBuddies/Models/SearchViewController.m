@@ -13,6 +13,7 @@
 #import "PFImageView.h"
 #import "Post.h"
 #import "PostDetailsViewController.h"
+#import "FriendsViewController.h"
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -35,6 +36,7 @@
     
     [self getPeople];
     [self getTimeline];
+    
 }
 
 
@@ -47,6 +49,13 @@
          Post *post = self.filteredCities[indexPath.row];
          PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
          postDetailsViewController.post = post;
+         
+     } else if ([[segue identifier] isEqualToString:@"discoverProfileSegue"]) {
+         ProfileCell *tappedCell = sender;
+         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+         PFUser *user = self.filteredPeople[indexPath.row];
+         FriendsViewController *friendsViewController = [segue destinationViewController];
+         friendsViewController.user = user;
      }
 
  }
