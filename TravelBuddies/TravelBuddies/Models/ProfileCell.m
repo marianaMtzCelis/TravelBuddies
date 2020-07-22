@@ -12,8 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.ppView.layer.masksToBounds = true;
-    self.ppView.layer.cornerRadius = 35;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

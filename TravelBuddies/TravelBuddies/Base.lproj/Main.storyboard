@@ -455,7 +455,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="94" id="641-Ce-56a" customClass="CityCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CitiesCell" rowHeight="94" id="641-Ce-56a" customClass="CityCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="641-Ce-56a" id="x6e-jr-ooV" customClass="CityCell">
@@ -757,7 +757,7 @@
                     <connections>
                         <outlet property="ppView" destination="zgx-E1-6xi" id="iwi-KS-hCw"/>
                         <outlet property="usernameLabel" destination="kpL-pa-bvH" id="hSo-Fq-UMb"/>
-                        <segue destination="1GC-Oq-cu5" kind="presentation" identifier="refreshPPSegue" modalPresentationStyle="fullScreen" id="MO5-PM-Pvq"/>
+                        <segue destination="RcY-Ci-aOS" kind="presentation" identifier="refreshPPSegue" modalPresentationStyle="fullScreen" id="fTW-5h-RqQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szk-A5-rXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1099,8 +1099,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="CGf-MS-xqH"/>
         <segue reference="6YX-63-fQY"/>
-        <segue reference="MO5-PM-Pvq"/>
-        <segue reference="X4h-ha-z7U"/>
+        <segue reference="fTW-5h-RqQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
