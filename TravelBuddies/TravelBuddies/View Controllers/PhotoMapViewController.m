@@ -30,14 +30,24 @@
     [super didReceiveMemoryWarning];
 }
 
-/*
+- (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
+    MKPointAnnotation *annotation = [MKPointAnnotation new];
+    annotation.coordinate = coordinate;
+    annotation.title = @"Picture!";
+    [self.mapView addAnnotation:annotation];
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+
  #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     
+     if ([segue.identifier isEqualToString:@"locSegue"]) {
+         LocationsViewController *locationsViewController = [segue destinationViewController];
+         locationsViewController.delegate = self;
+     }
  }
- */
+ 
 
 @end
