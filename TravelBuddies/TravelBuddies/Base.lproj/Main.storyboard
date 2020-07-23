@@ -78,7 +78,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="hCz-ow-AsR"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="EUz-wi-KjO" appends="YES" id="kNV-zW-kge"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Qod-Jh-Zn6" id="9sy-x8-qBG"/>
@@ -88,6 +92,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rt8-TO-fEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="EUz-wi-KjO">
+                    <connections>
+                        <action selector="onTap:" destination="kmk-pJ-xL4" id="IDk-TD-KPI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="149.59999999999999" y="-1212.5615763546798"/>
         </scene>
