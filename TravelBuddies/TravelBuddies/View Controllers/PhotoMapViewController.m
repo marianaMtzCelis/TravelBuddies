@@ -13,6 +13,8 @@
 @interface PhotoMapViewController ()
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) NSNumber *lat;
+@property (strong, nonatomic) NSNumber *lng;
 
 @end
 
@@ -31,12 +33,19 @@
 }
 
 - (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+    self.lat = latitude;
+    self.lng = longitude;
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
     MKPointAnnotation *annotation = [MKPointAnnotation new];
     annotation.coordinate = coordinate;
     annotation.title = @"Picture!";
     [self.mapView addAnnotation:annotation];
     [self.navigationController popToViewController:self animated:YES];
+}
+
+- (IBAction)onSave:(id)sender {
+    //TODO: Send lng and lat to new post
+    
 }
 
 

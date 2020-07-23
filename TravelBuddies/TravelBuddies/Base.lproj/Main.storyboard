@@ -329,6 +329,9 @@
                                         <rect key="frame" x="302" y="292" width="65" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="pin"/>
+                                        <connections>
+                                            <action selector="onPin:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="8aQ-bu-88T"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="VpG-U0-aDW"/>
@@ -360,6 +363,7 @@
                         <outlet property="placeTextBox" destination="Qqt-QL-SN1" id="eX0-ii-L62"/>
                         <outlet property="postPictureView" destination="KHN-N2-JRn" id="urV-EK-lxH"/>
                         <outlet property="recommendationsTextView" destination="PIr-Mi-yWs" id="Pgn-LH-4AV"/>
+                        <segue destination="SJJ-hn-FnT" kind="show" identifier="detailsMapSegue" id="Z10-D4-sBv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5S-fd-fwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -963,7 +967,6 @@
                         <outlet property="recommendationsLabel" destination="cGd-rg-3F9" id="XeI-JE-zS8"/>
                         <outlet property="saveButton" destination="9ma-oc-3Mi" id="G8X-ax-W1h"/>
                         <outlet property="usernameLabel" destination="h8i-7J-4Zp" id="6KE-lY-9Ku"/>
-                        <segue destination="SJJ-hn-FnT" kind="show" identifier="detailsMapSegue" id="VAI-mh-udN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DU6-dW-qNQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -975,7 +978,7 @@
             <objects>
                 <viewController id="SJJ-hn-FnT" customClass="PhotoMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dg5-5X-DYy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GGD-67-qDJ">
@@ -994,21 +997,27 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="G37-aO-2so"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zGy-lk-Ghx"/>
+                    <navigationItem key="navigationItem" id="zGy-lk-Ghx">
+                        <barButtonItem key="rightBarButtonItem" title="Save Venue" id="DFW-eX-ZkM">
+                            <connections>
+                                <action selector="onSave:" destination="SJJ-hn-FnT" id="MEO-Fn-TnV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="GGD-67-qDJ" id="Yux-uI-Jdh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgS-pe-tf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1448.8" y="2592.8571428571431"/>
+            <point key="canvasLocation" x="150" y="3205"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="83o-hC-IsZ">
             <objects>
                 <viewController id="C4X-hP-WSR" customClass="LocationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S2L-bY-W2F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="134" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lyB-a3-UYh">
@@ -1068,7 +1077,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZg-wm-15N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1448.8" y="3360.5911330049262"/>
+            <point key="canvasLocation" x="150" y="3927"/>
         </scene>
         <!--City Feed View Controller-->
         <scene sceneID="Re6-Nb-Bhm">

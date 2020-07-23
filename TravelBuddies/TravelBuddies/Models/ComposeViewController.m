@@ -121,6 +121,10 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)onPin:(id)sender {
+    [self performSegueWithIdentifier:@"detailsMapSegue" sender:nil];
+}
+
 
 /*
 #pragma mark - Navigation

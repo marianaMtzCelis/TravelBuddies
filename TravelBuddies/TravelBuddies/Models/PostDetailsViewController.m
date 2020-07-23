@@ -64,7 +64,7 @@
 }
 
 - (IBAction)onPin:(id)sender {
-    [self performSegueWithIdentifier:@"detailsMapSegue" sender:nil];
+    //[self performSegueWithIdentifier:@"detailsMapSegue" sender:nil];
 }
 
 
