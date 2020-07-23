@@ -979,30 +979,30 @@
             </objects>
             <point key="canvasLocation" x="1448.8" y="1869.4581280788177"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Map View Controller-->
         <scene sceneID="fWc-X5-1Tl">
             <objects>
-                <viewController id="SJJ-hn-FnT" sceneMemberID="viewController">
+                <viewController id="SJJ-hn-FnT" customClass="PhotoMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dg5-5X-DYy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0f9-XI-Rvf">
-                                <rect key="frame" x="166" y="219" width="36" height="21"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GGD-67-qDJ">
+                                <rect key="frame" x="0.0" y="35" width="375" height="777"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="G37-aO-2so"/>
                     </view>
                     <navigationItem key="navigationItem" id="zGy-lk-Ghx"/>
+                    <connections>
+                        <outlet property="mapView" destination="GGD-67-qDJ" id="Yux-uI-Jdh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgS-pe-tf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="2593"/>
+            <point key="canvasLocation" x="1448.8" y="2592.8571428571431"/>
         </scene>
         <!--City Feed View Controller-->
         <scene sceneID="Re6-Nb-Bhm">
