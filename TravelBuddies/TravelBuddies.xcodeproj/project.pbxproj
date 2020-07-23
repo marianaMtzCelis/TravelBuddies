@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1A2149E46EAE26F8AA0A8D41 /* Pods_TravelBuddiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE849BF368A8FAC572DE213E /* Pods_TravelBuddiesTests.framework */; };
+		28520A1024C9FC150081159B /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A0F24C9FC150081159B /* PhotoMapViewController.m */; };
+		28520A1324C9FC430081159B /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A1224C9FC430081159B /* LocationsViewController.m */; };
+		28520A1624C9FC9E0081159B /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A1524C9FC9E0081159B /* LocationCell.m */; };
 		285CA9A424BE2DF1006D98F9 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */; };
 		285CA9A724BE5700006D98F9 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A624BE5700006D98F9 /* PostCell.m */; };
 		285CA9AA24BE5867006D98F9 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A924BE5867006D98F9 /* PostDetailsViewController.m */; };
@@ -56,6 +59,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28520A0E24C9FC150081159B /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
+		28520A0F24C9FC150081159B /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
+		28520A1124C9FC430081159B /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
+		28520A1224C9FC430081159B /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
+		28520A1424C9FC9E0081159B /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
+		28520A1524C9FC9E0081159B /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		285CA9A224BE2DF1006D98F9 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ComposeViewController.h; path = TravelBuddies/Models/ComposeViewController.h; sourceTree = SOURCE_ROOT; };
 		285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ComposeViewController.m; path = TravelBuddies/Models/ComposeViewController.m; sourceTree = SOURCE_ROOT; };
 		285CA9A524BE5700006D98F9 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostCell.h; path = TravelBuddies/Models/PostCell.h; sourceTree = SOURCE_ROOT; };
@@ -223,6 +232,8 @@
 				28D027BD24C8ACBA00079294 /* CitiesCell.m */,
 				28D027BF24C8F33100079294 /* FriendsCollectionViewCell.h */,
 				28D027C024C8F33100079294 /* FriendsCollectionViewCell.m */,
+				28520A1424C9FC9E0081159B /* LocationCell.h */,
+				28520A1524C9FC9E0081159B /* LocationCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,6 +270,10 @@
 				285CBD9D24C0F4D000AEF4A3 /* SettingsViewController.m */,
 				285CBD9F24C0FDA000AEF4A3 /* FriendsViewController.h */,
 				285CBDA024C0FDA000AEF4A3 /* FriendsViewController.m */,
+				28520A0E24C9FC150081159B /* PhotoMapViewController.h */,
+				28520A0F24C9FC150081159B /* PhotoMapViewController.m */,
+				28520A1124C9FC430081159B /* LocationsViewController.h */,
+				28520A1224C9FC430081159B /* LocationsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -532,6 +547,8 @@
 				28E6085524BCC0C600C564E6 /* ViewController.m in Sources */,
 				28844EE824BE16230062ABF1 /* LoginViewController.m in Sources */,
 				285CA9AA24BE5867006D98F9 /* PostDetailsViewController.m in Sources */,
+				28520A1024C9FC150081159B /* PhotoMapViewController.m in Sources */,
+				28520A1324C9FC430081159B /* LocationsViewController.m in Sources */,
 				28844EF424BE22280062ABF1 /* ProfileViewController.m in Sources */,
 				28844EF124BE21B90062ABF1 /* SearchViewController.m in Sources */,
 				28E6084F24BCC0C600C564E6 /* AppDelegate.m in Sources */,
@@ -540,6 +557,7 @@
 				285CA9A424BE2DF1006D98F9 /* ComposeViewController.m in Sources */,
 				28844EEB24BE162D0062ABF1 /* SignupViewController.m in Sources */,
 				285CBDA424C0FF0900AEF4A3 /* PostCollectionViewCell.m in Sources */,
+				28520A1624C9FC9E0081159B /* LocationCell.m in Sources */,
 				28D027BE24C8ACBA00079294 /* CitiesCell.m in Sources */,
 				28D027C124C8F33100079294 /* FriendsCollectionViewCell.m in Sources */,
 				28E6085224BCC0C600C564E6 /* SceneDelegate.m in Sources */,
