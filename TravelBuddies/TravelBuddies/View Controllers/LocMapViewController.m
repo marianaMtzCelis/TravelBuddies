@@ -30,7 +30,7 @@
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(self.lat.floatValue, self.lng.floatValue);
     MKPointAnnotation *annotation = [MKPointAnnotation new];
     annotation.coordinate = coordinate;
-    annotation.title = @"Picture!";
+    annotation.title = @"Here!";
     [self.mapView addAnnotation:annotation];
     [self.navigationController popToViewController:self animated:YES];
 }
