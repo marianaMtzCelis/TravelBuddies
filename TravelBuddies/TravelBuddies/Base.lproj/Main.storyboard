@@ -176,7 +176,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="FKC-sW-I23"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="joN-8j-07F" appends="YES" id="UxD-h2-W3c"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="ib5-tO-EDu" id="gYr-KG-6vL"/>
@@ -187,6 +191,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ate-jj-LaL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="joN-8j-07F">
+                    <connections>
+                        <action selector="onTap:" destination="Bkd-tM-vYk" id="YnH-be-fRq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="149.59999999999999" y="-523.15270935960598"/>
         </scene>
@@ -1139,7 +1148,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="CRg-6p-88V"/>
-        <segue reference="fTW-5h-RqQ"/>
+        <segue reference="n3b-49-1io"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

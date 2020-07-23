@@ -57,6 +57,11 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:YES];
+}
+
+
 /*
  #pragma mark - Navigation
  
