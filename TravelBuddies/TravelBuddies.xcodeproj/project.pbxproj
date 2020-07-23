@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A2149E46EAE26F8AA0A8D41 /* Pods_TravelBuddiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE849BF368A8FAC572DE213E /* Pods_TravelBuddiesTests.framework */; };
+		282F4C9324CA42D60028BD53 /* LocMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282F4C9224CA42D60028BD53 /* LocMapViewController.m */; };
 		28520A1024C9FC150081159B /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A0F24C9FC150081159B /* PhotoMapViewController.m */; };
 		28520A1324C9FC430081159B /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A1224C9FC430081159B /* LocationsViewController.m */; };
 		28520A1624C9FC9E0081159B /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A1524C9FC9E0081159B /* LocationCell.m */; };
@@ -60,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		282F4C9124CA42D60028BD53 /* LocMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocMapViewController.h; sourceTree = "<group>"; };
+		282F4C9224CA42D60028BD53 /* LocMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocMapViewController.m; sourceTree = "<group>"; };
 		28520A0E24C9FC150081159B /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
 		28520A0F24C9FC150081159B /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
 		28520A1124C9FC430081159B /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 				28520A0F24C9FC150081159B /* PhotoMapViewController.m */,
 				28520A1124C9FC430081159B /* LocationsViewController.h */,
 				28520A1224C9FC430081159B /* LocationsViewController.m */,
+				282F4C9124CA42D60028BD53 /* LocMapViewController.h */,
+				282F4C9224CA42D60028BD53 /* LocMapViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				285CBDA424C0FF0900AEF4A3 /* PostCollectionViewCell.m in Sources */,
 				28520A1624C9FC9E0081159B /* LocationCell.m in Sources */,
 				28D027BE24C8ACBA00079294 /* CitiesCell.m in Sources */,
+				282F4C9324CA42D60028BD53 /* LocMapViewController.m in Sources */,
 				28D027C124C8F33100079294 /* FriendsCollectionViewCell.m in Sources */,
 				28E6085224BCC0C600C564E6 /* SceneDelegate.m in Sources */,
 				285CA9A724BE5700006D98F9 /* PostCell.m in Sources */,

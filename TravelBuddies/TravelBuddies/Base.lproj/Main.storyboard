@@ -375,6 +375,31 @@
             </objects>
             <point key="canvasLocation" x="149.59999999999999" y="2437.6847290640394"/>
         </scene>
+        <!--Loc Map View Controller-->
+        <scene sceneID="OYC-bJ-j8E">
+            <objects>
+                <viewController id="3v3-5b-e23" customClass="LocMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SeR-Fd-NWv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lnf-Qe-zxJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YEl-46-w7k"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ryp-VZ-7Bz"/>
+                    <connections>
+                        <outlet property="mapView" destination="lnf-Qe-zxJ" id="wkl-r2-0Kc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e1q-Rh-HBW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464.8" y="2599.5073891625616"/>
+        </scene>
         <!--Feed-->
         <scene sceneID="WyU-rl-GVM">
             <objects>
@@ -932,6 +957,7 @@
                                         <state key="normal" image="pin"/>
                                         <connections>
                                             <action selector="onPin:" destination="i0k-Ko-Obh" eventType="touchUpInside" id="G0U-0h-DZy"/>
+                                            <segue destination="3v3-5b-e23" kind="show" id="Zfg-iG-VtS"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A year ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8T-ng-tE1">
