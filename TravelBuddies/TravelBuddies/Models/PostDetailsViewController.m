@@ -50,6 +50,8 @@
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 25;
     
+    [self.recommendationsLabel sizeToFit];
+    
     //TODO: MAP
 }
 

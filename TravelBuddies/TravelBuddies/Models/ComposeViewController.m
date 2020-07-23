@@ -117,6 +117,11 @@
     [self.tagsArr addObject:@"Entertainment"];
 }
 
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:YES];
+}
+
+
 /*
 #pragma mark - Navigation
 
