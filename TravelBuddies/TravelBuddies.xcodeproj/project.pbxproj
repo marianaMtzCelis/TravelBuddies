@@ -11,6 +11,7 @@
 		28520A1024C9FC150081159B /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A0F24C9FC150081159B /* PhotoMapViewController.m */; };
 		28520A1324C9FC430081159B /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A1224C9FC430081159B /* LocationsViewController.m */; };
 		28520A1624C9FC9E0081159B /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A1524C9FC9E0081159B /* LocationCell.m */; };
+		28520A1824C9FFF30081159B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28520A1724C9FFF30081159B /* MapKit.framework */; };
 		285CA9A424BE2DF1006D98F9 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */; };
 		285CA9A724BE5700006D98F9 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A624BE5700006D98F9 /* PostCell.m */; };
 		285CA9AA24BE5867006D98F9 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CA9A924BE5867006D98F9 /* PostDetailsViewController.m */; };
@@ -65,6 +66,7 @@
 		28520A1224C9FC430081159B /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
 		28520A1424C9FC9E0081159B /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
 		28520A1524C9FC9E0081159B /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
+		28520A1724C9FFF30081159B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		285CA9A224BE2DF1006D98F9 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ComposeViewController.h; path = TravelBuddies/Models/ComposeViewController.h; sourceTree = SOURCE_ROOT; };
 		285CA9A324BE2DF1006D98F9 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ComposeViewController.m; path = TravelBuddies/Models/ComposeViewController.m; sourceTree = SOURCE_ROOT; };
 		285CA9A524BE5700006D98F9 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostCell.h; path = TravelBuddies/Models/PostCell.h; sourceTree = SOURCE_ROOT; };
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28520A1824C9FFF30081159B /* MapKit.framework in Frameworks */,
 				673DBEC1F3991A5B18DD8C41 /* Pods_TravelBuddies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +284,7 @@
 		BF6D440B965F7CF28ADCFC19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28520A1724C9FFF30081159B /* MapKit.framework */,
 				F4B336B360FAAE97DCA301C3 /* Pods_TravelBuddies.framework */,
 				794C607FA768F26FEAE8F09E /* Pods_TravelBuddies_TravelBuddiesUITests.framework */,
 				EE849BF368A8FAC572DE213E /* Pods_TravelBuddiesTests.framework */,
