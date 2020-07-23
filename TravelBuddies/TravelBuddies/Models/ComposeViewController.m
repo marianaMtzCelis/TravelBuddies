@@ -33,7 +33,7 @@
 }
 
 - (IBAction)onPost:(id)sender {
-    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:nil withLat:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Post Success");
             [self dismissViewControllerAnimated:true completion:nil];
@@ -119,6 +119,10 @@
 
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];
+}
+
+- (IBAction)onPin:(id)sender {
+    [self performSegueWithIdentifier:@"detailsMapSegue" sender:nil];
 }
 
 
