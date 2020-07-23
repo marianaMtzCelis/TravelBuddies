@@ -805,6 +805,10 @@
                                     <action selector="onCamera:" destination="x5j-j5-K8D" eventType="touchUpInside" id="eoF-gU-Evc"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="margin" translatesAutoresizingMaskIntoConstraints="NO" id="h2P-3P-D9u">
+                                <rect key="frame" x="16" y="106" width="343" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="qhA-vj-Jdq"/>
@@ -818,7 +822,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szk-A5-rXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4140" y="1003"/>
+            <point key="canvasLocation" x="4140" y="1002.7093596059113"/>
         </scene>
         <!--Profile-->
         <scene sceneID="0Vl-j8-Ndr">
@@ -1175,6 +1179,7 @@
         <image name="logoWhite" width="260" height="257.33334350585938"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>
+        <image name="margin" width="888" height="666"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="pin" width="64.666664123535156" height="64.666664123535156"/>
         <image name="save" width="64.666664123535156" height="64.666664123535156"/>
