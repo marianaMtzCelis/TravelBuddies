@@ -11,7 +11,6 @@
 #import "LocationsViewController.h"
 
 @interface PhotoMapViewController ()
-
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) NSNumber *lat;
 @property (strong, nonatomic) NSNumber *lng;
@@ -33,8 +32,8 @@
 }
 
 - (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
-    self.lat = latitude;
-    self.lng = longitude;
+    self.post.lat = latitude;
+    self.post.lng = longitude;
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
     MKPointAnnotation *annotation = [MKPointAnnotation new];
     annotation.coordinate = coordinate;
