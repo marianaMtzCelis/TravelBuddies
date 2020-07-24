@@ -27,11 +27,14 @@
 
 - (IBAction)onSignup:(id)sender {
     
+    self.signupButton.layer.backgroundColor = [UIColor blackColor].CGColor;
+    
     if ([self.usernameTextField.text isEqual:@""] || [self.passwordTextField.text isEqual:@""] || [self.emailTextField.text isEqual:@""]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"All Fields Required" message:@"Please enter your email, username, and password" preferredStyle:(UIAlertControllerStyleAlert)];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { }];
         [alert addAction:okAction];
         [self presentViewController:alert animated:YES completion:^{ }];
+        self.signupButton.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
         
     } else {
         PFUser *newUser = [PFUser user];

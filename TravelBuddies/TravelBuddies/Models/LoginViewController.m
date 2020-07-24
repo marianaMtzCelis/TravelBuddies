@@ -25,12 +25,15 @@
 
 - (IBAction)onLogin:(id)sender {
     
+    self.loginButton.layer.backgroundColor = [UIColor blackColor].CGColor;
+    
     if ([self.usernameTextField.text isEqual:@""] || [self.passwordTextField.text isEqual:@""]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"All Fields Required" message:@"Please enter your username and password" preferredStyle:(UIAlertControllerStyleAlert)];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { }];
         [alert addAction:okAction];
         [self presentViewController:alert animated:YES completion:^{
         }];
+        self.loginButton.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
     } else {
         NSString *username = self.usernameTextField.text;
         NSString *password = self.passwordTextField.text;
