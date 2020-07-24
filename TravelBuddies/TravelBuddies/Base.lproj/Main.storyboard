@@ -1008,7 +1008,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GGD-67-qDJ">
-                                <rect key="frame" x="0.0" y="35" width="375" height="777"/>
+                                <rect key="frame" x="0.0" y="35" width="375" height="723"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0M-OR-4kW">
@@ -1027,6 +1027,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Save Venue" id="DFW-eX-ZkM">
                             <connections>
                                 <action selector="onSave:" destination="SJJ-hn-FnT" id="MEO-Fn-TnV"/>
+                                <segue destination="cO9-aF-4Sl" kind="show" identifier="mapComposeSegue" id="bTY-s1-dgK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1036,7 +1037,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgS-pe-tf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="3205"/>
+            <point key="canvasLocation" x="149.59999999999999" y="3204.6798029556653"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="83o-hC-IsZ">
@@ -1268,6 +1269,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="CRg-6p-88V"/>
         <segue reference="n3b-49-1io"/>
+        <segue reference="bTY-s1-dgK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

@@ -13,7 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposeViewController : UIViewController
 
-@property (strong, nonatomic) Post *post;
+@property (strong, nonatomic) NSNumber *latitude;
+@property (strong, nonatomic) NSNumber *longitude;
+
 
 @end
 

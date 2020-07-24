@@ -11,9 +11,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class PhotoMapViewController;
+
+@protocol PhotoMapViewControllerDelegate
+
+- (void)photoMapViewController:(PhotoMapViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude;
+
+@end
+
 @interface PhotoMapViewController : UIViewController
 
 @property (strong, nonatomic) Post *post;
+
+@property (weak, nonatomic) id<PhotoMapViewControllerDelegate> delegate;
 
 @end
 
