@@ -11,6 +11,7 @@
 #import "PFImageView.h"
 #import "DateTools.h"
 #import "NSDate+TimeAgo.h"
+#import "LocMapViewController.h"
 
 @interface PostDetailsViewController ()
 
@@ -64,18 +65,20 @@
 }
 
 - (IBAction)onPin:(id)sender {
-    //[self performSegueWithIdentifier:@"detailsMapSegue" sender:nil];
 }
 
 
-/*
+
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"mapLocSegue"]) {
+        LocMapViewController *locMapViewController = [segue destinationViewController];
+        locMapViewController.lat = self.post.lat;
+        locMapViewController.lng = self.post.lng;
+    }
+   
 }
-*/
+
 
 @end

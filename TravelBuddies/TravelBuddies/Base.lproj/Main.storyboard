@@ -957,7 +957,7 @@
                                         <state key="normal" image="pin"/>
                                         <connections>
                                             <action selector="onPin:" destination="i0k-Ko-Obh" eventType="touchUpInside" id="G0U-0h-DZy"/>
-                                            <segue destination="3v3-5b-e23" kind="show" id="Zfg-iG-VtS"/>
+                                            <segue destination="3v3-5b-e23" kind="show" identifier="mapLocSegue" id="Zfg-iG-VtS"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A year ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8T-ng-tE1">

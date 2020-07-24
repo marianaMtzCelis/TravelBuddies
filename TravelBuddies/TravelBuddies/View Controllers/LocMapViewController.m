@@ -20,9 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.lat = [NSNumber numberWithDouble:37.77598956961178];
-    self.lng = [NSNumber numberWithDouble:-122.4197465761723];
-    
     //TODO: Change to the user's destination region
     MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
     [self.mapView setRegion:sfRegion animated:false];
