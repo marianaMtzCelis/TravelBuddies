@@ -9,9 +9,9 @@
 #import "PhotoMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "LocationsViewController.h"
+#import "ComposeViewController.h"
 
 @interface PhotoMapViewController ()
-
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) NSNumber *lat;
 @property (strong, nonatomic) NSNumber *lng;
@@ -33,8 +33,12 @@
 }
 
 - (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
-    self.lat = latitude;
-    self.lng = longitude;
+    double lt = [latitude doubleValue];
+    double ln = [longitude doubleValue];
+    self.lat = [NSNumber numberWithDouble:lt];
+    self.lng = [NSNumber numberWithDouble:ln];
+    [self.delegate photoMapViewController:self didPickLocationWithLatitude:latitude longitude:longitude];
+    [self saveValues:latitude longitude:longitude];
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
     MKPointAnnotation *annotation = [MKPointAnnotation new];
     annotation.coordinate = coordinate;
@@ -43,9 +47,9 @@
     [self.navigationController popToViewController:self animated:YES];
 }
 
-- (IBAction)onSave:(id)sender {
-    //TODO: Send lng and lat to new post
-    
+- (void) saveValues:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+    self.lat = latitude;
+    self.lng = longitude;
 }
 
 
@@ -55,6 +59,10 @@
      if ([segue.identifier isEqualToString:@"locSegue"]) {
          LocationsViewController *locationsViewController = [segue destinationViewController];
          locationsViewController.delegate = self;
+     } else if ([[segue identifier] isEqualToString:@"mapComposeSegue"]) {
+         ComposeViewController *composeViewController = [segue destinationViewController];
+         composeViewController.latitude = self.lat;
+         composeViewController.longitude = self.lng;
      }
  }
  

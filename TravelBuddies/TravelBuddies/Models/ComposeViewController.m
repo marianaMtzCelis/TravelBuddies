@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "PhotoMapViewController.h"
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
@@ -18,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *recommendationsTextView;
 @property (strong, nonatomic) IBOutlet UIImageView *postPictureView;
 @property (strong, nonatomic) NSMutableArray *tagsArr;
-@property (strong, nonatomic) Post *post;
 @end
 
 @implementation ComposeViewController
@@ -33,7 +33,14 @@
 }
 
 - (IBAction)onPost:(id)sender {
-    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:nil withLat:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    
+    double lt = [self.latitude doubleValue];
+    double ln = [self.longitude doubleValue];
+    
+    NSNumber *lat = [NSNumber numberWithDouble:lt];
+    NSNumber *lng = [NSNumber numberWithDouble:ln];
+    
+    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:lng withLat:lat withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Post Success");
             [self dismissViewControllerAnimated:true completion:nil];
@@ -125,15 +132,25 @@
     [self performSegueWithIdentifier:@"detailsMapSegue" sender:nil];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)photoMapViewController:(PhotoMapViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+    [self saveValues:latitude longitude:longitude];
+    
 }
-*/
+
+- (void) saveValues:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+    self.latitude = latitude;
+    self.longitude = longitude;
+    
+}
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"detailsMapSegue"]) {
+            PhotoMapViewController *photoMapViewController = [segue destinationViewController];
+            photoMapViewController.delegate = self;
+        }
+}
+
 
 @end
