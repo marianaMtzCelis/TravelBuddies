@@ -23,6 +23,13 @@
 @property (nonatomic, strong) NSMutableArray *filteredPeople;
 @property (nonatomic, strong) NSMutableArray *cities;
 @property (nonatomic, strong) NSMutableArray *filteredCities;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) NSArray *tags;
+@property (weak, nonatomic) IBOutlet UIButton *foodButton;
+@property (weak, nonatomic) IBOutlet UIButton *museumButton;
+@property (weak, nonatomic) IBOutlet UIButton *entertainmentButton;
+@property (weak, nonatomic) IBOutlet UIButton *commerceButton;
+@property (weak, nonatomic) IBOutlet UIButton *nightLifeButton;
 @end
 
 @implementation SearchViewController
@@ -34,8 +41,12 @@
     self.searchBar.delegate = self;
     self.tableView.rowHeight = 218;
     
+    self.scrollView.alpha = 0;
+    
     [self getPeople];
     [self getTimeline];
+    
+    self.tags = [[NSArray alloc] initWithObjects: @0, @0, @0, @0, @0, nil];
     
 }
 
@@ -65,6 +76,8 @@
     
     if (self.peoplePlacesControl.selectedSegmentIndex == 0) {
         
+        self.scrollView.alpha = 0;
+        
         ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell" forIndexPath:indexPath];
         PFUser *author = self.filteredPeople[indexPath.row];
         cell.user = author;
@@ -83,6 +96,8 @@
         return cell;
         
     } else {
+        
+        self.scrollView.alpha = 1;
         
         CitiesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitiesCell" forIndexPath:indexPath];
         
@@ -196,5 +211,19 @@
     
 }
 
+- (IBAction)onFood:(id)sender {
+}
+
+- (IBAction)onMuseums:(id)sender {
+}
+
+- (IBAction)onEntertainment:(id)sender {
+}
+
+- (IBAction)onCommerce:(id)sender {
+}
+
+- (IBAction)onNightLife:(id)sender {
+}
 
 @end
