@@ -71,9 +71,12 @@
         
         cell.usernameLabel.text = author.username;
         
-        cell.ppView.file = nil;
-        cell.ppView.file = author[@"profilePicture"];
+        //cell.ppView.file = nil;
+        
+        cell.ppView.file = cell.user[@"profilePicture"];
         [cell.ppView loadInBackground];
+        NSLog(@"profile picture");
+        
         cell.ppView.layer.masksToBounds = true;
         cell.ppView.layer.cornerRadius = 35;
         
@@ -167,6 +170,7 @@
             self.filteredPeople = self.people;
         }
         
+        [PFFileObject clearAllCachedDataInBackground];
         [self.tableView reloadData];
         
     } else {
@@ -176,7 +180,7 @@
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Post *evaluatedObject, NSDictionary *bindings) {
                 return [evaluatedObject.city containsString:searchText];
             }];
-            self.filteredCities = [self.class filteredArrayUsingPredicate:predicate];
+            self.filteredCities = [self.cities filteredArrayUsingPredicate:predicate];
             
             NSLog(@"%@", self.filteredCities);
             
@@ -185,6 +189,7 @@
             self.filteredCities = self.cities;
         }
         
+        [PFFileObject clearAllCachedDataInBackground];
         [self.tableView reloadData];
         
     }
