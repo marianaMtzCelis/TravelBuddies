@@ -611,7 +611,9 @@
                                         <rect key="frame" x="11" y="11" width="30" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                        <state key="normal" title="Food"/>
+                                        <state key="normal" title="Food">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onFood:" destination="Z0M-Z0-FMA" eventType="touchUpInside" id="8NI-Qp-x3K"/>
                                         </connections>
@@ -620,7 +622,9 @@
                                         <rect key="frame" x="56" y="11" width="54" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                        <state key="normal" title="Museums"/>
+                                        <state key="normal" title="Museums">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onMuseums:" destination="Z0M-Z0-FMA" eventType="touchUpInside" id="JYk-Im-ydT"/>
                                         </connections>
@@ -629,7 +633,9 @@
                                         <rect key="frame" x="133" y="11" width="79" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                        <state key="normal" title="Entertainment"/>
+                                        <state key="normal" title="Entertainment">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onEntertainment:" destination="Z0M-Z0-FMA" eventType="touchUpInside" id="Z7g-vi-Mp3"/>
                                         </connections>
@@ -638,7 +644,9 @@
                                         <rect key="frame" x="230" y="11" width="62" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                        <state key="normal" title="Commerce"/>
+                                        <state key="normal" title="Commerce">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onCommerce:" destination="Z0M-Z0-FMA" eventType="touchUpInside" id="tTT-ZY-aH6"/>
                                         </connections>
@@ -647,7 +655,9 @@
                                         <rect key="frame" x="308" y="11" width="54" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                        <state key="normal" title="Night Life"/>
+                                        <state key="normal" title="Night Life">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onNightLife:" destination="Z0M-Z0-FMA" eventType="touchUpInside" id="whS-pk-Dfv"/>
                                         </connections>

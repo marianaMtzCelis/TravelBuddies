@@ -24,7 +24,8 @@
 @property (nonatomic, strong) NSMutableArray *cities;
 @property (nonatomic, strong) NSMutableArray *filteredCities;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) NSArray *tags;
+@property (strong, nonatomic) NSMutableArray *tags;
+@property (strong, nonatomic) NSNumber *searchNum;
 @property (weak, nonatomic) IBOutlet UIButton *foodButton;
 @property (weak, nonatomic) IBOutlet UIButton *museumButton;
 @property (weak, nonatomic) IBOutlet UIButton *entertainmentButton;
@@ -46,7 +47,8 @@
     [self getPeople];
     [self getTimeline];
     
-    self.tags = [[NSArray alloc] initWithObjects: @0, @0, @0, @0, @0, nil];
+    self.tags = [[NSMutableArray alloc] initWithObjects: @0, @0, @0, @0, @0, nil];
+    self.searchNum = 0;
     
 }
 
@@ -212,18 +214,78 @@
 }
 
 - (IBAction)onFood:(id)sender {
+    
+    if ([self.tags[0]  isEqual: @0]) {
+        [self.foodButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] + 1;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[0] = @1;
+    } else {
+        [self.foodButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] - 1;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[0] = @0;
+    }
 }
 
 - (IBAction)onMuseums:(id)sender {
+    
+    if ([self.tags[1]  isEqual: @0]) {
+        [self.museumButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] + 2;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[1] = @1;
+    } else {
+        [self.museumButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] - 2;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[1] = @0;
+    }
 }
 
 - (IBAction)onEntertainment:(id)sender {
+    
+    if ([self.tags[2]  isEqual: @0]) {
+        [self.entertainmentButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] + 4;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[2] = @1;
+    } else {
+        [self.entertainmentButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] - 4;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[2] = @0;
+    }
 }
 
 - (IBAction)onCommerce:(id)sender {
+    
+    if ([self.tags[3]  isEqual: @0]) {
+        [self.commerceButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] + 8;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[3] = @1;
+    } else {
+        [self.commerceButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] - 8;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[3] = @0;
+    }
 }
 
 - (IBAction)onNightLife:(id)sender {
+    
+    if ([self.tags[4]  isEqual: @0]) {
+        [self.nightLifeButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] + 16;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[4] = @1;
+    } else {
+        [self.nightLifeButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        int value = [self.searchNum intValue] - 16;
+        self.searchNum = [NSNumber numberWithInt:value];
+        self.tags[4] = @0;
+    }
 }
 
 @end
