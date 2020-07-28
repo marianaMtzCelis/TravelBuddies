@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,10 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface PhotoMapViewController : UIViewController
+@interface PhotoMapViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) Post *post;
-
+@property (strong, nonatomic) CLLocationManager *location;
 @property (weak, nonatomic) id<PhotoMapViewControllerDelegate> delegate;
 
 @end

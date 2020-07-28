@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A2149E46EAE26F8AA0A8D41 /* Pods_TravelBuddiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE849BF368A8FAC572DE213E /* Pods_TravelBuddiesTests.framework */; };
 		282F4C9324CA42D60028BD53 /* LocMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282F4C9224CA42D60028BD53 /* LocMapViewController.m */; };
+		284ABD1324D0D00B001E4022 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284ABD1224D0D00B001E4022 /* CoreLocation.framework */; };
 		28520A1024C9FC150081159B /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A0F24C9FC150081159B /* PhotoMapViewController.m */; };
 		28520A1324C9FC430081159B /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A1224C9FC430081159B /* LocationsViewController.m */; };
 		28520A1624C9FC9E0081159B /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28520A1524C9FC9E0081159B /* LocationCell.m */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		282F4C9124CA42D60028BD53 /* LocMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocMapViewController.h; sourceTree = "<group>"; };
 		282F4C9224CA42D60028BD53 /* LocMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocMapViewController.m; sourceTree = "<group>"; };
+		284ABD1224D0D00B001E4022 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		28520A0E24C9FC150081159B /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
 		28520A0F24C9FC150081159B /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
 		28520A1124C9FC430081159B /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284ABD1324D0D00B001E4022 /* CoreLocation.framework in Frameworks */,
 				28520A1824C9FFF30081159B /* MapKit.framework in Frameworks */,
 				673DBEC1F3991A5B18DD8C41 /* Pods_TravelBuddies.framework in Frameworks */,
 			);
@@ -289,6 +292,7 @@
 		BF6D440B965F7CF28ADCFC19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				284ABD1224D0D00B001E4022 /* CoreLocation.framework */,
 				28520A1724C9FFF30081159B /* MapKit.framework */,
 				F4B336B360FAAE97DCA301C3 /* Pods_TravelBuddies.framework */,
 				794C607FA768F26FEAE8F09E /* Pods_TravelBuddies_TravelBuddiesUITests.framework */,
