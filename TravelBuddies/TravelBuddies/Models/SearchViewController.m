@@ -300,4 +300,17 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.text = @"";
+    self.filteredCities = self.cities;
+    self.filteredPeople = self.people;
+    [self.tableView reloadData];
+    [self.searchBar resignFirstResponder];
+}
+
 @end
