@@ -72,6 +72,14 @@
      }
 
  }
+
+typedef NS_ENUM(NSUInteger, MyEnum) {
+    Food = 0,
+    Museum = 1,
+    Entertainment = 2,
+    Commerce = 3,
+    NightLife = 4,
+};
  
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -216,29 +224,26 @@
 - (IBAction)onFood:(id)sender {
     
     if ([self.tags[0]  isEqual: @0]) {
+        [self calculateSearchNumber:Food addOrSubtract:0];
         [self.foodButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] + 1;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[0] = @1;
     } else {
+        [self calculateSearchNumber:Food addOrSubtract:1];
         [self.foodButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] - 1;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[0] = @0;
     }
+    
 }
 
 - (IBAction)onMuseums:(id)sender {
     
     if ([self.tags[1]  isEqual: @0]) {
+        [self calculateSearchNumber:Museum addOrSubtract:0];
         [self.museumButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] + 2;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[1] = @1;
     } else {
+        [self calculateSearchNumber:Museum addOrSubtract:1];
         [self.museumButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] - 2;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[1] = @0;
     }
 }
@@ -246,14 +251,12 @@
 - (IBAction)onEntertainment:(id)sender {
     
     if ([self.tags[2]  isEqual: @0]) {
+        [self calculateSearchNumber:Entertainment addOrSubtract:0];
         [self.entertainmentButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] + 4;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[2] = @1;
     } else {
+        [self calculateSearchNumber:Entertainment addOrSubtract:1];
         [self.entertainmentButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] - 4;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[2] = @0;
     }
 }
@@ -261,14 +264,12 @@
 - (IBAction)onCommerce:(id)sender {
     
     if ([self.tags[3]  isEqual: @0]) {
+        [self calculateSearchNumber:Commerce addOrSubtract:0];
         [self.commerceButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] + 8;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[3] = @1;
     } else {
+        [self calculateSearchNumber:Commerce addOrSubtract:1];
         [self.commerceButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] - 8;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[3] = @0;
     }
 }
@@ -276,16 +277,27 @@
 - (IBAction)onNightLife:(id)sender {
     
     if ([self.tags[4]  isEqual: @0]) {
+        [self calculateSearchNumber:NightLife addOrSubtract:0];
         [self.nightLifeButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] + 16;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[4] = @1;
     } else {
+        [self calculateSearchNumber:NightLife addOrSubtract:1];
         [self.nightLifeButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
-        int value = [self.searchNum intValue] - 16;
-        self.searchNum = [NSNumber numberWithInt:value];
         self.tags[4] = @0;
     }
+}
+
+-(void)calculateSearchNumber:(MyEnum)tag addOrSubtract:(int)aOrS {
+    
+    int value;
+    double power = pow(2,tag);
+    
+    value = (aOrS == 0) ? ([self.searchNum intValue] + power) : ([self.searchNum intValue] - power);
+    
+    self.searchNum = [NSNumber numberWithInt:value];
+    
+    NSLog(@"%@", self.searchNum);
+    
 }
 
 @end
