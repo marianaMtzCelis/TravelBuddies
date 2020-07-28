@@ -19,6 +19,14 @@
 @property (weak, nonatomic) IBOutlet UITextView *recommendationsTextView;
 @property (strong, nonatomic) IBOutlet UIImageView *postPictureView;
 @property (strong, nonatomic) NSMutableArray *tagsArr;
+@property (strong, nonatomic) NSNumber *searchNum;
+@property (strong, nonatomic) NSMutableArray *tags;
+@property (weak, nonatomic) IBOutlet UIButton *foodButton;
+@property (weak, nonatomic) IBOutlet UIButton *museumButton;
+@property (weak, nonatomic) IBOutlet UIButton *entertainmentButton;
+@property (weak, nonatomic) IBOutlet UIButton *commerceButton;
+@property (weak, nonatomic) IBOutlet UIButton *nightLifeButton;
+
 @end
 
 @implementation ComposeViewController
@@ -26,11 +34,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tagsArr = [NSMutableArray new];
+    self.tags = [[NSMutableArray alloc] initWithObjects: @0, @0, @0, @0, @0, nil];
 }
 
 - (IBAction)onCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+typedef NS_ENUM(NSUInteger, MyEnum) {
+    Food = 0,
+    Museum = 1,
+    Entertainment = 2,
+    Commerce = 3,
+    NightLife = 4,
+};
 
 - (IBAction)onPost:(id)sender {
     
@@ -40,7 +57,7 @@
     NSNumber *lat = [NSNumber numberWithDouble:lt];
     NSNumber *lng = [NSNumber numberWithDouble:ln];
     
-    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:lng withLat:lat withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:lng withLat:lat withSearchNum:self.searchNum withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Post Success");
             [self dismissViewControllerAnimated:true completion:nil];
@@ -80,12 +97,7 @@
     
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
-    //TODO: resize image using resizeImage func
-    //TODO: place image on postPictureView
-    //self.postPictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(360, 169)];
     self.postPictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(150, 150)];
-    //self.postPictureView.image = editedImage;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -105,23 +117,63 @@
 }
 
 - (IBAction)onFood:(id)sender {
-    [self.tagsArr addObject:@"Food"];
+    if ([self.tags[0]  isEqual: @0]) {
+        [self calculateSearchNumber:Food addOrSubtract:0];
+        [self.foodButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        self.tags[0] = @1;
+    } else {
+        [self calculateSearchNumber:Food addOrSubtract:1];
+        [self.foodButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        self.tags[0] = @0;
+    }
 }
 
 - (IBAction)onMuseums:(id)sender {
-    [self.tagsArr addObject:@"Museums"];
+    if ([self.tags[1]  isEqual: @0]) {
+          [self calculateSearchNumber:Museum addOrSubtract:0];
+          [self.museumButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+          self.tags[1] = @1;
+      } else {
+          [self calculateSearchNumber:Museum addOrSubtract:1];
+          [self.museumButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+          self.tags[1] = @0;
+      }
 }
 
 - (IBAction)onNL:(id)sender {
-    [self.tagsArr addObject:@"Night Life"];
+    if ([self.tags[4]  isEqual: @0]) {
+           [self calculateSearchNumber:NightLife addOrSubtract:0];
+           [self.nightLifeButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[4] = @1;
+       } else {
+           [self calculateSearchNumber:NightLife addOrSubtract:1];
+           [self.nightLifeButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[4] = @0;
+       }
 }
 
 - (IBAction)onCommerce:(id)sender {
-    [self.tagsArr addObject:@"Commerce"];
+     if ([self.tags[3]  isEqual: @0]) {
+           [self calculateSearchNumber:Commerce addOrSubtract:0];
+           [self.commerceButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[3] = @1;
+       } else {
+           [self calculateSearchNumber:Commerce addOrSubtract:1];
+           [self.commerceButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[3] = @0;
+       }
 }
 
 - (IBAction)onEntertainment:(id)sender {
-    [self.tagsArr addObject:@"Entertainment"];
+     if ([self.tags[2]  isEqual: @0]) {
+           [self calculateSearchNumber:Entertainment addOrSubtract:0];
+           [self.entertainmentButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[2] = @1;
+       } else {
+           [self calculateSearchNumber:Entertainment addOrSubtract:1];
+           [self.entertainmentButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[2] = @0;
+       }
 }
 
 - (IBAction)onTap:(id)sender {
@@ -141,6 +193,14 @@
     self.latitude = latitude;
     self.longitude = longitude;
     
+}
+
+-(void)calculateSearchNumber:(MyEnum)tag addOrSubtract:(int)aOrS {
+    int value;
+    double power = pow(2,tag);
+    value = (aOrS == 0) ? ([self.searchNum intValue] + power) : ([self.searchNum intValue] - power);
+    self.searchNum = [NSNumber numberWithInt:value];
+    NSLog(@"%@", self.searchNum);
 }
 
 #pragma mark - Navigation

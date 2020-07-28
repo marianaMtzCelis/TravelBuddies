@@ -21,12 +21,13 @@
 @dynamic tags;
 @dynamic lng;
 @dynamic lat;
+@dynamic searchNum;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
 }
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withPlace: ( NSString * _Nullable )place withCity: ( NSString * _Nullable )city withTags: ( NSMutableArray * _Nullable )tags withLng: ( NSNumber * _Nullable )lng withLat: ( NSNumber * _Nullable )lat withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withPlace: ( NSString * _Nullable )place withCity: ( NSString * _Nullable )city withTags: ( NSMutableArray * _Nullable )tags withLng: ( NSNumber * _Nullable )lng withLat: ( NSNumber * _Nullable )lat withSearchNum: ( NSNumber * _Nullable )searchNum withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
@@ -38,6 +39,7 @@
     newPost.tags = tags;
     newPost.lng = lng;
     newPost.lat = lat;
+    newPost.searchNum = searchNum;
     
     [newPost saveInBackgroundWithBlock: completion];
 }
