@@ -26,22 +26,6 @@
     
     [Parse initializeWithConfiguration:config];
     
-    NSMutableArray *arr = @[@"holi", @"holi2", @"holi3"];
-    
-    double lt = 37.77598956961178;
-    double ln = -122.4197465761723;
-    
-    NSNumber *lat = [NSNumber numberWithDouble:lt];
-    NSNumber *lng = [NSNumber numberWithDouble:ln];
-    
-    [Post postUserImage:nil withCaption:@"test" withPlace:@"place" withCity:@"city" withTags:arr withLng:lng withLat:lat withSearchNum:@101 withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"Post success");
-        } else {
-            NSLog(@"Post fail");
-        }
-    }];
-    
     return YES;
 }
 
