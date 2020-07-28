@@ -239,7 +239,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abO-kW-3ef">
                                         <rect key="frame" x="288" y="600" width="75" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Commerce"/>
+                                        <state key="normal" title="Commerce">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onCommerce:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="L5f-aW-2tM"/>
                                         </connections>
@@ -247,7 +249,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQ7-6q-ZTT">
                                         <rect key="frame" x="265" y="567" width="97" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Entertainment"/>
+                                        <state key="normal" title="Entertainment">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onEntertainment:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="iug-uL-IcH"/>
                                         </connections>
@@ -255,7 +259,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-0g-uJg">
                                         <rect key="frame" x="292" y="538" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Museums"/>
+                                        <state key="normal" title="Museums">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onMuseums:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="beW-ty-COL"/>
                                         </connections>
@@ -263,7 +269,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmb-Ii-APf">
                                         <rect key="frame" x="322" y="504" width="35" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Food"/>
+                                        <state key="normal" title="Food">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onFood:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="g6l-mR-lEx"/>
                                         </connections>
@@ -310,7 +318,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kG3-v1-2Ii">
                                         <rect key="frame" x="295" y="634" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Night Life"/>
+                                        <state key="normal" title="Night Life">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="onNL:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="t7N-l2-Rn1"/>
                                         </connections>
@@ -360,6 +370,11 @@
                     <connections>
                         <outlet property="cameraButton" destination="CMG-5u-rxl" id="ppX-fs-2zb"/>
                         <outlet property="cityTextBox" destination="6J7-WK-B4k" id="gcF-Pd-ZcE"/>
+                        <outlet property="commerceButton" destination="abO-kW-3ef" id="h6j-e9-ZpE"/>
+                        <outlet property="entertainmentButton" destination="CQ7-6q-ZTT" id="1OC-nL-EBr"/>
+                        <outlet property="foodButton" destination="bmb-Ii-APf" id="uqb-ui-ksM"/>
+                        <outlet property="museumButton" destination="ueg-0g-uJg" id="6QB-dq-Eec"/>
+                        <outlet property="nightLifeButton" destination="kG3-v1-2Ii" id="aeC-et-eaE"/>
                         <outlet property="placeTextBox" destination="Qqt-QL-SN1" id="eX0-ii-L62"/>
                         <outlet property="postPictureView" destination="KHN-N2-JRn" id="urV-EK-lxH"/>
                         <outlet property="recommendationsTextView" destination="PIr-Mi-yWs" id="Pgn-LH-4AV"/>
@@ -1336,6 +1351,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Z10-D4-sBv"/>
         <segue reference="CRg-6p-88V"/>
         <segue reference="n3b-49-1io"/>
         <segue reference="bTY-s1-dgK"/>

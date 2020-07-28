@@ -20,6 +20,13 @@
 @property (strong, nonatomic) IBOutlet UIImageView *postPictureView;
 @property (strong, nonatomic) NSMutableArray *tagsArr;
 @property (strong, nonatomic) NSNumber *searchNum;
+@property (strong, nonatomic) NSMutableArray *tags;
+@property (weak, nonatomic) IBOutlet UIButton *foodButton;
+@property (weak, nonatomic) IBOutlet UIButton *museumButton;
+@property (weak, nonatomic) IBOutlet UIButton *entertainmentButton;
+@property (weak, nonatomic) IBOutlet UIButton *commerceButton;
+@property (weak, nonatomic) IBOutlet UIButton *nightLifeButton;
+
 @end
 
 @implementation ComposeViewController
@@ -27,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tagsArr = [NSMutableArray new];
+    self.tags = [[NSMutableArray alloc] initWithObjects: @0, @0, @0, @0, @0, nil];
 }
 
 - (IBAction)onCancel:(id)sender {
@@ -109,28 +117,63 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
 }
 
 - (IBAction)onFood:(id)sender {
-    [self.tagsArr addObject:@"Food"];
-    [self calculateSearchNumber:Food];
+    if ([self.tags[0]  isEqual: @0]) {
+        [self calculateSearchNumber:Food addOrSubtract:0];
+        [self.foodButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        self.tags[0] = @1;
+    } else {
+        [self calculateSearchNumber:Food addOrSubtract:1];
+        [self.foodButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        self.tags[0] = @0;
+    }
 }
 
 - (IBAction)onMuseums:(id)sender {
-    [self.tagsArr addObject:@"Museums"];
-    [self calculateSearchNumber:Museum];
+    if ([self.tags[1]  isEqual: @0]) {
+          [self calculateSearchNumber:Museum addOrSubtract:0];
+          [self.museumButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+          self.tags[1] = @1;
+      } else {
+          [self calculateSearchNumber:Museum addOrSubtract:1];
+          [self.museumButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+          self.tags[1] = @0;
+      }
 }
 
 - (IBAction)onNL:(id)sender {
-    [self.tagsArr addObject:@"Night Life"];
-    [self calculateSearchNumber:NightLife];
+    if ([self.tags[4]  isEqual: @0]) {
+           [self calculateSearchNumber:NightLife addOrSubtract:0];
+           [self.nightLifeButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[4] = @1;
+       } else {
+           [self calculateSearchNumber:NightLife addOrSubtract:1];
+           [self.nightLifeButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[4] = @0;
+       }
 }
 
 - (IBAction)onCommerce:(id)sender {
-    [self.tagsArr addObject:@"Commerce"];
-    [self calculateSearchNumber:Commerce];
+     if ([self.tags[3]  isEqual: @0]) {
+           [self calculateSearchNumber:Commerce addOrSubtract:0];
+           [self.commerceButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[3] = @1;
+       } else {
+           [self calculateSearchNumber:Commerce addOrSubtract:1];
+           [self.commerceButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[3] = @0;
+       }
 }
 
 - (IBAction)onEntertainment:(id)sender {
-    [self.tagsArr addObject:@"Entertainment"];
-    [self calculateSearchNumber:Entertainment];
+     if ([self.tags[2]  isEqual: @0]) {
+           [self calculateSearchNumber:Entertainment addOrSubtract:0];
+           [self.entertainmentButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[2] = @1;
+       } else {
+           [self calculateSearchNumber:Entertainment addOrSubtract:1];
+           [self.entertainmentButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+           self.tags[2] = @0;
+       }
 }
 
 - (IBAction)onTap:(id)sender {
@@ -152,10 +195,10 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     
 }
 
--(void)calculateSearchNumber:(MyEnum)tag{
+-(void)calculateSearchNumber:(MyEnum)tag addOrSubtract:(int)aOrS {
     int value;
     double power = pow(2,tag);
-    value = [self.searchNum intValue] + power;
+    value = (aOrS == 0) ? ([self.searchNum intValue] + power) : ([self.searchNum intValue] - power);
     self.searchNum = [NSNumber numberWithInt:value];
     NSLog(@"%@", self.searchNum);
 }
