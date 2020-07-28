@@ -165,6 +165,9 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
+    if (self.searchNum != 0) {
+        [query whereKey:@"searchNum" equalTo:self.searchNum];
+    }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -196,6 +199,11 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         }
         
         [PFFileObject clearAllCachedDataInBackground];
+        
+        if (self.searchNum != 0) {
+            [self getTimeline];
+        }
+        
         [self.tableView reloadData];
         
     } else {
