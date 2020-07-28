@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *recommendationsTextView;
 @property (strong, nonatomic) IBOutlet UIImageView *postPictureView;
 @property (strong, nonatomic) NSMutableArray *tagsArr;
+@property (strong, nonatomic) NSNumber *searchNum;
 @end
 
 @implementation ComposeViewController
@@ -40,7 +41,7 @@
     NSNumber *lat = [NSNumber numberWithDouble:lt];
     NSNumber *lng = [NSNumber numberWithDouble:ln];
     
-    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:lng withLat:lat withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:lng withLat:lat withSearchNum:self.searchNum withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Post Success");
             [self dismissViewControllerAnimated:true completion:nil];
