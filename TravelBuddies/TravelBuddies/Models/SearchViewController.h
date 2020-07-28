@@ -14,4 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface UIColor (ProjectName)
+
++(UIColor *) selected;
++(UIColor *) unselected;
+
+@end
+
+@implementation UIColor (ProjectName)
+
++(UIColor *) selected { return [UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0]; }
++(UIColor *) unselected { return [UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0]; }
+
+@end
+
 NS_ASSUME_NONNULL_END
