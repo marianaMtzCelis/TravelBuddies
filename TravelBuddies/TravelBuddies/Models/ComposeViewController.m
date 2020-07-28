@@ -33,6 +33,14 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+typedef NS_ENUM(NSUInteger, MyEnum) {
+    Food = 0,
+    Museum = 1,
+    Entertainment = 2,
+    Commerce = 3,
+    NightLife = 4,
+};
+
 - (IBAction)onPost:(id)sender {
     
     double lt = [self.latitude doubleValue];
@@ -81,12 +89,7 @@
     
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
-    //TODO: resize image using resizeImage func
-    //TODO: place image on postPictureView
-    //self.postPictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(360, 169)];
     self.postPictureView.image = [self resizeImage:editedImage withSize:CGSizeMake(150, 150)];
-    //self.postPictureView.image = editedImage;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -107,22 +110,27 @@
 
 - (IBAction)onFood:(id)sender {
     [self.tagsArr addObject:@"Food"];
+    [self calculateSearchNumber:Food];
 }
 
 - (IBAction)onMuseums:(id)sender {
     [self.tagsArr addObject:@"Museums"];
+    [self calculateSearchNumber:Museum];
 }
 
 - (IBAction)onNL:(id)sender {
     [self.tagsArr addObject:@"Night Life"];
+    [self calculateSearchNumber:NightLife];
 }
 
 - (IBAction)onCommerce:(id)sender {
     [self.tagsArr addObject:@"Commerce"];
+    [self calculateSearchNumber:Commerce];
 }
 
 - (IBAction)onEntertainment:(id)sender {
     [self.tagsArr addObject:@"Entertainment"];
+    [self calculateSearchNumber:Entertainment];
 }
 
 - (IBAction)onTap:(id)sender {
@@ -142,6 +150,14 @@
     self.latitude = latitude;
     self.longitude = longitude;
     
+}
+
+-(void)calculateSearchNumber:(MyEnum)tag{
+    int value;
+    double power = pow(2,tag);
+    value = [self.searchNum intValue] + power;
+    self.searchNum = [NSNumber numberWithInt:value];
+    NSLog(@"%@", self.searchNum);
 }
 
 #pragma mark - Navigation

@@ -288,16 +288,11 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
 }
 
 -(void)calculateSearchNumber:(MyEnum)tag addOrSubtract:(int)aOrS {
-    
     int value;
     double power = pow(2,tag);
-    
     value = (aOrS == 0) ? ([self.searchNum intValue] + power) : ([self.searchNum intValue] - power);
-    
     self.searchNum = [NSNumber numberWithInt:value];
-    
     NSLog(@"%@", self.searchNum);
-    
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
