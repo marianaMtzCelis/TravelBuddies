@@ -32,11 +32,10 @@
     self.location.distanceFilter = kCLDistanceFilterNone;
     [self.location startUpdatingLocation];
     
-    [super viewDidLoad];
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    [locationManager requestWhenInUseAuthorization];
     
-    //TODO: Change to the user's destination region
-    //MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
-    //[self.mapView setRegion:sfRegion animated:false];
+    [super viewDidLoad];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(nonnull CLLocation *)newLocation fromLocation:(nonnull CLLocation *)oldLocation {
@@ -55,7 +54,7 @@
     NSLog(@"%@", self.longitude);
     NSLog(@"Accuracy");
     NSLog(@"%@", self.accuracy);
-
+    
     MKCoordinateSpan span;
     span.latitudeDelta = 0.1;
     span.longitudeDelta = 0.1;
@@ -101,18 +100,18 @@
 }
 
 
- #pragma mark - Navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     
-     if ([segue.identifier isEqualToString:@"locSegue"]) {
-         LocationsViewController *locationsViewController = [segue destinationViewController];
-         locationsViewController.delegate = self;
-     } else if ([[segue identifier] isEqualToString:@"mapComposeSegue"]) {
-         ComposeViewController *composeViewController = [segue destinationViewController];
-         composeViewController.latitude = self.lat;
-         composeViewController.longitude = self.lng;
-     }
- }
- 
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"locSegue"]) {
+        LocationsViewController *locationsViewController = [segue destinationViewController];
+        locationsViewController.delegate = self;
+    } else if ([[segue identifier] isEqualToString:@"mapComposeSegue"]) {
+        ComposeViewController *composeViewController = [segue destinationViewController];
+        composeViewController.latitude = self.lat;
+        composeViewController.longitude = self.lng;
+    }
+}
+
 
 @end
