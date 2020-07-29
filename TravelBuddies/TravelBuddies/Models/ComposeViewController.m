@@ -35,6 +35,7 @@
     [super viewDidLoad];
     self.tagsArr = [NSMutableArray new];
     self.tags = [[NSMutableArray alloc] initWithObjects: @0, @0, @0, @0, @0, nil];
+    self.searchNum = 0;
 }
 
 - (IBAction)onCancel:(id)sender {

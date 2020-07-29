@@ -53,25 +53,25 @@
 }
 
 
- #pragma mark - Navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     
-     if ([[segue identifier] isEqualToString:@"cityPostDetailsSegue"]) {
-         CitiesCell *tappedCell = sender;
-         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-         Post *post = self.filteredCities[indexPath.row];
-         PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
-         postDetailsViewController.post = post;
-         
-     } else if ([[segue identifier] isEqualToString:@"discoverProfileSegue"]) {
-         ProfileCell *tappedCell = sender;
-         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-         PFUser *user = self.filteredPeople[indexPath.row];
-         FriendsViewController *friendsViewController = [segue destinationViewController];
-         friendsViewController.user = user;
-     }
-
- }
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"cityPostDetailsSegue"]) {
+        CitiesCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.filteredCities[indexPath.row];
+        PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
+        postDetailsViewController.post = post;
+        
+    } else if ([[segue identifier] isEqualToString:@"discoverProfileSegue"]) {
+        ProfileCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        PFUser *user = self.filteredPeople[indexPath.row];
+        FriendsViewController *friendsViewController = [segue destinationViewController];
+        friendsViewController.user = user;
+    }
+    
+}
 
 typedef NS_ENUM(NSUInteger, MyEnum) {
     Food = 0,
@@ -119,7 +119,7 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         
         cell.usernameLabel.text = post.author.username;
         cell.cityLabel.text = post.city;
-
+        
         cell.ppView.file = nil;
         cell.ppView.file = cell.post.author[@"profilePicture"];
         [cell.ppView loadInBackground];
@@ -164,9 +164,25 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
-    if (self.searchNum != 0) {
-        [query whereKey:@"searchNum" equalTo:self.searchNum];
-    }
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.cities = (NSMutableArray *)posts;
+            self.filteredCities = (NSMutableArray *)posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+-(void)getTimelineTags {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    [query includeKey:@"author"];
+    [query whereKey:@"searchNum" equalTo:self.searchNum];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -199,10 +215,6 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         
         [PFFileObject clearAllCachedDataInBackground];
         
-        if (self.searchNum != 0) {
-            [self getTimeline];
-        }
-        
         [self.tableView reloadData];
         
     } else {
@@ -234,10 +246,16 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         [self calculateSearchNumber:Food addOrSubtract:0];
         [self.foodButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
         self.tags[0] = @1;
+        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:Food addOrSubtract:1];
         [self.foodButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
         self.tags[0] = @0;
+        if ([self.searchNum  isEqual: @0]) {
+            [self getTimeline];
+        } else {
+            [self getTimelineTags];
+        }
     }
     
 }
@@ -248,10 +266,16 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         [self calculateSearchNumber:Museum addOrSubtract:0];
         [self.museumButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
         self.tags[1] = @1;
+        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:Museum addOrSubtract:1];
         [self.museumButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
         self.tags[1] = @0;
+        if ([self.searchNum  isEqual: @0]) {
+            [self getTimeline];
+        } else {
+            [self getTimelineTags];
+        }
     }
 }
 
@@ -261,10 +285,16 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         [self calculateSearchNumber:Entertainment addOrSubtract:0];
         [self.entertainmentButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
         self.tags[2] = @1;
+        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:Entertainment addOrSubtract:1];
         [self.entertainmentButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
         self.tags[2] = @0;
+        if ([self.searchNum  isEqual: @0]) {
+            [self getTimeline];
+        } else {
+            [self getTimelineTags];
+        }
     }
 }
 
@@ -274,10 +304,16 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         [self calculateSearchNumber:Commerce addOrSubtract:0];
         [self.commerceButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
         self.tags[3] = @1;
+        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:Commerce addOrSubtract:1];
         [self.commerceButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
         self.tags[3] = @0;
+        if ([self.searchNum  isEqual: @0]) {
+            [self getTimeline];
+        } else {
+            [self getTimelineTags];
+        }
     }
 }
 
@@ -287,10 +323,16 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         [self calculateSearchNumber:NightLife addOrSubtract:0];
         [self.nightLifeButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
         self.tags[4] = @1;
+        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:NightLife addOrSubtract:1];
         [self.nightLifeButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
         self.tags[4] = @0;
+        if ([self.searchNum  isEqual: @0]) {
+            [self getTimeline];
+        } else {
+            [self getTimelineTags];
+        }
     }
 }
 
