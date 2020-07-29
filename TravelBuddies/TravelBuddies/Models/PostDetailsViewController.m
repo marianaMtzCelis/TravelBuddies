@@ -76,6 +76,7 @@
         LocMapViewController *locMapViewController = [segue destinationViewController];
         locMapViewController.lat = self.post.lat;
         locMapViewController.lng = self.post.lng;
+        locMapViewController.post = self.post;
     }
    
 }
