@@ -244,18 +244,8 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     
     if ([self.tags[0]  isEqual: @0]) {
         [self calculateSearchNumber:Food addOrSubtract:0];
-        [self.foodButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
-        self.tags[0] = @1;
-        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:Food addOrSubtract:1];
-        [self.foodButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
-        self.tags[0] = @0;
-        if ([self.searchNum  isEqual: @0]) {
-            [self getTimeline];
-        } else {
-            [self getTimelineTags];
-        }
     }
     
 }
@@ -264,18 +254,8 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     
     if ([self.tags[1]  isEqual: @0]) {
         [self calculateSearchNumber:Museum addOrSubtract:0];
-        [self.museumButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
-        self.tags[1] = @1;
-        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:Museum addOrSubtract:1];
-        [self.museumButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
-        self.tags[1] = @0;
-        if ([self.searchNum  isEqual: @0]) {
-            [self getTimeline];
-        } else {
-            [self getTimelineTags];
-        }
     }
 }
 
@@ -283,18 +263,8 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     
     if ([self.tags[2]  isEqual: @0]) {
         [self calculateSearchNumber:Entertainment addOrSubtract:0];
-        [self.entertainmentButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
-        self.tags[2] = @1;
-        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:Entertainment addOrSubtract:1];
-        [self.entertainmentButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
-        self.tags[2] = @0;
-        if ([self.searchNum  isEqual: @0]) {
-            [self getTimeline];
-        } else {
-            [self getTimelineTags];
-        }
     }
 }
 
@@ -302,18 +272,8 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     
     if ([self.tags[3]  isEqual: @0]) {
         [self calculateSearchNumber:Commerce addOrSubtract:0];
-        [self.commerceButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
-        self.tags[3] = @1;
-        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:Commerce addOrSubtract:1];
-        [self.commerceButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
-        self.tags[3] = @0;
-        if ([self.searchNum  isEqual: @0]) {
-            [self getTimeline];
-        } else {
-            [self getTimelineTags];
-        }
     }
 }
 
@@ -321,18 +281,8 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     
     if ([self.tags[4]  isEqual: @0]) {
         [self calculateSearchNumber:NightLife addOrSubtract:0];
-        [self.nightLifeButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
-        self.tags[4] = @1;
-        [self getTimelineTags];
     } else {
         [self calculateSearchNumber:NightLife addOrSubtract:1];
-        [self.nightLifeButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
-        self.tags[4] = @0;
-        if ([self.searchNum  isEqual: @0]) {
-            [self getTimeline];
-        } else {
-            [self getTimelineTags];
-        }
     }
 }
 
@@ -342,6 +292,68 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     value = (aOrS == 0) ? ([self.searchNum intValue] + power) : ([self.searchNum intValue] - power);
     self.searchNum = [NSNumber numberWithInt:value];
     NSLog(@"%@", self.searchNum);
+    
+    switch (tag) {
+            
+        case Food:
+            if (aOrS == 0) {
+                [self.foodButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
+                self.tags[0] = @1;
+            } else {
+                [self.foodButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
+                self.tags[0] = @0;
+            }
+            break;
+            
+        case Museum:
+            if (aOrS == 0) {
+                [self.museumButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
+                self.tags[1] = @1;
+            } else {
+                [self.museumButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
+                self.tags[1] = @0;
+            }
+            break;
+            
+        case Entertainment:
+            if (aOrS == 0) {
+                [self.entertainmentButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
+                self.tags[2] = @1;
+            } else {
+                [self.entertainmentButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
+                self.tags[2] = @0;
+            }
+            break;
+            
+        case Commerce:
+            if (aOrS == 0) {
+                [self.commerceButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
+                self.tags[3] = @1;
+            } else {
+                [self.commerceButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
+                self.tags[3] = @0;
+            }
+            break;
+            
+        case NightLife:
+            if (aOrS == 0) {
+                [self.nightLifeButton setTitleColor:[UIColor selected] forState:UIControlStateNormal];
+                self.tags[4] = @1;
+            } else {
+                [self.nightLifeButton setTitleColor:[UIColor unselected] forState:UIControlStateNormal];
+                self.tags[4] = @0;
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
+    if ([self.searchNum  isEqual: @0]) {
+        [self getTimeline];
+    } else {
+        [self getTimelineTags];
+    }
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
