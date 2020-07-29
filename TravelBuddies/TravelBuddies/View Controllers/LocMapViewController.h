@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "Post.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSNumber *lat;
 @property (strong, nonatomic) NSNumber *lng;
+@property (strong, nonatomic) Post *post;
 
 @end
 
