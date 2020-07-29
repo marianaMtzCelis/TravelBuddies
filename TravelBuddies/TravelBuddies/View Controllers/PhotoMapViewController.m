@@ -35,7 +35,7 @@
     [super viewDidLoad];
     
     //TODO: Change to the user's destination region
-   // MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
+    //MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
     //[self.mapView setRegion:sfRegion animated:false];
 }
 
@@ -55,7 +55,7 @@
     NSLog(@"%@", self.longitude);
     NSLog(@"Accuracy");
     NSLog(@"%@", self.accuracy);
-    
+
     MKCoordinateSpan span;
     span.latitudeDelta = 0.1;
     span.longitudeDelta = 0.1;
@@ -63,6 +63,7 @@
     region.center = newLocation.coordinate;
     region.span = span;
     [self.mapView setRegion:region animated:false];
+    //[self.mapView setShowsUserLocation:YES];
     
 }
 
