@@ -52,6 +52,11 @@
     self.searchNum = 0;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    [self getTimeline];
+}
+
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
