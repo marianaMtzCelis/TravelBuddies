@@ -24,6 +24,7 @@
 @dynamic searchNum;
 @dynamic likesArr;
 @dynamic isLiked;
+@dynamic isSaved;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -44,6 +45,7 @@
     newPost.searchNum = searchNum;
     newPost.likesArr = [[NSMutableArray alloc] init];
     newPost.isLiked = NO;
+    newPost.isSaved = NO;
     
     [newPost saveInBackgroundWithBlock: completion];
 }
@@ -51,13 +53,11 @@
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
     
-    // check if image is not nil
     if (!image) {
         return nil;
     }
     
     NSData *imageData = UIImagePNGRepresentation(image);
-    // get image data and check if that is not nil
     if (!imageData) {
         return nil;
     }

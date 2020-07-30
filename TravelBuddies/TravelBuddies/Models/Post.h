@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *searchNum;
 @property (nonatomic, strong) NSMutableArray *likesArr;
 @property (nonatomic, assign) BOOL isLiked;
+@property (nonatomic, assign) BOOL isSaved;
 
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withPlace: ( NSString * _Nullable )place withCity: ( NSString * _Nullable )city withTags: ( NSMutableArray * _Nullable )tags withLng: ( NSNumber * _Nullable )lng withLat: ( NSNumber * _Nullable )lat withSearchNum: ( NSNumber * _Nullable )searchNum withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
