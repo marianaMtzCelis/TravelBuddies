@@ -19,14 +19,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *posts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (assign, nonatomic) int loadedTimes;
 @end
 
 @implementation TimelineViewController
 
 - (void)viewDidLoad {
-    
-    self.loadedTimes = 0;
     
     [super viewDidLoad];
     self.tableView.dataSource = self;
@@ -37,8 +34,6 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
-    
-    self.loadedTimes++;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -124,28 +119,22 @@
     cell.ppView.layer.masksToBounds = true;
     cell.ppView.layer.cornerRadius = 25;
     
-    if (self.loadedTimes == 0) {
-        NSLog(@"Entro a Likeada");
-        NSMutableArray * arr = cell.post.likesArr;
-        for(id user in arr) {
-            if([user isEqual:[PFUser currentUser].objectId]) {
-                cell.post.isLiked = YES;
-                [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
-                NSLog(@"Likeada");
-                NSLog(@"%@", cell.post.likesArr);
-            } else {
-                [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
-            }
-        }
-    } else {
-        if (cell.post.isLiked) {
-            [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
-        } else {
-            [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+    PFUser *curr = [PFUser currentUser];
+    
+    NSMutableArray *lksArr = cell.post.likesArr;
+    for (id usr in lksArr) {
+        if ([usr isEqual:curr.objectId]) {
+            cell.post.isLiked = YES;
+            [cell.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
         }
     }
     
-    PFUser *curr = [PFUser currentUser];
+    if (cell.post.isLiked) {
+        [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+    } else {
+        [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+    }
+    
     NSMutableArray *pstArr = curr[@"savedPost"];
     NSLog(@"%@", pstArr);
     for (id pst in pstArr) {
