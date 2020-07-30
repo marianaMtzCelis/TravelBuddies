@@ -37,7 +37,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
-
+    
     self.loadedTimes++;
 }
 
@@ -48,12 +48,12 @@
 
 
 -(void)getTimeline {
-
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
-
+    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -71,6 +71,13 @@
 }
 
 - (IBAction)onLogout:(id)sender {
+    [self getTimeline];
+    for (Post *post in self.posts) {
+        post.isSaved = NO;
+        post.isLiked = NO;
+        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    }
+    
     SceneDelegate *sceneDelegate = (SceneDelegate *) self.view.window.windowScene.delegate;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
@@ -100,7 +107,7 @@
     
     Post *post = self.posts[indexPath.row];
     cell.post = post;
-       
+    
     cell.photoView.file = nil;
     cell.photoView.file = post.image;
     [cell.photoView loadInBackground];
@@ -118,6 +125,7 @@
     cell.ppView.layer.cornerRadius = 25;
     
     if (self.loadedTimes == 0) {
+        NSLog(@"Entro a Likeada");
         NSMutableArray * arr = cell.post.likesArr;
         for(id user in arr) {
             if([user isEqual:[PFUser currentUser].objectId]) {
@@ -131,10 +139,26 @@
         }
     } else {
         if (cell.post.isLiked) {
-          [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+            [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
         } else {
-          [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+            [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
         }
+    }
+    
+    PFUser *curr = [PFUser currentUser];
+    NSMutableArray *pstArr = curr[@"savedPost"];
+    NSLog(@"%@", pstArr);
+    for (id pst in pstArr) {
+        if ([pst isEqualToString:cell.post.objectId]) {
+            cell.post.isSaved = YES;
+            [cell.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+        }
+    }
+    
+    if (cell.post.isSaved) {
+        [cell.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+    } else {
+        [cell.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
     }
     
     return cell;

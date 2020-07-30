@@ -49,6 +49,8 @@
                 [self presentViewController:alert animated:YES completion:^{}];
             } else {
                 NSLog(@"User registered successfully");
+                newUser[@"savedPost"] = [[NSMutableArray alloc] init];
+                [newUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) { }];
                 [self performSegueWithIdentifier:@"signupSuccessSegue" sender:nil];
             }
         }];

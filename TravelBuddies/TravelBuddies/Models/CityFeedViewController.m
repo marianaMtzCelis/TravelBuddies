@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *posts;
+@property (nonatomic, strong) NSMutableArray *savedPosts;
 
 @end
 
@@ -26,6 +27,7 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.savedPosts = [[NSMutableArray alloc] init];
     
     [self getTimeline];
 }
@@ -37,10 +39,14 @@
 
 -(void)getTimeline {
 
+    PFUser *curr = [PFUser currentUser];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
+    [query whereKey:@"objectId" containedIn:curr[@"savedPost"]];
+
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -52,6 +58,9 @@
         }
         //[self.refreshControl endRefreshing];
     }];
+
+    
+    NSLog(@"%@", self.savedPosts);
 }
 
 
@@ -89,6 +98,12 @@
        [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
     } else {
         [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+    }
+    
+    if (cell.post.isSaved) {
+        [cell.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+    } else {
+        [cell.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
     }
     
     cell.ppView.file = nil;

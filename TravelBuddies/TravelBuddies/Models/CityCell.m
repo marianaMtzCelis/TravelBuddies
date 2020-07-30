@@ -35,6 +35,12 @@
     int value = (int)self.post.likesArr.count;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
     
+    if (self.post.isSaved) {
+        [self.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+    } else {
+        [self.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+    }
+    
 }
 
 - (IBAction)onHeart:(id)sender {
@@ -65,7 +71,34 @@
 }
 
 - (IBAction)onSave:(id)sender {
-    [self.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+    
+    PFUser *curr = [PFUser currentUser];
+    
+    if (!self.post.isSaved) {
+        NSMutableArray *savedArr = curr[@"savedPost"];
+        [savedArr addObject:self.post.objectId];
+        curr[@"savedPost"] = savedArr;
+        self.post.isSaved = YES;
+        NSLog(@"Post saveado");
+    } else {
+        NSMutableArray *savedArray = curr[@"savedPost"];
+        [savedArray removeObject:self.post.objectId];
+        curr[@"savedPost"] = savedArray;
+        self.post.isSaved = NO;
+        NSLog(@"Post unsaveado");
+    }
+    
+    [curr saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"updated saved array");
+        } else {
+            NSLog(@"Error updating saved array");
+        }
+    }];
+    
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    
+    [self refreshData];
 }
 
 @end
