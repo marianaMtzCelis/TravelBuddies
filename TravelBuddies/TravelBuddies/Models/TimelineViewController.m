@@ -97,14 +97,22 @@
     cell.usernameLabel.text = post.author.username;
     cell.cityLabel.text = post.city;
     
-    int likes = [post.likeCount intValue];
-    cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", likes];
+    int value = (int)cell.post.likesArr.count;
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
     
     cell.ppView.file = nil;
     cell.ppView.file = cell.post.author[@"profilePicture"];
     [cell.ppView loadInBackground];
     cell.ppView.layer.masksToBounds = true;
     cell.ppView.layer.cornerRadius = 25;
+    
+    for(id user in cell.post.likesArr) {
+        if([user isEqual:[PFUser currentUser].objectId]) {
+            cell.isLiked = YES;
+            [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+            NSLog(@"Likeada");
+        }
+    }
     
     return cell;
 }
