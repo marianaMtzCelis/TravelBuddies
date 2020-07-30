@@ -12,7 +12,6 @@
 @implementation PostCell
 
 - (void)awakeFromNib {
-    self.buttonsArr = [[NSMutableArray alloc] initWithObjects: @0, @0, nil];
     [super awakeFromNib];
 }
 
@@ -20,9 +19,13 @@
     [super setSelected:selected animated:animated];
 }
 
+-(void)viewWillAppear {
+    [self refreshData];
+}
+
 -(void)refreshData {
     
-    if (self.isLiked) {
+    if (self.post.isLiked) {
         [self.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
     } else {
         [self.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
@@ -37,16 +40,16 @@
     
     NSString *userID = [PFUser currentUser].objectId;
     
-    if (!self.isLiked) {
+    if (!self.post.isLiked) {
         NSMutableArray *likesArr = self.post.likesArr;
         [likesArr addObject:userID];
         self.post.likesArr = likesArr;
-        self.isLiked = YES;
+        self.post.isLiked = YES;
     } else {
         NSMutableArray *likesArr = self.post.likesArr;
         [likesArr removeObject:userID];
         self.post.likesArr = likesArr;
-        self.isLiked = NO;
+        self.post.isLiked = NO;
     }
     
     [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {

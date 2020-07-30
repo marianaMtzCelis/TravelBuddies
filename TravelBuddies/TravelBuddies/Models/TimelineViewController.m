@@ -19,11 +19,14 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *posts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (assign, nonatomic) int loadedTimes;
 @end
 
 @implementation TimelineViewController
 
 - (void)viewDidLoad {
+    
+    self.loadedTimes = 0;
     
     [super viewDidLoad];
     self.tableView.dataSource = self;
@@ -34,7 +37,15 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
+
+    self.loadedTimes++;
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    [self getTimeline];
+}
+
 
 -(void)getTimeline {
 
@@ -106,11 +117,23 @@
     cell.ppView.layer.masksToBounds = true;
     cell.ppView.layer.cornerRadius = 25;
     
-    for(id user in cell.post.likesArr) {
-        if([user isEqual:[PFUser currentUser].objectId]) {
-            cell.isLiked = YES;
-            [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
-            NSLog(@"Likeada");
+    if (self.loadedTimes == 0) {
+        NSMutableArray * arr = cell.post.likesArr;
+        for(id user in arr) {
+            if([user isEqual:[PFUser currentUser].objectId]) {
+                cell.post.isLiked = YES;
+                [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+                NSLog(@"Likeada");
+                NSLog(@"%@", cell.post.likesArr);
+            } else {
+                [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+            }
+        }
+    } else {
+        if (cell.post.isLiked) {
+          [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+        } else {
+          [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
         }
     }
     
