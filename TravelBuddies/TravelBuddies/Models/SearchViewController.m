@@ -139,6 +139,12 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
             [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
         }
         
+        if (cell.post.isSaved) {
+            [cell.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+        } else {
+            [cell.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+        }
+        
         return cell;
         
     }
