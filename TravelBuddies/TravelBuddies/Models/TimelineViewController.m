@@ -97,6 +97,9 @@
     cell.usernameLabel.text = post.author.username;
     cell.cityLabel.text = post.city;
     
+    int likes = [post.likeCount intValue];
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", likes];
+    
     cell.ppView.file = nil;
     cell.ppView.file = cell.post.author[@"profilePicture"];
     [cell.ppView loadInBackground];

@@ -47,6 +47,9 @@
     NSString *createdAtString = ago;
     self.dateLabel.text = createdAtString;
     
+    int likes = [self.post.likeCount intValue];
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%i", likes];
+    
     self.ppView.file = nil;
     self.ppView.file = self.post.author[@"profilePicture"];
     [self.ppView loadInBackground];
@@ -54,8 +57,7 @@
     self.ppView.layer.cornerRadius = 25;
     
     [self.recommendationsLabel sizeToFit];
-    
-    //TODO: MAP
+
 }
 
 - (IBAction)onHeart:(id)sender {
