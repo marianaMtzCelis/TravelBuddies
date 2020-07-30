@@ -30,6 +30,11 @@
     [self getTimeline];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    [self getTimeline];
+}
+
 -(void)getTimeline {
 
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
@@ -77,8 +82,14 @@
     cell.usernameLabel.text = post.author.username;
     cell.cityLabel.text = post.city;
     
-    int likes = [post.likeCount intValue];
-    cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", likes];
+    int value = (int)cell.post.likesArr.count;
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
+    
+    if (cell.post.isLiked) {
+       [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+    } else {
+        [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+    }
     
     cell.ppView.file = nil;
     cell.ppView.file = cell.post.author[@"profilePicture"];
