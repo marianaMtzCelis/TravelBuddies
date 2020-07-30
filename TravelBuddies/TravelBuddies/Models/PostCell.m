@@ -58,13 +58,7 @@
         self.post.isLiked = NO;
     }
     
-    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"updated post");
-        } else {
-            NSLog(@"Error updating post");
-        }
-    }];
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
     
     [self refreshData];
 }
