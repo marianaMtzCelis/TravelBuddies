@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
+
 @end
 
 @implementation PostDetailsViewController

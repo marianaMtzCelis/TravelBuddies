@@ -473,11 +473,19 @@
                                                         <action selector="onHeart:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="cH2-2X-2ya"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQM-wa-tBm">
+                                                    <rect key="frame" x="270" y="190" width="29" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="aTA-yR-Uqh" id="ihA-Vo-t7f"/>
                                             <outlet property="favButton" destination="s8n-Mr-TN5" id="tYJ-mM-wN2"/>
+                                            <outlet property="likeCountLabel" destination="fQM-wa-tBm" id="1iO-5g-xsa"/>
                                             <outlet property="photoView" destination="1Uq-JH-fgH" id="E3Y-Xl-gPc"/>
                                             <outlet property="ppView" destination="A2W-vB-d9b" id="EFN-tF-AAM"/>
                                             <outlet property="saveButton" destination="nxp-Uk-2DG" id="Pj5-K0-Fny"/>
@@ -564,10 +572,18 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpU-Kc-yBe">
+                                                    <rect key="frame" x="250" y="197" width="29" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="E2I-vF-gaA" id="KpL-gE-frf"/>
+                                            <outlet property="likeCountLabel" destination="gpU-Kc-yBe" id="HhU-hH-n1J"/>
                                             <outlet property="picturePostView" destination="vnf-gb-88d" id="AQ2-nx-HiR"/>
                                             <outlet property="ppView" destination="u9p-5f-X2Y" id="2nE-yG-Wxm"/>
                                             <outlet property="usernameLabel" destination="5GC-sK-Gcv" id="ONp-xD-ndX"/>
@@ -1058,6 +1074,13 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUt-4n-hv0">
+                                        <rect key="frame" x="263" y="325" width="29" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Fan-bU-vXb"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6aP-tU-fFb"/>
@@ -1071,6 +1094,7 @@
                         <outlet property="cityLabel" destination="g0T-lL-utD" id="Zj5-QE-dX2"/>
                         <outlet property="dateLabel" destination="n8T-ng-tE1" id="u0q-Zb-WqL"/>
                         <outlet property="favButton" destination="fTV-QL-SBN" id="FGY-kv-UeY"/>
+                        <outlet property="likeCountLabel" destination="FUt-4n-hv0" id="qS2-RF-Rtc"/>
                         <outlet property="photoView" destination="7yw-x0-Tss" id="PUn-8t-C0b"/>
                         <outlet property="placeLabel" destination="Wtb-VN-4v8" id="kx5-IX-TAp"/>
                         <outlet property="ppView" destination="rrf-66-yx4" id="XKM-uk-NiV"/>
@@ -1248,11 +1272,19 @@
                                                         <action selector="onSave:" destination="fph-y4-wZN" eventType="touchUpInside" id="oRk-Px-QuF"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-C7-KgZ">
+                                                    <rect key="frame" x="270" y="199" width="29" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="2fp-e5-S6i" id="tCc-AA-iGX"/>
                                             <outlet property="favButton" destination="QZ3-xE-ZQT" id="6RX-c4-DCO"/>
+                                            <outlet property="likeCountLabel" destination="pxl-C7-KgZ" id="jUd-pu-USy"/>
                                             <outlet property="picturePostView" destination="lqX-3L-W5C" id="krv-oq-FHv"/>
                                             <outlet property="ppView" destination="FNl-Zu-GYV" id="wqC-eW-V4w"/>
                                             <outlet property="saveButton" destination="k8Q-9y-bPu" id="PVY-XB-LBH"/>
@@ -1351,7 +1383,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z10-D4-sBv"/>
         <segue reference="CRg-6p-88V"/>
         <segue reference="n3b-49-1io"/>
         <segue reference="bTY-s1-dgK"/>
