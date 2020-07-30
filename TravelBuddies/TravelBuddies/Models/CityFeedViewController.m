@@ -100,6 +100,12 @@
         [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
     }
     
+    if (cell.post.isSaved) {
+        [cell.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+    } else {
+        [cell.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+    }
+    
     cell.ppView.file = nil;
     cell.ppView.file = cell.post.author[@"profilePicture"];
     [cell.ppView loadInBackground];

@@ -35,6 +35,12 @@
     int value = (int)self.post.likesArr.count;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
     
+    if (self.post.isSaved) {
+        [self.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+    } else {
+        [self.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+    }
+    
 }
 
 - (IBAction)onHeart:(id)sender {
