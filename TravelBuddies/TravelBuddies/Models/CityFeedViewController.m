@@ -11,6 +11,7 @@
 #import "PostCell.h"
 #import "Post.h"
 #import "PostDetailsViewController.h"
+#import "CityCell.h"
 
 @interface CityFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -26,6 +27,11 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    [self getTimeline];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
     [self getTimeline];
 }
 
@@ -64,7 +70,33 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityTimelineCell"];
+    CityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityTimelineCell"];
+    
+    Post *post = self.posts[indexPath.row];
+    cell.post = post;
+       
+    cell.picturePostView.file = nil;
+    cell.picturePostView.file = post.image;
+    [cell.picturePostView loadInBackground];
+    
+    cell.usernameLabel.text = post.author.username;
+    cell.cityLabel.text = post.city;
+    
+    int value = (int)cell.post.likesArr.count;
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
+    
+    if (cell.post.isLiked) {
+       [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+    } else {
+        [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+    }
+    
+    cell.ppView.file = nil;
+    cell.ppView.file = cell.post.author[@"profilePicture"];
+    [cell.ppView loadInBackground];
+    cell.ppView.layer.masksToBounds = true;
+    cell.ppView.layer.cornerRadius = 25;
+    
     return cell;
 }
 

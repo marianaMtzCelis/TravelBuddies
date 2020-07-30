@@ -47,6 +47,15 @@
     NSString *createdAtString = ago;
     self.dateLabel.text = createdAtString;
     
+    if (self.post.isLiked) {
+        [self.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+    } else {
+        [self.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+    }
+    
+    int value = (int)self.post.likesArr.count;
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
+    
     self.ppView.file = nil;
     self.ppView.file = self.post.author[@"profilePicture"];
     [self.ppView loadInBackground];
@@ -54,12 +63,51 @@
     self.ppView.layer.cornerRadius = 25;
     
     [self.recommendationsLabel sizeToFit];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self refreshData];
+}
+
+-(void)refreshData {
     
-    //TODO: MAP
+    if (self.post.isLiked) {
+        [self.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+    } else {
+        [self.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+    }
+    
+    int value = (int)self.post.likesArr.count;
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
+    
 }
 
 - (IBAction)onHeart:(id)sender {
-    [self.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+    
+    NSString *userID = [PFUser currentUser].objectId;
+    
+    if (!self.post.isLiked) {
+        NSMutableArray *likesArr = self.post.likesArr;
+        [likesArr addObject:userID];
+        self.post.likesArr = likesArr;
+        self.post.isLiked = YES;
+    } else {
+        NSMutableArray *likesArr = self.post.likesArr;
+        [likesArr removeObject:userID];
+        self.post.likesArr = likesArr;
+        self.post.isLiked = NO;
+    }
+    
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"updated post");
+        } else {
+            NSLog(@"Error updating post");
+        }
+    }];
+    
+    [self refreshData];
 }
 
 - (IBAction)onSave:(id)sender {

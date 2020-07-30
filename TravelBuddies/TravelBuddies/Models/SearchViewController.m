@@ -52,6 +52,11 @@
     self.searchNum = 0;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    [self getTimeline];
+}
+
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -97,7 +102,6 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         
         cell.ppView.file = cell.user[@"profilePicture"];
         [cell.ppView loadInBackground];
-        NSLog(@"profile picture");
         
         cell.ppView.layer.masksToBounds = true;
         cell.ppView.layer.cornerRadius = 35;
@@ -120,11 +124,20 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         cell.usernameLabel.text = post.author.username;
         cell.cityLabel.text = post.city;
         
+        int value = (int)cell.post.likesArr.count;
+        cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
+        
         cell.ppView.file = nil;
         cell.ppView.file = cell.post.author[@"profilePicture"];
         [cell.ppView loadInBackground];
         cell.ppView.layer.masksToBounds = true;
         cell.ppView.layer.cornerRadius = 25;
+        
+        if (cell.post.isLiked) {
+           [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+        } else {
+            [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+        }
         
         return cell;
         

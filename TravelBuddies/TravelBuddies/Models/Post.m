@@ -22,6 +22,8 @@
 @dynamic lng;
 @dynamic lat;
 @dynamic searchNum;
+@dynamic likesArr;
+@dynamic isLiked;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -40,6 +42,8 @@
     newPost.lng = lng;
     newPost.lat = lat;
     newPost.searchNum = searchNum;
+    newPost.likesArr = [[NSMutableArray alloc] init];
+    newPost.isLiked = NO;
     
     [newPost saveInBackgroundWithBlock: completion];
 }
