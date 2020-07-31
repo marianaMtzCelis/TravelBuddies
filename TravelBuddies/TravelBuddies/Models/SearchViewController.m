@@ -41,7 +41,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.searchBar.delegate = self;
-    self.tableView.rowHeight = 218;
+    //self.tableView.rowHeight = 218;
     
     self.scrollView.alpha = 0;
     
@@ -91,6 +91,7 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     if (self.peoplePlacesControl.selectedSegmentIndex == 0) {
         
         self.scrollView.alpha = 0;
+        self.tableView.rowHeight = 94;
         
         ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell" forIndexPath:indexPath];
         PFUser *author = self.filteredPeople[indexPath.row];
@@ -98,19 +99,18 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         
         cell.usernameLabel.text = author.username;
         
-        //cell.ppView.file = nil;
-        
         cell.ppView.file = cell.user[@"profilePicture"];
         [cell.ppView loadInBackground];
         
         cell.ppView.layer.masksToBounds = true;
-        cell.ppView.layer.cornerRadius = 35;
+        cell.ppView.layer.cornerRadius = 25;
         
         return cell;
         
     } else {
         
         self.scrollView.alpha = 1;
+        self.tableView.rowHeight = 218;
         
         CitiesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitiesCell" forIndexPath:indexPath];
         
@@ -134,15 +134,19 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         cell.ppView.layer.cornerRadius = 25;
         
         if (cell.post.isLiked) {
-           [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+            UIImage *image = [UIImage systemImageNamed:@"suit.heart.fill"];
+            [cell.favButton setImage:image forState:UIControlStateNormal];
         } else {
-            [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+            UIImage *image = [UIImage systemImageNamed:@"suit.heart"];
+            [cell.favButton setImage:image forState:UIControlStateNormal];
         }
         
         if (cell.post.isSaved) {
-            [cell.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+            UIImage *image = [UIImage systemImageNamed:@"pin.fill"];
+            [cell.saveButton setImage:image forState:UIControlStateNormal];
         } else {
-            [cell.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+            UIImage *image = [UIImage systemImageNamed:@"pin"];
+            [cell.saveButton setImage:image forState:UIControlStateNormal];
         }
         
         return cell;

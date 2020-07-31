@@ -28,7 +28,7 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.ppView.layer.masksToBounds = true;
-    self.ppView.layer.cornerRadius = 35;
+    self.ppView.layer.cornerRadius = 25;
     
     //self.user = [PFUser currentUser];
     
@@ -46,7 +46,7 @@
     self.ppView.file = self.user[@"profilePicture"];
     [self.ppView loadInBackground];
     self.ppView.layer.masksToBounds = true;
-    self.ppView.layer.cornerRadius = 32;
+    self.ppView.layer.cornerRadius = 25;
 }
 
 -(void)getTimeline {

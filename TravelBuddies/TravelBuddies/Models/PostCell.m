@@ -26,19 +26,23 @@
 -(void)refreshData {
     
     if (self.post.isLiked) {
-        [self.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+        UIImage *image = [UIImage systemImageNamed:@"suit.heart.fill"];
+        [self.favButton setImage:image forState:UIControlStateNormal];
     } else {
-        [self.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+        UIImage *image = [UIImage systemImageNamed:@"suit.heart"];
+        [self.favButton setImage:image forState:UIControlStateNormal];
     }
     
     int value = (int)self.post.likesArr.count;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
     
     if (self.post.isSaved) {
-           [self.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
-       } else {
-           [self.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
-       }
+        UIImage *image = [UIImage systemImageNamed:@"pin.fill"];
+        [self.saveButton setImage:image forState:UIControlStateNormal];
+    } else {
+        UIImage *image = [UIImage systemImageNamed:@"pin"];
+        [self.saveButton setImage:image forState:UIControlStateNormal];
+    }
     
 }
 
