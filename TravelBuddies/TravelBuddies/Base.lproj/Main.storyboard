@@ -1139,14 +1139,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="G37-aO-2so"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zGy-lk-Ghx">
-                        <barButtonItem key="rightBarButtonItem" title="Save Venue" id="DFW-eX-ZkM">
-                            <connections>
-                                <action selector="onSave:" destination="SJJ-hn-FnT" id="MEO-Fn-TnV"/>
-                                <segue destination="cO9-aF-4Sl" kind="show" identifier="mapComposeSegue" id="bTY-s1-dgK"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="zGy-lk-Ghx"/>
                     <connections>
                         <outlet property="mapView" destination="GGD-67-qDJ" id="Yux-uI-Jdh"/>
                     </connections>
@@ -1391,10 +1384,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z10-D4-sBv"/>
         <segue reference="CRg-6p-88V"/>
         <segue reference="n3b-49-1io"/>
-        <segue reference="bTY-s1-dgK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
