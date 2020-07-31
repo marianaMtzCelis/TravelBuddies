@@ -34,7 +34,7 @@
     self.ppView.file = user[@"profilePicture"];
     [self.ppView loadInBackground];
     self.ppView.layer.masksToBounds = true;
-    self.ppView.layer.cornerRadius = 32;
+    self.ppView.layer.cornerRadius = 25;
     
     [self getTimeline];
     
