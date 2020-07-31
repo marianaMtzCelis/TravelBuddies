@@ -1291,6 +1291,7 @@
                                             <outlet property="ppView" destination="FNl-Zu-GYV" id="wqC-eW-V4w"/>
                                             <outlet property="saveButton" destination="k8Q-9y-bPu" id="PVY-XB-LBH"/>
                                             <outlet property="usernameLabel" destination="vSd-4E-SSF" id="hGf-Of-8tu"/>
+                                            <segue destination="i0k-Ko-Obh" kind="show" identifier="savedDetailsSegue" id="4H2-Yb-uI1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1384,7 +1385,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CRg-6p-88V"/>
+        <segue reference="4H2-Yb-uI1"/>
         <segue reference="fTW-5h-RqQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
