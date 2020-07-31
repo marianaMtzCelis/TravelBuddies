@@ -130,9 +130,11 @@
     }
     
     if (cell.post.isLiked) {
-        [cell.favButton setImage:[UIImage imageNamed:@"fav-red"] forState:UIControlStateNormal];
+        UIImage *image = [UIImage systemImageNamed:@"suit.heart.fill"];
+        [cell.favButton setImage:image forState:UIControlStateNormal];
     } else {
-        [cell.favButton setImage:[UIImage imageNamed:@"fav"] forState:UIControlStateNormal];
+        UIImage *image = [UIImage systemImageNamed:@"suit.heart"];
+        [cell.favButton setImage:image forState:UIControlStateNormal];
     }
     
     NSMutableArray *pstArr = curr[@"savedPost"];
@@ -145,9 +147,11 @@
     }
     
     if (cell.post.isSaved) {
-        [cell.saveButton setImage:[UIImage imageNamed:@"save-pink"] forState:UIControlStateNormal];
+        UIImage *image = [UIImage systemImageNamed:@"pin.fill"];
+        [cell.saveButton setImage:image forState:UIControlStateNormal];
     } else {
-        [cell.saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+        UIImage *image = [UIImage systemImageNamed:@"pin"];
+        [cell.saveButton setImage:image forState:UIControlStateNormal];
     }
     
     return cell;
