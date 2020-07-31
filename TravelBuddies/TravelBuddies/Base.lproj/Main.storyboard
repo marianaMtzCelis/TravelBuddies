@@ -933,29 +933,22 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ni0-bE-eyj">
-                                <rect key="frame" x="143" y="459" width="216" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Change Profile Picture">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onChangePhoto:" destination="x5j-j5-K8D" eventType="touchUpInside" id="BN9-aw-buR"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcR-QA-1Ja">
-                                <rect key="frame" x="306" y="401" width="38" height="38"/>
+                                <rect key="frame" x="280" y="383" width="79" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="library"/>
+                                <state key="normal" image="photo.on.rectangle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" weight="thin"/>
+                                </state>
                                 <connections>
                                     <action selector="onLibrary:" destination="x5j-j5-K8D" eventType="touchUpInside" id="OeI-mm-tCs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcA-WK-N7w">
-                                <rect key="frame" x="234" y="388" width="64" height="63"/>
+                                <rect key="frame" x="199" y="378" width="73" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="camera"/>
+                                <state key="normal" image="camera" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" weight="thin"/>
+                                </state>
                                 <connections>
                                     <action selector="onCamera:" destination="x5j-j5-K8D" eventType="touchUpInside" id="eoF-gU-Evc"/>
                                 </connections>
@@ -964,6 +957,18 @@
                                 <rect key="frame" x="16" y="106" width="343" height="258"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ni0-bE-eyj">
+                                <rect key="frame" x="154" y="450" width="199" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <state key="normal" title="Change Profile Picture">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onChangePhoto:" destination="x5j-j5-K8D" eventType="touchUpInside" id="BN9-aw-buR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="qhA-vj-Jdq"/>
@@ -1432,8 +1437,6 @@
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="96"/>
-        <image name="camera" width="64.666664123535156" height="64.666664123535156"/>
-        <image name="library" width="66.666664123535156" height="66.666664123535156"/>
         <image name="location" catalog="system" width="128" height="115"/>
         <image name="logoWhite" width="260" height="257.33334350585938"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
