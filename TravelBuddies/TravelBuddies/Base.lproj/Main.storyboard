@@ -1267,27 +1267,32 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FNl-Zu-GYV" customClass="PFImageView">
-                                                    <rect key="frame" x="17" y="156" width="50" height="50"/>
+                                                    <rect key="frame" x="17" y="154" width="54" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" weight="thin"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZ3-xE-ZQT">
-                                                    <rect key="frame" x="250" y="149" width="65" height="64"/>
+                                                    <rect key="frame" x="277" y="159" width="45" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="fav"/>
+                                                    <state key="normal" image="suit.heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="medium" weight="thin"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onHeart:" destination="fph-y4-wZN" eventType="touchUpInside" id="ngQ-3W-nWx"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8Q-9y-bPu">
-                                                    <rect key="frame" x="307" y="149" width="65" height="65"/>
+                                                    <rect key="frame" x="320" y="159" width="41" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="save"/>
+                                                    <state key="normal" image="pin" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="medium" weight="thin"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onSave:" destination="fph-y4-wZN" eventType="touchUpInside" id="oRk-Px-QuF"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-C7-KgZ">
-                                                    <rect key="frame" x="270" y="199" width="26" height="14"/>
+                                                    <rect key="frame" x="286" y="197" width="26" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1397,7 +1402,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kLr-IB-3rV"/>
+        <segue reference="4H2-Yb-uI1"/>
         <segue reference="fTW-5h-RqQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1411,8 +1416,8 @@
         <image name="map" catalog="system" width="128" height="113"/>
         <image name="margin" width="888" height="666"/>
         <image name="person" catalog="system" width="128" height="117"/>
-        <image name="pin" catalog="system" width="119" height="128"/>
         <image name="pin" width="64.666664123535156" height="64.666664123535156"/>
+        <image name="pin" catalog="system" width="119" height="128"/>
         <image name="save" width="64.666664123535156" height="64.666664123535156"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
