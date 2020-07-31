@@ -212,9 +212,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5n-wH-Xf4">
-                                        <rect key="frame" x="32" y="392" width="30" height="32"/>
+                                        <rect key="frame" x="60" y="222" width="31" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="library"/>
+                                        <state key="normal" image="photo.on.rectangle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15" weight="thin"/>
+                                        </state>
                                         <connections>
                                             <action selector="onLibrary:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="jc1-6t-YUj"/>
                                         </connections>
@@ -237,8 +239,9 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abO-kW-3ef">
-                                        <rect key="frame" x="281" y="508" width="75" height="30"/>
+                                        <rect key="frame" x="262" y="521" width="96" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Commerce">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -247,8 +250,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQ7-6q-ZTT">
-                                        <rect key="frame" x="258" y="475" width="97" height="30"/>
+                                        <rect key="frame" x="234" y="489" width="123" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Entertainment">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -257,8 +261,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-0g-uJg">
-                                        <rect key="frame" x="285" y="446" width="67" height="30"/>
+                                        <rect key="frame" x="272" y="455" width="86" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Museums">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -267,8 +272,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmb-Ii-APf">
-                                        <rect key="frame" x="315" y="412" width="35" height="30"/>
+                                        <rect key="frame" x="311" y="422" width="44" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Food">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -277,16 +283,18 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMk-Qq-qKj">
-                                        <rect key="frame" x="307" y="377" width="50" height="27"/>
+                                        <rect key="frame" x="307" y="383" width="50" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMG-5u-rxl">
-                                        <rect key="frame" x="27" y="456" width="40" height="42"/>
+                                        <rect key="frame" x="32" y="220" width="29" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="camera"/>
+                                        <state key="normal" image="camera" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15" weight="thin"/>
+                                        </state>
                                         <connections>
                                             <action selector="onCamera:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="lkm-zf-4N3"/>
                                         </connections>
@@ -307,7 +315,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWh-q6-TfQ">
-                                        <rect key="frame" x="244" y="383" width="6" height="189"/>
+                                        <rect key="frame" x="189" y="384" width="6" height="214"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -316,8 +324,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kG3-v1-2Ii">
-                                        <rect key="frame" x="288" y="542" width="67" height="30"/>
+                                        <rect key="frame" x="273" y="554" width="84" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Night Life">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -336,10 +345,13 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPv-sz-JeM">
-                                        <rect key="frame" x="91" y="411" width="65" height="65"/>
+                                        <rect key="frame" x="26" y="416" width="133" height="119"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="pin"/>
+                                        <state key="normal" image="location" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="120" weight="thin"/>
+                                        </state>
                                         <connections>
+                                            <action selector="locButton:" destination="Fev-pe-PYC" eventType="touchUpInside" id="jxW-DK-SYG"/>
                                             <action selector="onPin:" destination="cO9-aF-4Sl" eventType="touchUpInside" id="8aQ-bu-88T"/>
                                         </connections>
                                     </button>
@@ -373,6 +385,7 @@
                         <outlet property="commerceButton" destination="abO-kW-3ef" id="h6j-e9-ZpE"/>
                         <outlet property="entertainmentButton" destination="CQ7-6q-ZTT" id="1OC-nL-EBr"/>
                         <outlet property="foodButton" destination="bmb-Ii-APf" id="uqb-ui-ksM"/>
+                        <outlet property="locButton" destination="UPv-sz-JeM" id="iCU-6d-Dr7"/>
                         <outlet property="museumButton" destination="ueg-0g-uJg" id="6QB-dq-Eec"/>
                         <outlet property="nightLifeButton" destination="kG3-v1-2Ii" id="aeC-et-eaE"/>
                         <outlet property="placeTextBox" destination="Qqt-QL-SN1" id="eX0-ii-L62"/>
@@ -382,6 +395,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5S-fd-fwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Fev-pe-PYC" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Ps7-2C-qUQ">
                     <connections>
                         <action selector="onTap:" destination="cO9-aF-4Sl" id="2zb-xn-AaB"/>
@@ -1417,6 +1431,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="camera" catalog="system" width="128" height="96"/>
         <image name="camera" width="64.666664123535156" height="64.666664123535156"/>
         <image name="library" width="66.666664123535156" height="66.666664123535156"/>
         <image name="location" catalog="system" width="128" height="115"/>
@@ -1425,8 +1440,8 @@
         <image name="map" catalog="system" width="128" height="113"/>
         <image name="margin" width="888" height="666"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="98"/>
         <image name="pin" catalog="system" width="119" height="128"/>
-        <image name="pin" width="64.666664123535156" height="64.666664123535156"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
     </resources>

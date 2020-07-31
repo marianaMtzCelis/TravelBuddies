@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *entertainmentButton;
 @property (weak, nonatomic) IBOutlet UIButton *commerceButton;
 @property (weak, nonatomic) IBOutlet UIButton *nightLifeButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *locButton;
 @end
 
 @implementation ComposeViewController
@@ -40,6 +40,13 @@
 
 - (IBAction)onCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    if (self.latitude != nil) {
+        UIImage *image = [UIImage systemImageNamed:@"location.fill"];
+        [self.locButton setImage:image forState:UIControlStateNormal];
+    }
 }
 
 typedef NS_ENUM(NSUInteger, MyEnum) {
@@ -90,7 +97,7 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-
+    
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
@@ -127,34 +134,34 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
 
 - (IBAction)onMuseums:(id)sender {
     if ([self.tags[1]  isEqual: @0]) {
-          [self calculateSearchNumber:Museum addOrSubtract:0];
-      } else {
-          [self calculateSearchNumber:Museum addOrSubtract:1];
-      }
+        [self calculateSearchNumber:Museum addOrSubtract:0];
+    } else {
+        [self calculateSearchNumber:Museum addOrSubtract:1];
+    }
 }
 
 - (IBAction)onNL:(id)sender {
     if ([self.tags[4]  isEqual: @0]) {
-           [self calculateSearchNumber:NightLife addOrSubtract:0];
-       } else {
-           [self calculateSearchNumber:NightLife addOrSubtract:1];
-       }
+        [self calculateSearchNumber:NightLife addOrSubtract:0];
+    } else {
+        [self calculateSearchNumber:NightLife addOrSubtract:1];
+    }
 }
 
 - (IBAction)onCommerce:(id)sender {
-     if ([self.tags[3]  isEqual: @0]) {
-           [self calculateSearchNumber:Commerce addOrSubtract:0];
-       } else {
-           [self calculateSearchNumber:Commerce addOrSubtract:1];
-       }
+    if ([self.tags[3]  isEqual: @0]) {
+        [self calculateSearchNumber:Commerce addOrSubtract:0];
+    } else {
+        [self calculateSearchNumber:Commerce addOrSubtract:1];
+    }
 }
 
 - (IBAction)onEntertainment:(id)sender {
-     if ([self.tags[2]  isEqual: @0]) {
-           [self calculateSearchNumber:Entertainment addOrSubtract:0];
-       } else {
-           [self calculateSearchNumber:Entertainment addOrSubtract:1];
-       }
+    if ([self.tags[2]  isEqual: @0]) {
+        [self calculateSearchNumber:Entertainment addOrSubtract:0];
+    } else {
+        [self calculateSearchNumber:Entertainment addOrSubtract:1];
+    }
 }
 
 - (IBAction)onTap:(id)sender {
@@ -238,16 +245,16 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         default:
             break;
     }
-
+    
 }
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"detailsMapSegue"]) {
-            PhotoMapViewController *photoMapViewController = [segue destinationViewController];
-            photoMapViewController.delegate = self;
-        }
+        PhotoMapViewController *photoMapViewController = [segue destinationViewController];
+        photoMapViewController.delegate = self;
+    }
 }
 
 
