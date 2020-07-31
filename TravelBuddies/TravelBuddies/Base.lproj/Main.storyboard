@@ -1125,15 +1125,11 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GGD-67-qDJ">
                                 <rect key="frame" x="0.0" y="35" width="375" height="723"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0M-OR-4kW">
-                                <rect key="frame" x="284" y="657" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LOC"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <segue destination="C4X-hP-WSR" kind="show" identifier="locSegue" id="EMD-hM-hct"/>
+                                    <outletCollection property="gestureRecognizers" destination="B8n-mr-bbz" appends="YES" id="LZK-ki-jE1"/>
                                 </connections>
-                            </button>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="G37-aO-2so"/>
@@ -1141,9 +1137,15 @@
                     <navigationItem key="navigationItem" id="zGy-lk-Ghx"/>
                     <connections>
                         <outlet property="mapView" destination="GGD-67-qDJ" id="Yux-uI-Jdh"/>
+                        <segue destination="C4X-hP-WSR" kind="show" identifier="locSegue" id="BO9-IZ-lsk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgS-pe-tf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="B8n-mr-bbz">
+                    <connections>
+                        <action selector="onTap:" destination="SJJ-hn-FnT" id="HrJ-nn-pRc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="149.59999999999999" y="3204.6798029556653"/>
         </scene>
