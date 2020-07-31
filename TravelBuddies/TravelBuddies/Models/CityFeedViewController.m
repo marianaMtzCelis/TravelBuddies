@@ -73,7 +73,13 @@
             Post *post = self.posts[indexPath.row];
             PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
             postDetailsViewController.post = post;
-        }
+     } else if ([[segue identifier] isEqualToString:@"savedDetailsSegue"]) {
+         PostCell *tappedCell = sender;
+         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+         Post *post = self.posts[indexPath.row];
+         PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
+         postDetailsViewController.post = post;
+     }
  }
  
 

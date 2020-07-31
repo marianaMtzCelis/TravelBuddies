@@ -99,6 +99,11 @@
     self.lng = longitude;
 }
 
+- (IBAction)onTap:(id)sender {
+    [self performSegueWithIdentifier:@"locSegue" sender:nil];
+}
+
+
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
