@@ -468,8 +468,15 @@
                                                         <action selector="onSave:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="7zP-xC-LTd"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQM-wa-tBm">
+                                                    <rect key="frame" x="284" y="186" width="29" height="13"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8n-Mr-TN5">
-                                                    <rect key="frame" x="275" y="147" width="47" height="44"/>
+                                                    <rect key="frame" x="275" y="144" width="47" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="suit.heart" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="medium" weight="thin"/>
@@ -478,13 +485,6 @@
                                                         <action selector="onHeart:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="cH2-2X-2ya"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQM-wa-tBm">
-                                                    <rect key="frame" x="284" y="190" width="29" height="13"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -549,9 +549,10 @@
                                                     <rect key="frame" x="15" y="11" width="339" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9p-5f-X2Y" customClass="PFImageView">
-                                                    <rect key="frame" x="15" y="151" width="50" height="50"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u9p-5f-X2Y" customClass="PFImageView">
+                                                    <rect key="frame" x="15" y="149" width="54" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" weight="thin"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GC-sK-Gcv">
                                                     <rect key="frame" x="73" y="151" width="160" height="22"/>
@@ -561,17 +562,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zck-8j-mdK">
-                                                    <rect key="frame" x="232" y="144" width="65" height="64"/>
+                                                    <rect key="frame" x="268" y="148" width="45" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="fav"/>
+                                                    <state key="normal" image="suit.heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="medium" weight="thin"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onHeart:" destination="641-Ce-56a" eventType="touchUpInside" id="PzK-os-qhN"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsX-64-2Eu">
-                                                    <rect key="frame" x="295" y="143" width="65" height="65"/>
+                                                    <rect key="frame" x="313" y="148" width="41" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="save"/>
+                                                    <state key="normal" image="pin" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="medium" weight="thin"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onSave:" destination="641-Ce-56a" eventType="touchUpInside" id="1Tj-aJ-eR9"/>
                                                     </connections>
@@ -584,7 +589,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpU-Kc-yBe">
-                                                    <rect key="frame" x="250" y="197" width="29" height="14"/>
+                                                    <rect key="frame" x="276" y="188" width="29" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -610,10 +615,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T6b-4P-2ck" customClass="PFImageView">
-                                                    <rect key="frame" x="15" y="11" width="72" height="72"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01U-il-RcM">
                                                     <rect key="frame" x="95" y="30" width="233" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -621,6 +622,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T6b-4P-2ck" customClass="PFImageView">
+                                                    <rect key="frame" x="15" y="22" width="54" height="52"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" weight="thin"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1051,16 +1057,6 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTV-QL-SBN">
-                                        <rect key="frame" x="264" y="286" width="45" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="suit.heart" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="medium" weight="thin"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onHeart:" destination="i0k-Ko-Obh" eventType="touchUpInside" id="dhL-mT-tFd"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ma-oc-3Mi">
                                         <rect key="frame" x="314" y="286" width="41" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1097,12 +1093,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUt-4n-hv0">
-                                        <rect key="frame" x="273" y="326" width="27" height="14"/>
+                                        <rect key="frame" x="273" y="324" width="27" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTV-QL-SBN">
+                                        <rect key="frame" x="264" y="286" width="45" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="suit.heart" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="medium" weight="thin"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onHeart:" destination="i0k-Ko-Obh" eventType="touchUpInside" id="dhL-mT-tFd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Fan-bU-vXb"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6aP-tU-fFb"/>
@@ -1406,13 +1412,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QX8-5p-A02"/>
+        <segue reference="kLr-IB-3rV"/>
         <segue reference="fTW-5h-RqQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="camera" width="64.666664123535156" height="64.666664123535156"/>
-        <image name="fav" width="64.666664123535156" height="64"/>
         <image name="library" width="66.666664123535156" height="66.666664123535156"/>
         <image name="location" catalog="system" width="128" height="115"/>
         <image name="logoWhite" width="260" height="257.33334350585938"/>
@@ -1422,7 +1427,6 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="pin" catalog="system" width="119" height="128"/>
         <image name="pin" width="64.666664123535156" height="64.666664123535156"/>
-        <image name="save" width="64.666664123535156" height="64.666664123535156"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
     </resources>
