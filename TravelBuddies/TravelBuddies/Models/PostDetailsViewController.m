@@ -63,7 +63,32 @@
     self.ppView.layer.cornerRadius = 25;
     
     [self.recommendationsLabel sizeToFit];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapResponder:)];
+    tapRecognizer.numberOfTapsRequired = 2;
+    tapRecognizer.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:tapRecognizer];
 
+}
+
+-(void)tapResponder: (UIGestureRecognizer *)sender {
+     NSString *userID = [PFUser currentUser].objectId;
+       
+       if (!self.post.isLiked) {
+           NSMutableArray *likesArr = self.post.likesArr;
+           [likesArr addObject:userID];
+           self.post.likesArr = likesArr;
+           self.post.isLiked = YES;
+       } else {
+           NSMutableArray *likesArr = self.post.likesArr;
+           [likesArr removeObject:userID];
+           self.post.likesArr = likesArr;
+           self.post.isLiked = NO;
+       }
+       
+       [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+       
+       [self refreshData];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
