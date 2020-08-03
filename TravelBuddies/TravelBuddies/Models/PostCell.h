@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @property (nonatomic, assign) BOOL isLiked;
+@property (weak, nonatomic) IBOutlet UIImageView *heartImage;
 @end
 
 NS_ASSUME_NONNULL_END

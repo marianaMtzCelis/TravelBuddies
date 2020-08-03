@@ -21,6 +21,7 @@
 
 -(void)viewWillAppear {
     [self refreshData];
+    self.heartImage.alpha = 0;
 }
 
 -(void)refreshData {
@@ -55,6 +56,13 @@
         [likesArr addObject:userID];
         self.post.likesArr = likesArr;
         self.post.isLiked = YES;
+        self.heartImage.image = [UIImage systemImageNamed:@"suit.heart.fill"];
+        [UIView animateWithDuration:0 animations:^{
+            self.heartImage.alpha = 1;
+        }];
+        [UIView animateWithDuration:1 animations:^{
+            self.heartImage.alpha = 0;
+        }];
     } else {
         NSMutableArray *likesArr = self.post.likesArr;
         [likesArr removeObject:userID];
@@ -77,6 +85,13 @@
         curr[@"savedPost"] = savedArr;
         self.post.isSaved = YES;
         NSLog(@"Post saveado");
+        self.heartImage.image = [UIImage systemImageNamed:@"pin.fill"];
+        [UIView animateWithDuration:0 animations:^{
+            self.heartImage.alpha = 1;
+        }];
+        [UIView animateWithDuration:1 animations:^{
+            self.heartImage.alpha = 0;
+        }];
     } else {
         NSMutableArray *savedArray = curr[@"savedPost"];
         [savedArray removeObject:self.post.objectId];

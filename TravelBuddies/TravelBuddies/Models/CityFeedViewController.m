@@ -96,6 +96,7 @@
     
     cell.usernameLabel.text = post.author.username;
     cell.cityLabel.text = post.city;
+    cell.heartImage.alpha = 0;
     
     int value = (int)cell.post.likesArr.count;
     cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
