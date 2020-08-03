@@ -11,6 +11,7 @@ target 'TravelBuddies' do
   pod 'DateTools'
   pod 'NSDate+TimeAgo'
   pod 'AFNetworking'
+  pod 'MaterialComponents/Snackbar'
 
   target 'TravelBuddiesTests' do
     inherit! :search_paths
