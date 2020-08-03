@@ -47,9 +47,13 @@
         MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
         message.text = @"Welcome back!";
         [MDCSnackbarManager showMessage:message];
-    } else if (([currUser[@"times"] isEqual:@1])) {
+    } else if ([currUser[@"times"] isEqual:@1]) {
         MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
         message.text = @"Successfully changed profile picture!";
+        [MDCSnackbarManager showMessage:message];
+    } else if ([currUser[@"times"] isEqual:@4]) {
+        MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+        message.text = @"Post success!";
         [MDCSnackbarManager showMessage:message];
     }
     
@@ -60,15 +64,6 @@
 -(void)viewWillAppear:(BOOL)animated {
     [self.tableView reloadData];
     [self getTimeline];
-    
-    PFUser *currUser = [PFUser currentUser];
-    if ([currUser[@"posts"] isEqual:@1]) {
-        MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
-        message.text = @"Post success!";
-        [MDCSnackbarManager showMessage:message];
-        currUser[@"posts"] = @0;
-        [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
-    }
 }
 
 

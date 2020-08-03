@@ -47,9 +47,6 @@
     if (self.latitude != nil) {
         UIImage *image = [UIImage systemImageNamed:@"location.fill"];
         [self.locButton setImage:image forState:UIControlStateNormal];
-        MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
-        message.text = @"Saved venue location";
-        [MDCSnackbarManager showMessage:message];
     }
 }
 
@@ -76,7 +73,7 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
             NSLog(@"Post Success");
             //[self dismissViewControllerAnimated:true completion:nil];
             [self performSegueWithIdentifier:@"newPostSegue" sender:nil];
-            currUser[@"posts"] = @1;
+            currUser[@"times"] = @4;
             [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
         } else {
             NSLog(@"Post Fail");
