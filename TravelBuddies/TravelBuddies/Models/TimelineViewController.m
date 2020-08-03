@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *posts;
 @property (nonatomic, strong) NSMutableArray *people;
+@property (nonatomic, strong) NSMutableArray *following;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
@@ -45,10 +46,24 @@
 
 -(void)getTimeline {
     
+    PFUser *currUser = [PFUser currentUser];
+    NSMutableArray *followingArr = currUser[@"following"];
+    PFQuery *userQuery = [PFUser query];
+    [userQuery whereKey:@"objectId" containedIn:followingArr];
+    
+    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *people, NSError *error) {
+        if (people != nil) {
+            self.following = (NSMutableArray *)people;
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
+    [query whereKey:@"author" containedIn:self.following];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
