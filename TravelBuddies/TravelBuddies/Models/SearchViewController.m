@@ -105,6 +105,23 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
         cell.ppView.layer.masksToBounds = true;
         cell.ppView.layer.cornerRadius = 25;
         
+        cell.isFollowed = NO;
+        
+        PFUser *currUser = [PFUser currentUser];
+        NSMutableArray *followingArr = currUser[@"following"];
+        for (id prsn in followingArr) {
+            if ([prsn isEqualToString:cell.user.objectId]) {
+                cell.isFollowed = YES;
+                [cell.followButton setTitle:@"following" forState:UIControlStateNormal];
+                [cell.followButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+            }
+        }
+        
+        if (!cell.isFollowed) {
+            [cell.followButton setTitle:@"follow" forState:UIControlStateNormal];
+            [cell.followButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        }
+        
         return cell;
         
     } else {
