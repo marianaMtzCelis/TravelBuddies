@@ -55,6 +55,7 @@
 
 - (IBAction)onChangePhoto:(id)sender {
     self.user[@"profilePicture"] = [self getPFFileFromImage:self.ppView.image];
+    self.user[@"times"] = @1;
     
     [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {

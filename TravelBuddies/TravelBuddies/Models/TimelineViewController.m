@@ -39,25 +39,36 @@
     [self.tableView addSubview:self.refreshControl];
     
     PFUser *currUser = [PFUser currentUser];
-    if ([currUser[@"times"] isEqual:@0]) {
+    if ([currUser[@"times"] isEqual:@3]) {
         MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
         message.text = @"Welcome to the Travel Buddies family!";
         [MDCSnackbarManager showMessage:message];
-    } else {
+    } else if ([currUser[@"times"] isEqual:@2]){
         MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
         message.text = @"Welcome back!";
         [MDCSnackbarManager showMessage:message];
+    } else if (([currUser[@"times"] isEqual:@1])) {
+        MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+        message.text = @"Successfully changed profile picture!";
+        [MDCSnackbarManager showMessage:message];
     }
     
-    int times = [currUser[@"times"] intValue];
-    times++;
-    currUser[@"times"] = [NSNumber numberWithInt:times];
+    currUser[@"times"] = @0;
     [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.tableView reloadData];
     [self getTimeline];
+    
+    PFUser *currUser = [PFUser currentUser];
+    if ([currUser[@"posts"] isEqual:@1]) {
+        MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+        message.text = @"Post success!";
+        [MDCSnackbarManager showMessage:message];
+        currUser[@"posts"] = @0;
+        [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    }
 }
 
 

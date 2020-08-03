@@ -63,6 +63,8 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
 
 - (IBAction)onPost:(id)sender {
     
+    PFUser *currUser = [PFUser currentUser];
+    
     double lt = [self.latitude doubleValue];
     double ln = [self.longitude doubleValue];
     
@@ -72,7 +74,10 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:lng withLat:lat withSearchNum:self.searchNum withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Post Success");
-            [self dismissViewControllerAnimated:true completion:nil];
+            //[self dismissViewControllerAnimated:true completion:nil];
+            [self performSegueWithIdentifier:@"newPostSegue" sender:nil];
+            currUser[@"posts"] = @1;
+            [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
         } else {
             NSLog(@"Post Fail");
         }

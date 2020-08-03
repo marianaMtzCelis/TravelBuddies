@@ -54,6 +54,7 @@
                 PFUser *currUser = [PFUser currentUser];
                 [followArr addObject:currUser.objectId];
                 newUser[@"following"] = followArr;
+                newUser[@"times"] = @3;
                 [newUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) { }];
                 [self performSegueWithIdentifier:@"signupSuccessSegue" sender:nil];
             }
