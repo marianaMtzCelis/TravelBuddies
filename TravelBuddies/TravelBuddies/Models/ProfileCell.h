@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) PFUser *user;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *ppView;
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
 @end
 
 NS_ASSUME_NONNULL_END

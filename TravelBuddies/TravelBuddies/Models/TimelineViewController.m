@@ -18,6 +18,7 @@
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *posts;
+@property (nonatomic, strong) NSMutableArray *people;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
@@ -61,16 +62,34 @@
     }];
 }
 
+-(void)getPeople {
+    PFQuery *query = [PFUser query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *people, NSError *error) {
+        if (people != nil) {
+            self.people = (NSMutableArray *)people;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
 - (IBAction)onCompose:(id)sender {
     [self performSegueWithIdentifier:@"composeSegue" sender:nil];
 }
 
 - (IBAction)onLogout:(id)sender {
+    
     [self getTimeline];
+    [self getPeople];
     for (Post *post in self.posts) {
         post.isSaved = NO;
         post.isLiked = NO;
         [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    }
+    for (PFUser *person in self.people) {
+        person[@"isFollowed"] = @"NO";
+        [person saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
     }
     
     SceneDelegate *sceneDelegate = (SceneDelegate *) self.view.window.windowScene.delegate;

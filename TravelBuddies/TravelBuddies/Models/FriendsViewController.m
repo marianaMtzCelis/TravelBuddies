@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSMutableArray *posts;
 @property (weak, nonatomic) IBOutlet PFImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
+@property (weak, nonatomic) PFUser *friendUser;
+@property (nonatomic, assign) bool isFollowed;
 @end
 
 @implementation FriendsViewController
@@ -30,7 +33,7 @@
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 25;
     
-    //self.user = [PFUser currentUser];
+    self.friendUser = self.user;
     
     [self getTimeline];
     
@@ -47,6 +50,23 @@
     [self.ppView loadInBackground];
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 25;
+    
+    self.isFollowed = NO;
+    
+    PFUser *currUser = [PFUser currentUser];
+    NSMutableArray *followingArr = currUser[@"following"];
+    for (id prsn in followingArr) {
+        if ([prsn isEqualToString:self.user.objectId]) {
+            self.isFollowed = YES;
+            [self.followButton setTitle:@"following" forState:UIControlStateNormal];
+            [self.followButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        }
+    }
+    
+    if (!self.isFollowed) {
+        [self.followButton setTitle:@"follow" forState:UIControlStateNormal];
+        [self.followButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+    }
 }
 
 -(void)getTimeline {
@@ -102,5 +122,34 @@
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.posts.count;
 }
+
+- (IBAction)onFollow:(id)sender {
+    
+    PFUser *currUser = [PFUser currentUser];
+    NSMutableArray *followArr = currUser[@"following"];
+    
+    if (self.isFollowed == NO) {
+        [self.followButton setTitle:@"following" forState:UIControlStateNormal];
+        [self.followButton setTitleColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [followArr addObject:self.user.objectId];
+        self.isFollowed = YES;
+    } else {
+        [self.followButton setTitle:@"follow" forState:UIControlStateNormal];
+        [self.followButton setTitleColor:[UIColor colorWithRed:127.5/255.0 green:104.55/255.0 blue:22.95/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [followArr removeObject:self.user.objectId];
+        self.isFollowed = NO;
+    }
+    
+    currUser[@"following"] = followArr;
+    [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Added to following array");
+        } else {
+            NSLog(@"Failed to save in following array");
+        }
+    }];
+
+}
+
 
 @end
