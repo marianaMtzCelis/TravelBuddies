@@ -16,6 +16,72 @@ PODS:
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.1)
   - DateTools (2.0.0)
+  - MaterialComponents/AnimationTiming (112.0.1)
+  - MaterialComponents/Availability (112.0.1)
+  - MaterialComponents/Buttons (112.0.1):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Elevation (112.0.1):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Ink (112.0.1):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/OverlayWindow (112.0.1):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Application (112.0.1)
+  - MaterialComponents/private/Color (112.0.1):
+    - MaterialComponents/Availability
+  - MaterialComponents/private/KeyboardWatcher (112.0.1):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (112.0.1)
+  - MaterialComponents/private/Overlay (112.0.1)
+  - MaterialComponents/Ripple (112.0.1):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/ShadowElevations (112.0.1)
+  - MaterialComponents/ShadowLayer (112.0.1):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (112.0.1):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (112.0.1):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Snackbar (112.0.1):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/Buttons
+    - MaterialComponents/Elevation
+    - MaterialComponents/OverlayWindow
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
+    - MaterialComponents/private/Overlay
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+  - MaterialComponents/Typography (112.0.1):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+    - MDFTextAccessibility
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
   - "NSDate+TimeAgo (1.0.6)"
   - Parse (1.18.0):
     - Parse/Core (= 1.18.0)
@@ -27,6 +93,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - DateTools
+  - MaterialComponents/Snackbar
   - "NSDate+TimeAgo"
   - Parse
   - Parse/UI
@@ -36,6 +103,9 @@ SPEC REPOS:
     - AFNetworking
     - Bolts
     - DateTools
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - "NSDate+TimeAgo"
     - Parse
 
@@ -43,9 +113,12 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  MaterialComponents: 5be6bf8c20183474a84c9852b5b45703ad49cf3a
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   "NSDate+TimeAgo": 35601c619b2d59290055e4fe76e61d97677a2360
   Parse: 79bdda34fdb7eb2a707a43a951c8aae236cb3e34
 
-PODFILE CHECKSUM: 5b8b8b02d9f32f0174f1e8b2887066eb59867eb3
+PODFILE CHECKSUM: 036c3b84a0c91c4c79b56e30fc0097f550a9f618
 
 COCOAPODS: 1.9.3

@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import "PhotoMapViewController.h"
+#import "MaterialSnackbar.h"
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
@@ -46,6 +47,9 @@
     if (self.latitude != nil) {
         UIImage *image = [UIImage systemImageNamed:@"location.fill"];
         [self.locButton setImage:image forState:UIControlStateNormal];
+        MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+        message.text = @"Saved venue location";
+        [MDCSnackbarManager showMessage:message];
     }
 }
 

@@ -14,6 +14,7 @@
 #import "Post.h"
 #import "PFImageView.h"
 #import "PostDetailsViewController.h"
+#import "MaterialSnackbar.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -36,6 +37,22 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
+    
+    PFUser *currUser = [PFUser currentUser];
+    if ([currUser[@"times"] isEqual:@0]) {
+        MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+        message.text = @"Welcome to the Travel Buddies family!";
+        [MDCSnackbarManager showMessage:message];
+    } else {
+        MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+        message.text = @"Welcome back!";
+        [MDCSnackbarManager showMessage:message];
+    }
+    
+    int times = [currUser[@"times"] intValue];
+    times++;
+    currUser[@"times"] = [NSNumber numberWithInt:times];
+    [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
