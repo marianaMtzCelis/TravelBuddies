@@ -204,7 +204,7 @@
             <objects>
                 <viewController id="cO9-aF-4Sl" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PNT-aR-kF2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kno-hR-llw">
@@ -392,6 +392,7 @@
                         <outlet property="postPictureView" destination="KHN-N2-JRn" id="urV-EK-lxH"/>
                         <outlet property="recommendationsTextView" destination="PIr-Mi-yWs" id="Pgn-LH-4AV"/>
                         <segue destination="SJJ-hn-FnT" kind="show" identifier="detailsMapSegue" id="Z10-D4-sBv"/>
+                        <segue destination="RcY-Ci-aOS" kind="presentation" identifier="newPostSegue" modalPresentationStyle="fullScreen" id="mx0-Zq-oha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5S-fd-fwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -532,7 +533,7 @@
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="pne-sT-3M8">
                             <connections>
                                 <action selector="onCompose:" destination="Nmc-m7-q7w" id="aTv-7J-ISx"/>
-                                <segue destination="pha-1e-ffI" kind="presentation" identifier="composeSegue" id="f8F-se-grL"/>
+                                <segue destination="pha-1e-ffI" kind="presentation" identifier="composeSegue" modalPresentationStyle="fullScreen" id="f8F-se-grL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1031,7 +1032,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pha-1e-ffI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ak4-qA-qfs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1185,7 +1186,7 @@
             <objects>
                 <viewController id="SJJ-hn-FnT" customClass="PhotoMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dg5-5X-DYy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GGD-67-qDJ">
@@ -1220,7 +1221,7 @@
             <objects>
                 <viewController id="C4X-hP-WSR" customClass="LocationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S2L-bY-W2F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="134" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lyB-a3-UYh">
@@ -1473,8 +1474,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="f8F-se-grL"/>
         <segue reference="4H2-Yb-uI1"/>
-        <segue reference="n3b-49-1io"/>
+        <segue reference="mx0-Zq-oha"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

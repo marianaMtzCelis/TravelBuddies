@@ -48,6 +48,9 @@
                 
             } else {
                 NSLog(@"User logged in successfully");
+                PFUser *currUser = [PFUser currentUser];
+                currUser[@"times"] = @2;
+                [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
                 [self performSegueWithIdentifier:@"loginSegue" sender:nil];
             }
         }];
