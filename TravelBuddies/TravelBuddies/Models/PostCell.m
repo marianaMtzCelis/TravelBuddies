@@ -21,6 +21,7 @@
 
 -(void)viewWillAppear {
     [self refreshData];
+    self.heartImage.alpha = 0;
 }
 
 -(void)refreshData {
@@ -55,6 +56,12 @@
         [likesArr addObject:userID];
         self.post.likesArr = likesArr;
         self.post.isLiked = YES;
+        [UIView animateWithDuration:0 animations:^{
+            self.heartImage.alpha = 1;
+        }];
+        [UIView animateWithDuration:1 animations:^{
+            self.heartImage.alpha = 0;
+        }];
     } else {
         NSMutableArray *likesArr = self.post.likesArr;
         [likesArr removeObject:userID];

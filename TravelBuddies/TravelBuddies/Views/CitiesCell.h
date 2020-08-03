@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (nonatomic, assign) BOOL isLiked;
+@property (weak, nonatomic) IBOutlet UIImageView *heartImage;
 
 @end
 

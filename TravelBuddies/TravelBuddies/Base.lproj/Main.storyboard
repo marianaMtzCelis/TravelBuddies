@@ -499,11 +499,16 @@
                                                         <action selector="onHeart:" destination="alf-Jf-Ihd" eventType="touchUpInside" id="cH2-2X-2ya"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suit.heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Hv-zT-9qE">
+                                                    <rect key="frame" x="153" y="40" width="74" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="aTA-yR-Uqh" id="ihA-Vo-t7f"/>
                                             <outlet property="favButton" destination="s8n-Mr-TN5" id="tYJ-mM-wN2"/>
+                                            <outlet property="heartImage" destination="5Hv-zT-9qE" id="Jlv-yM-WW2"/>
                                             <outlet property="likeCountLabel" destination="fQM-wa-tBm" id="1iO-5g-xsa"/>
                                             <outlet property="photoView" destination="1Uq-JH-fgH" id="E3Y-Xl-gPc"/>
                                             <outlet property="ppView" destination="A2W-vB-d9b" id="EFN-tF-AAM"/>
@@ -609,11 +614,16 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suit.heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mlM-Vp-8yg">
+                                                    <rect key="frame" x="147" y="41" width="74" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="E2I-vF-gaA" id="KpL-gE-frf"/>
                                             <outlet property="favButton" destination="Zck-8j-mdK" id="MA8-z7-yNN"/>
+                                            <outlet property="heartImage" destination="mlM-Vp-8yg" id="50S-ub-7Xt"/>
                                             <outlet property="likeCountLabel" destination="gpU-Kc-yBe" id="HhU-hH-n1J"/>
                                             <outlet property="picturePostView" destination="vnf-gb-88d" id="AQ2-nx-HiR"/>
                                             <outlet property="ppView" destination="u9p-5f-X2Y" id="2nE-yG-Wxm"/>
@@ -1139,6 +1149,10 @@
                                             <action selector="onHeart:" destination="i0k-Ko-Obh" eventType="touchUpInside" id="dhL-mT-tFd"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suit.heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZDa-sh-4JQ">
+                                        <rect key="frame" x="149" y="112" width="74" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Fan-bU-vXb"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6aP-tU-fFb"/>
@@ -1152,6 +1166,7 @@
                         <outlet property="cityLabel" destination="g0T-lL-utD" id="Zj5-QE-dX2"/>
                         <outlet property="dateLabel" destination="n8T-ng-tE1" id="u0q-Zb-WqL"/>
                         <outlet property="favButton" destination="fTV-QL-SBN" id="FGY-kv-UeY"/>
+                        <outlet property="heartImage" destination="ZDa-sh-4JQ" id="WL4-h2-7MH"/>
                         <outlet property="likeCountLabel" destination="FUt-4n-hv0" id="qS2-RF-Rtc"/>
                         <outlet property="photoView" destination="7yw-x0-Tss" id="PUn-8t-C0b"/>
                         <outlet property="placeLabel" destination="Wtb-VN-4v8" id="kx5-IX-TAp"/>
@@ -1337,11 +1352,16 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suit.heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ILq-Lv-8Ws">
+                                                    <rect key="frame" x="150" y="52" width="74" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="2fp-e5-S6i" id="tCc-AA-iGX"/>
                                             <outlet property="favButton" destination="QZ3-xE-ZQT" id="6RX-c4-DCO"/>
+                                            <outlet property="heartImage" destination="ILq-Lv-8Ws" id="KTe-QD-flf"/>
                                             <outlet property="likeCountLabel" destination="pxl-C7-KgZ" id="jUd-pu-USy"/>
                                             <outlet property="picturePostView" destination="lqX-3L-W5C" id="krv-oq-FHv"/>
                                             <outlet property="ppView" destination="FNl-Zu-GYV" id="wqC-eW-V4w"/>
@@ -1453,7 +1473,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CRg-6p-88V"/>
+        <segue reference="4H2-Yb-uI1"/>
         <segue reference="n3b-49-1io"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1469,5 +1489,6 @@
         <image name="pin" catalog="system" width="119" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
+        <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
     </resources>
 </document>

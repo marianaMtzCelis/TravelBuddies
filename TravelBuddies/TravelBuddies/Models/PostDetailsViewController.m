@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *heartImage;
 
 @end
 
@@ -72,33 +73,41 @@
     self.ppView.layer.masksToBounds = true;
     self.ppView.layer.cornerRadius = 25;
     
+    self.heartImage.alpha = 0;
+    
     [self.recommendationsLabel sizeToFit];
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapResponder:)];
     tapRecognizer.numberOfTapsRequired = 2;
     tapRecognizer.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:tapRecognizer];
-
+    
 }
 
 -(void)tapResponder: (UIGestureRecognizer *)sender {
-     NSString *userID = [PFUser currentUser].objectId;
-       
-       if (!self.post.isLiked) {
-           NSMutableArray *likesArr = self.post.likesArr;
-           [likesArr addObject:userID];
-           self.post.likesArr = likesArr;
-           self.post.isLiked = YES;
-       } else {
-           NSMutableArray *likesArr = self.post.likesArr;
-           [likesArr removeObject:userID];
-           self.post.likesArr = likesArr;
-           self.post.isLiked = NO;
-       }
-       
-       [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
-       
-       [self refreshData];
+    NSString *userID = [PFUser currentUser].objectId;
+    
+    if (!self.post.isLiked) {
+        NSMutableArray *likesArr = self.post.likesArr;
+        [likesArr addObject:userID];
+        self.post.likesArr = likesArr;
+        self.post.isLiked = YES;
+        [UIView animateWithDuration:0 animations:^{
+            self.heartImage.alpha = 1;
+        }];
+        [UIView animateWithDuration:1 animations:^{
+            self.heartImage.alpha = 0;
+        }];
+    } else {
+        NSMutableArray *likesArr = self.post.likesArr;
+        [likesArr removeObject:userID];
+        self.post.likesArr = likesArr;
+        self.post.isLiked = NO;
+    }
+    
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    
+    [self refreshData];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -137,6 +146,12 @@
         [likesArr addObject:userID];
         self.post.likesArr = likesArr;
         self.post.isLiked = YES;
+        [UIView animateWithDuration:0 animations:^{
+            self.heartImage.alpha = 1;
+        }];
+        [UIView animateWithDuration:1 animations:^{
+            self.heartImage.alpha = 0;
+        }];
     } else {
         NSMutableArray *likesArr = self.post.likesArr;
         [likesArr removeObject:userID];
@@ -194,7 +209,7 @@
         locMapViewController.lng = self.post.lng;
         locMapViewController.post = self.post;
     }
-   
+    
 }
 
 
