@@ -630,7 +630,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01U-il-RcM">
-                                                    <rect key="frame" x="95" y="30" width="233" height="34"/>
+                                                    <rect key="frame" x="77" y="30" width="206" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
                                                     <nil key="textColor"/>
@@ -641,9 +641,20 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" weight="thin"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djA-KQ-DRR">
+                                                    <rect key="frame" x="291" y="32" width="69" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="follow">
+                                                        <color key="titleColor" red="0.84313725490000002" green="0.74509803919999995" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onFollow:" destination="21a-YF-wXI" eventType="touchUpInside" id="zXv-xW-NVL"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="followButton" destination="djA-KQ-DRR" id="Crb-bV-WYm"/>
                                             <outlet property="ppView" destination="T6b-4P-2ck" id="gmu-TE-oiJ"/>
                                             <outlet property="usernameLabel" destination="01U-il-RcM" id="bL2-Eh-etg"/>
                                             <segue destination="NPW-79-IRJ" kind="show" identifier="discoverProfileSegue" id="Avt-jV-Cvc"/>
@@ -1403,7 +1414,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLi-BI-xMy">
-                                <rect key="frame" x="89" y="123" width="217" height="27"/>
+                                <rect key="frame" x="89" y="123" width="181" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1414,6 +1425,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" weight="thin"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzT-Fu-m9b">
+                                <rect key="frame" x="286" y="121" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="following">
+                                    <color key="titleColor" red="0.84313725490000002" green="0.74509803919999995" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="onFollow:" destination="NPW-79-IRJ" eventType="touchUpInside" id="O7g-o6-xU5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="rTe-f2-Pov"/>
@@ -1421,6 +1442,7 @@
                     <navigationItem key="navigationItem" id="jyx-FX-nmr"/>
                     <connections>
                         <outlet property="collectionView" destination="RGC-fS-cif" id="NPn-Sg-9RA"/>
+                        <outlet property="followButton" destination="lzT-Fu-m9b" id="SSR-tg-j6m"/>
                         <outlet property="ppView" destination="9tS-p8-We1" id="Fja-tM-d4r"/>
                         <outlet property="usernameLabel" destination="cLi-BI-xMy" id="EaM-ql-Lo7"/>
                     </connections>
@@ -1431,7 +1453,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kLr-IB-3rV"/>
+        <segue reference="CRg-6p-88V"/>
         <segue reference="fTW-5h-RqQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

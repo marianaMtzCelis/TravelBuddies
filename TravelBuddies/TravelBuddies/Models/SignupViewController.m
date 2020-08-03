@@ -50,6 +50,10 @@
             } else {
                 NSLog(@"User registered successfully");
                 newUser[@"savedPost"] = [[NSMutableArray alloc] init];
+                NSMutableArray *followArr = [[NSMutableArray alloc] init];
+                PFUser *currUser = [PFUser currentUser];
+                [followArr addObject:currUser.objectId];
+                newUser[@"following"] = followArr;
                 [newUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) { }];
                 [self performSegueWithIdentifier:@"signupSuccessSegue" sender:nil];
             }
