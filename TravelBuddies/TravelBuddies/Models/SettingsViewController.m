@@ -72,7 +72,7 @@
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
-    self.ppView.image = [self resizeImage:editedImage withSize:CGSizeMake(150, 150)];
+    self.ppView.image = [self resizeImage:editedImage withSize:CGSizeMake(500, 500)];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
