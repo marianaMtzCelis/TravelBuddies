@@ -117,7 +117,7 @@
     } else {
         
         self.scrollView.alpha = 1;
-        self.tableView.rowHeight = 218;
+        self.tableView.rowHeight = 294;
         
         CitiesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitiesCell" forIndexPath:indexPath];
         
