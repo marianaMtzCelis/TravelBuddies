@@ -12,6 +12,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchViewController : UIViewController
 
+typedef NS_ENUM(NSUInteger, MyEnum) {
+    Food = 0,
+    Museum = 1,
+    Entertainment = 2,
+    Commerce = 3,
+    NightLife = 4,
+};
+
+@property (strong, nonatomic) NSNumber *searchNum;
+
+-(void)calculateSearchNumber:(MyEnum)tag addOrSubtract:(int)aOrS;
+
 @end
 
 @interface UIColor (ProjectName)
