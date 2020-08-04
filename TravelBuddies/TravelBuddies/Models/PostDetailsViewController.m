@@ -12,8 +12,10 @@
 #import "DateTools.h"
 #import "NSDate+TimeAgo.h"
 #import "LocMapViewController.h"
+#import "CommentCell.h"
+#import "Comment.h"
 
-@interface PostDetailsViewController ()
+@interface PostDetailsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet PFImageView *photoView;
 @property (weak, nonatomic) IBOutlet PFImageView *ppView;
@@ -26,13 +28,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *recommendationsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *heartImage;
-
+@property (weak, nonatomic) IBOutlet UITableView *commentTableView;
+@property (strong, nonatomic) NSMutableArray *comments;
+@property (weak, nonatomic) IBOutlet UITextField *commentTextField;
+@property (strong, nonatomic) NSMutableArray *lastComment;
 @end
 
 @implementation PostDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self getCommentArray];
+    
+    self.commentTableView.dataSource = self;
+    self.commentTableView.delegate = self;
     
     self.photoView.file = nil;
     self.photoView.file = self.post.image;
@@ -218,6 +228,63 @@
         locMapViewController.post = self.post;
     }
     
+}
+
+-(void)getCommentArray {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    [query includeKey:@"author"];
+    [query whereKey:@"post" equalTo:self.post];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *comments, NSError *error) {
+        if (comments != nil) {
+            self.comments = (NSMutableArray *)comments;
+            [self.commentTableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
+       
+    Comment *comment = self.comments[indexPath.row];
+    cell.comment = comment;
+    
+    cell.ppView.file = nil;
+    cell.ppView.file = cell.comment.author[@"profilePicture"];
+    [cell.ppView loadInBackground];
+    cell.ppView.layer.masksToBounds = true;
+    cell.ppView.layer.cornerRadius = 20;
+    
+    cell.commentLabel.text = cell.comment.comment;
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.comments.count;
+    return 3;
+}
+
+- (IBAction)onAddComment:(id)sender {
+    
+    [Comment postComment:self.commentTextField.text toPost:self.post withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Comment success");
+            self.commentTextField.text = @"";
+        } else {
+            NSLog(@"Failed to add comment");
+        }
+    }];
+    
+    [self getCommentArray];
+    [self.commentTableView reloadData];
 }
 
 

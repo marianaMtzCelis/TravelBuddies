@@ -23,6 +23,7 @@
 		285CBDA124C0FDA000AEF4A3 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CBDA024C0FDA000AEF4A3 /* FriendsViewController.m */; };
 		285CBDA424C0FF0900AEF4A3 /* PostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285CBDA324C0FF0900AEF4A3 /* PostCollectionViewCell.m */; };
 		285D246D24D9D555005B8289 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D246C24D9D555005B8289 /* Comment.m */; };
+		285D247024D9DD2F005B8289 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D246F24D9DD2F005B8289 /* CommentCell.m */; };
 		28844EE824BE16230062ABF1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EE724BE16230062ABF1 /* LoginViewController.m */; };
 		28844EEB24BE162D0062ABF1 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EEA24BE162D0062ABF1 /* SignupViewController.m */; };
 		28844EEE24BE1CCA0062ABF1 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28844EED24BE1CCA0062ABF1 /* TimelineViewController.m */; };
@@ -91,6 +92,8 @@
 		285CBDA324C0FF0900AEF4A3 /* PostCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionViewCell.m; sourceTree = "<group>"; };
 		285D246B24D9D555005B8289 /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		285D246C24D9D555005B8289 /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		285D246E24D9DD2F005B8289 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		285D246F24D9DD2F005B8289 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		28844EE624BE16230062ABF1 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = TravelBuddies/Models/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		28844EE724BE16230062ABF1 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = TravelBuddies/Models/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		28844EE924BE162D0062ABF1 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = TravelBuddies/Models/SignupViewController.h; sourceTree = SOURCE_ROOT; };
@@ -246,6 +249,8 @@
 				28D027C024C8F33100079294 /* FriendsCollectionViewCell.m */,
 				28520A1424C9FC9E0081159B /* LocationCell.h */,
 				28520A1524C9FC9E0081159B /* LocationCell.m */,
+				285D246E24D9DD2F005B8289 /* CommentCell.h */,
+				285D246F24D9DD2F005B8289 /* CommentCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				28844EEB24BE162D0062ABF1 /* SignupViewController.m in Sources */,
 				285CBDA424C0FF0900AEF4A3 /* PostCollectionViewCell.m in Sources */,
 				28520A1624C9FC9E0081159B /* LocationCell.m in Sources */,
+				285D247024D9DD2F005B8289 /* CommentCell.m in Sources */,
 				28D027BE24C8ACBA00079294 /* CitiesCell.m in Sources */,
 				282F4C9324CA42D60028BD53 /* LocMapViewController.m in Sources */,
 				285D246D24D9D555005B8289 /* Comment.m in Sources */,
