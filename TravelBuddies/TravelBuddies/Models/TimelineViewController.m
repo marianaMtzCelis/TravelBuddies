@@ -32,6 +32,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    [self.tableView reloadData];
     [self getTimeline];
     
     self.refreshControl = [[UIRefreshControl alloc] init];

@@ -27,14 +27,6 @@
     
     [Parse initializeWithConfiguration:config];
     
-    [Comment postComment:@"firstComment" toPost:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"Yay new comment");
-        } else {
-            NSLog(@"Failed to comment");
-        }
-    }];
-    
     return YES;
 }
 
