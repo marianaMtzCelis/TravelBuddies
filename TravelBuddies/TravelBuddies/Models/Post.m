@@ -25,6 +25,7 @@
 @dynamic likesArr;
 @dynamic isLiked;
 @dynamic isSaved;
+@dynamic comments;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -46,6 +47,7 @@
     newPost.likesArr = [[NSMutableArray alloc] init];
     newPost.isLiked = NO;
     newPost.isSaved = NO;
+    newPost.comments = [[NSMutableArray alloc]init];
     
     [newPost saveInBackgroundWithBlock: completion];
 }

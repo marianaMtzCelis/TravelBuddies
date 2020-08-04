@@ -196,7 +196,6 @@
     }
     
     NSMutableArray *pstArr = curr[@"savedPost"];
-    NSLog(@"%@", pstArr);
     for (id pst in pstArr) {
         if ([pst isEqualToString:cell.post.objectId]) {
             cell.post.isSaved = YES;

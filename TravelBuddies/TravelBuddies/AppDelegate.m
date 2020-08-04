@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "Post.h"
+#import "Comment.h"
 
 @interface AppDelegate ()
 
