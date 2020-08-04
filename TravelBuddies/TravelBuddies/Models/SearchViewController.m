@@ -25,7 +25,6 @@
 @property (nonatomic, strong) NSMutableArray *filteredCities;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) NSMutableArray *tags;
-@property (strong, nonatomic) NSNumber *searchNum;
 @property (weak, nonatomic) IBOutlet UIButton *foodButton;
 @property (weak, nonatomic) IBOutlet UIButton *museumButton;
 @property (weak, nonatomic) IBOutlet UIButton *entertainmentButton;
@@ -41,7 +40,6 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.searchBar.delegate = self;
-    //self.tableView.rowHeight = 218;
     
     self.scrollView.alpha = 0;
     
@@ -77,14 +75,6 @@
     }
     
 }
-
-typedef NS_ENUM(NSUInteger, MyEnum) {
-    Food = 0,
-    Museum = 1,
-    Entertainment = 2,
-    Commerce = 3,
-    NightLife = 4,
-};
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
