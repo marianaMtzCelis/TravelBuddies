@@ -70,10 +70,9 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     NSNumber *lat = [NSNumber numberWithDouble:lt];
     NSNumber *lng = [NSNumber numberWithDouble:ln];
     
-    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:lng withLat:lat withSearchNum:self.searchNum withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Post postUserImage:self.postPictureView.image withCaption:self.recommendationsTextView.text withPlace:self.placeTextBox.text withCity:self.cityTextBox.text withTags:self.tagsArr withLng:lng withLat:lat withSearchNum:self.searchNum withAddress:self.address withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Post Success");
-            //[self dismissViewControllerAnimated:true completion:nil];
             [self performSegueWithIdentifier:@"newPostSegue" sender:nil];
             currUser[@"times"] = @4;
             [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
