@@ -23,4 +23,11 @@
 -(void)viewWillAppear {
 }
 
+- (IBAction)onDelete:(id)sender {
+}
+
+- (IBAction)onHeart:(id)sender {
+}
+
+
 @end
