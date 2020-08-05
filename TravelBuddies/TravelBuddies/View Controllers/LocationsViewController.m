@@ -53,7 +53,10 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
     NSDictionary *venue = self.results[indexPath.row];
     NSNumber *lat = [venue valueForKeyPath:@"location.lat"];
     NSNumber *lng = [venue valueForKeyPath:@"location.lng"];
-    [self.delegate locationsViewController:self didPickLocationWithLatitude:lat longitude:lng];
+    NSString *adds = [venue valueForKeyPath:@"location.address"];
+    NSLog(@"%@", adds);
+    NSLog(@"%@", venue);
+    [self.delegate locationsViewController:self didPickLocationWithLatitude:lat longitude:lng address:adds];
     NSLog(@"Selected venue:");
     NSLog(@"%@, %@", lat, lng);
 }

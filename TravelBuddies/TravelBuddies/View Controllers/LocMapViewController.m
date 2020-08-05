@@ -8,6 +8,7 @@
 
 #import "LocMapViewController.h"
 #import <MapKit/MapKit.h>
+#import "MaterialSnackbar.h"
 
 @interface LocMapViewController ()
 
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     
     //TODO: Change to the user's destination region
-    MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake([self.post.lat doubleValue], [self.post.lng doubleValue]), MKCoordinateSpanMake(0.1, 0.1));
+    MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake([self.post.lat doubleValue], [self.post.lng doubleValue]), MKCoordinateSpanMake(0.01, 0.01));
     [self.mapView setRegion:sfRegion animated:false];
     
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(self.lat.floatValue, self.lng.floatValue);
@@ -30,6 +31,11 @@
     annotation.title = @"Here!";
     [self.mapView addAnnotation:annotation];
     [self.navigationController popToViewController:self animated:YES];
+    
+    MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+    message.text = self.post.address;
+    [MDCSnackbarManager showMessage:message];
+    
 }
 
 /*

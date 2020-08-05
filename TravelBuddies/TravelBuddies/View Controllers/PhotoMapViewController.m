@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSNumber *lng;
 @property (strong, nonatomic) NSNumber *latitude;
 @property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSString *address;
 @property (strong, nonatomic) NSNumber *accuracy;
 
 @end
@@ -79,12 +80,13 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+- (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude address:(NSString *)address{
     double lt = [latitude doubleValue];
     double ln = [longitude doubleValue];
     self.lat = [NSNumber numberWithDouble:lt];
     self.lng = [NSNumber numberWithDouble:ln];
-    [self.delegate photoMapViewController:self didPickLocationWithLatitude:latitude longitude:longitude];
+    self.address = address;
+    [self.delegate photoMapViewController:self didPickLocationWithLatitude:self.lat longitude:self.lng address:self.address];
     [self saveValues:latitude longitude:longitude];
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
     MKPointAnnotation *annotation = [MKPointAnnotation new];
