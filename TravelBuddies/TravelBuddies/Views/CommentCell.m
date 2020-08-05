@@ -25,7 +25,7 @@
 
 -(void)refreshData {
     
-    if (self.isLiked) {
+    if (self.comment.isLiked) {
         UIImage *image = [UIImage systemImageNamed:@"suit.heart.fill"];
         [self.favButton setImage:image forState:UIControlStateNormal];
     } else {
@@ -52,16 +52,16 @@
     
     NSString *userId = [PFUser currentUser].objectId;
     
-    if (!self.isLiked) {
+    if (!self.comment.isLiked) {
         NSMutableArray *likesArr = self.comment.likesArr;
         [likesArr addObject:userId];
         self.comment.likesArr = likesArr;
-        self.isLiked = YES;
+        self.comment.isLiked = YES;
     } else {
         NSMutableArray *likesArr = self.comment.likesArr;
         [likesArr removeObject:userId];
         self.comment.likesArr = likesArr;
-        self.isLiked = NO;
+        self.comment.isLiked = NO;
     }
     
     [self.comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];

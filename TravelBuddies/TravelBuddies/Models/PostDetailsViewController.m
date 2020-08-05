@@ -276,15 +276,19 @@
     int value = (int)cell.comment.likesArr.count;
     cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
     
+    cell.comment.isLiked = NO;
+    
     PFUser *curr = [PFUser currentUser];
     NSMutableArray *lksArr = cell.comment.likesArr;
     for (id usr in lksArr) {
         if ([usr isEqual:curr.objectId]) {
-            cell.isLiked = YES;
+            cell.comment.isLiked = YES;
         }
     }
     
-    if (cell.isLiked) {
+    [cell.comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    
+    if (cell.comment.isLiked) {
         UIImage *image = [UIImage systemImageNamed:@"suit.heart.fill"];
         [cell.favButton setImage:image forState:UIControlStateNormal];
     } else {
