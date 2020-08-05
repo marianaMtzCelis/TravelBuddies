@@ -1167,13 +1167,47 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igX-Ht-heF" customClass="PFImageView">
-                                                            <rect key="frame" x="15" y="3" width="39" height="35"/>
+                                                            <rect key="frame" x="4" y="3" width="39" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F78-VL-fAQ">
-                                                            <rect key="frame" x="62" y="10" width="236" height="21"/>
+                                                            <rect key="frame" x="46" y="17" width="83" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQd-Zt-sNT">
+                                                            <rect key="frame" x="143" y="0.0" width="18" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="suit.heart" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="onHeart:" destination="NhY-60-7WB" eventType="touchUpInside" id="KQ8-ro-vY6"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFz-gF-GwV">
+                                                            <rect key="frame" x="124" y="0.0" width="18" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="x.circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="15"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="onDelete:" destination="NhY-60-7WB" eventType="touchUpInside" id="7ac-NL-6sB"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-gp-d7p">
+                                                            <rect key="frame" x="46" y="0.0" width="77" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIm-0s-Lmn">
+                                                            <rect key="frame" x="145" y="18" width="14" height="6"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="5"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1181,7 +1215,11 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="commentLabel" destination="F78-VL-fAQ" id="wmt-Tw-BCc"/>
+                                                    <outlet property="deleteButton" destination="PFz-gF-GwV" id="uJo-1A-Ms1"/>
+                                                    <outlet property="favButton" destination="hQd-Zt-sNT" id="eAj-MF-oLQ"/>
+                                                    <outlet property="likeCountLabel" destination="YIm-0s-Lmn" id="6Nr-Rr-xbJ"/>
                                                     <outlet property="ppView" destination="igX-Ht-heF" id="aot-hX-Id5"/>
+                                                    <outlet property="usernameLabel" destination="WEb-gp-d7p" id="ujd-bE-F0l"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1564,5 +1602,6 @@
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
+        <image name="x.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

@@ -32,6 +32,7 @@
 @property (strong, nonatomic) NSMutableArray *comments;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
 @property (strong, nonatomic) NSMutableArray *lastComment;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation PostDetailsViewController
@@ -43,6 +44,10 @@
     
     self.commentTableView.dataSource = self;
     self.commentTableView.delegate = self;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(getCommentArray) forControlEvents:UIControlEventValueChanged];
+    [self.commentTableView addSubview:self.refreshControl];
     
     self.photoView.file = nil;
     self.photoView.file = self.post.image;
@@ -86,6 +91,7 @@
     self.heartImage.alpha = 0;
     
     [self.recommendationsLabel sizeToFit];
+    
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapResponder:)];
     tapRecognizer.numberOfTapsRequired = 2;
@@ -245,6 +251,7 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -252,8 +259,9 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
-       
+    
     Comment *comment = self.comments[indexPath.row];
+    cell.deleteButton.alpha = 0;
     cell.comment = comment;
     
     cell.ppView.file = nil;
@@ -262,14 +270,41 @@
     cell.ppView.layer.masksToBounds = true;
     cell.ppView.layer.cornerRadius = 20;
     
+    cell.usernameLabel.text = cell.comment.author.username;
     cell.commentLabel.text = cell.comment.comment;
+    
+    int value = (int)cell.comment.likesArr.count;
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
+    
+    cell.comment.isLiked = NO;
+    
+    PFUser *curr = [PFUser currentUser];
+    NSMutableArray *lksArr = cell.comment.likesArr;
+    for (id usr in lksArr) {
+        if ([usr isEqual:curr.objectId]) {
+            cell.comment.isLiked = YES;
+        }
+    }
+    
+    [cell.comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    
+    if (cell.comment.isLiked) {
+        UIImage *image = [UIImage systemImageNamed:@"suit.heart.fill"];
+        [cell.favButton setImage:image forState:UIControlStateNormal];
+    } else {
+        UIImage *image = [UIImage systemImageNamed:@"suit.heart"];
+        [cell.favButton setImage:image forState:UIControlStateNormal];
+    }
+    
+    if ([cell.comment.author.objectId isEqual:curr.objectId] || [self.post.author.objectId isEqual:curr.objectId]) {
+        cell.deleteButton.alpha = 1;
+    }
     
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.comments.count;
-    return 3;
 }
 
 - (IBAction)onAddComment:(id)sender {

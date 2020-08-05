@@ -15,11 +15,13 @@
 #import "PFImageView.h"
 #import "PostDetailsViewController.h"
 #import "MaterialSnackbar.h"
+#import "Comment.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *posts;
 @property (nonatomic, strong) NSMutableArray *people;
+@property (nonatomic, strong) NSMutableArray *comments;
 @property (nonatomic, strong) NSMutableArray *following;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
@@ -59,6 +61,9 @@
     
     currUser[@"times"] = @0;
     [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    
+    self.comments = [[NSMutableArray alloc]init];
+    self.people = [[NSMutableArray alloc]init];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -120,11 +125,13 @@
     
     [self getTimeline];
     [self getPeople];
+    
     for (Post *post in self.posts) {
         post.isSaved = NO;
         post.isLiked = NO;
         [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
     }
+    
     for (PFUser *person in self.people) {
         person[@"isFollowed"] = @"NO";
         [person saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
