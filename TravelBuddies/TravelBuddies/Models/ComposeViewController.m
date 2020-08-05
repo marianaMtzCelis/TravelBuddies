@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *commerceButton;
 @property (weak, nonatomic) IBOutlet UIButton *nightLifeButton;
 @property (weak, nonatomic) IBOutlet UIButton *locButton;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @end
 
 @implementation ComposeViewController
@@ -47,6 +48,7 @@
     if (self.latitude != nil) {
         UIImage *image = [UIImage systemImageNamed:@"location.fill"];
         [self.locButton setImage:image forState:UIControlStateNormal];
+        self.addressLabel.text = self.address;
     }
 }
 
@@ -178,15 +180,15 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
     [self performSegueWithIdentifier:@"detailsMapSegue" sender:nil];
 }
 
-- (void)photoMapViewController:(PhotoMapViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
-    [self saveValues:latitude longitude:longitude];
+- (void)photoMapViewController:(PhotoMapViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude address:(nonnull NSString *)address{
+    [self saveValues:latitude longitude:longitude address:address];
     
 }
 
-- (void) saveValues:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+- (void) saveValues:(NSNumber *)latitude longitude:(NSNumber *)longitude address:(NSString *) address{
     self.latitude = latitude;
     self.longitude = longitude;
-    
+    self.address = address;
 }
 
 -(void)calculateSearchNumber:(MyEnum)tag addOrSubtract:(int)aOrS {
