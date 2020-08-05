@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *comment;
 @property (nonatomic, strong) Post *post;
 @property (nonatomic, strong) NSMutableArray *likesArr;
+@property (nonatomic, assign) BOOL isLiked;
 
 + (void) postComment: (NSString * _Nullable)comment toPost: (Post * _Nullable)post withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 

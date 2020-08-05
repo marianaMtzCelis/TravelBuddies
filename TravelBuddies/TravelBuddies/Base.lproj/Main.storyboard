@@ -1204,12 +1204,20 @@
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIm-0s-Lmn">
+                                                            <rect key="frame" x="145" y="18" width="14" height="6"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="5"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="commentLabel" destination="F78-VL-fAQ" id="wmt-Tw-BCc"/>
                                                     <outlet property="deleteButton" destination="PFz-gF-GwV" id="uJo-1A-Ms1"/>
                                                     <outlet property="favButton" destination="hQd-Zt-sNT" id="eAj-MF-oLQ"/>
+                                                    <outlet property="likeCountLabel" destination="YIm-0s-Lmn" id="6Nr-Rr-xbJ"/>
                                                     <outlet property="ppView" destination="igX-Ht-heF" id="aot-hX-Id5"/>
                                                     <outlet property="usernameLabel" destination="WEb-gp-d7p" id="ujd-bE-F0l"/>
                                                 </connections>

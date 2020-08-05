@@ -87,6 +87,7 @@
     
     [self.recommendationsLabel sizeToFit];
     
+    
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapResponder:)];
     tapRecognizer.numberOfTapsRequired = 2;
     tapRecognizer.numberOfTouchesRequired = 1;
@@ -262,7 +263,27 @@
     cell.ppView.layer.masksToBounds = true;
     cell.ppView.layer.cornerRadius = 20;
     
+    cell.usernameLabel.text = cell.comment.author.username;
     cell.commentLabel.text = cell.comment.comment;
+    
+    int value = (int)cell.comment.likesArr.count;
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%i", value];
+    
+    PFUser *curr = [PFUser currentUser];
+    NSMutableArray *lksArr = cell.comment.likesArr;
+    for (id usr in lksArr) {
+        if ([usr isEqual:curr.objectId]) {
+            cell.isLiked = YES;
+        }
+    }
+    
+    if (cell.isLiked) {
+        UIImage *image = [UIImage systemImageNamed:@"suit.heart.fill"];
+        [cell.favButton setImage:image forState:UIControlStateNormal];
+    } else {
+        UIImage *image = [UIImage systemImageNamed:@"suit.heart"];
+        [cell.favButton setImage:image forState:UIControlStateNormal];
+    }
     
     return cell;
 }
