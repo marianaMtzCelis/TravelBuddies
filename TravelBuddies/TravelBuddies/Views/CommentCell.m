@@ -38,6 +38,14 @@
 }
 
 - (IBAction)onDelete:(id)sender {
+    
+    [self.comment deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Comment deleted");
+        }
+    }];
+    
+    [self refreshData];
 }
 
 - (IBAction)onHeart:(id)sender {

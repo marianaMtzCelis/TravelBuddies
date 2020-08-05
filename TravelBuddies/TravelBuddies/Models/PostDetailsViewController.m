@@ -32,6 +32,7 @@
 @property (strong, nonatomic) NSMutableArray *comments;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
 @property (strong, nonatomic) NSMutableArray *lastComment;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation PostDetailsViewController
@@ -43,6 +44,10 @@
     
     self.commentTableView.dataSource = self;
     self.commentTableView.delegate = self;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(getCommentArray) forControlEvents:UIControlEventValueChanged];
+    [self.commentTableView addSubview:self.refreshControl];
     
     self.photoView.file = nil;
     self.photoView.file = self.post.image;
@@ -246,6 +251,7 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -253,8 +259,9 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
-       
+    
     Comment *comment = self.comments[indexPath.row];
+    cell.deleteButton.alpha = 0;
     cell.comment = comment;
     
     cell.ppView.file = nil;
@@ -285,12 +292,15 @@
         [cell.favButton setImage:image forState:UIControlStateNormal];
     }
     
+    if ([cell.comment.author.objectId isEqual:curr.objectId] || [self.post.author.objectId isEqual:curr.objectId]) {
+        cell.deleteButton.alpha = 1;
+    }
+    
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.comments.count;
-    return 3;
 }
 
 - (IBAction)onAddComment:(id)sender {
