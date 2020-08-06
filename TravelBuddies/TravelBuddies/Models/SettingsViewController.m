@@ -10,9 +10,10 @@
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
+#import "PFImageView.h"
 
 @interface SettingsViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *ppView;
+@property (weak, nonatomic) IBOutlet PFImageView *ppView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) PFUser *user;
 @end
@@ -24,6 +25,11 @@
     
     self.user = [PFUser currentUser];
     self.usernameLabel.text = self.user.username;
+    
+    if (self.user[@"profilePicture"] != nil) {
+        self.ppView.file = self.user[@"profilePicture"];
+        [self.ppView loadInBackground];
+    }
 }
 
 - (IBAction)onCamera:(id)sender {
